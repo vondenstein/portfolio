@@ -1,4 +1,4 @@
-vondenstein.com [![Build Status](https://travis-ci.org/svondenstein/DeveloperPortfolio.svg?branch=master)](https://travis-ci.org/svondenstein/DeveloperPortfolio)
+vondenstein.com [![Build Status](https://travis-ci.com/svondenstein/DeveloperPortfolio.svg?branch=master)](https://travis-ci.com/svondenstein/DeveloperPortfolio)
 ==================
 
 ## About This Site
