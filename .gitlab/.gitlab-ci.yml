@@ -1,0 +1,51 @@
+# This file is a template, and might need editing before it works on your project.
+# Official framework image. Look for the different tagged releases at:
+# https://hub.docker.com/r/library/node/tags/
+image: node:8-alpine
+
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+  paths:
+  - node_modules/
+  
+stages:
+  - test
+  - deploy pages
+  - deploy web
+
+test:
+  script:
+   - npm install
+   # TODO: Run tests here
+   - echo "Testing..."
+
+# Job name for gitlab to recognise this results in assets for Gitlab Pages
+# https://docs.gitlab.com/ee/user/project/pages/introduction.html#gitlab-pages-requirements
+pages:
+  stage: deploy pages
+  variables:
+    PUBLIC_URL: /portfolio
+  script:
+    - npm install # Install all dependencies
+    - npm run build --prod # Build for production
+    - rm -rf public # CRA and gitlab pages both use the public folder. Only do this in a build pipeline.
+    - mv build public # Move build files to public dir for Gitlab Pages
+  artifacts:
+    paths:
+    - public # The built files for Gitlab Pages to serve
+  only:
+    - master # Only run on master branch
+
+web:
+  stage: deploy web
+  script:
+    - npm install # Install all dependencies
+    - npm run build --prod # Build for production
+    # TODO: Deploy to web server here
+    - echo "Deploying to Web Server..."
+  artifacts:
+    paths:
+    - public # The built files for Gitlab Pages to serve
+  when: manual
+
