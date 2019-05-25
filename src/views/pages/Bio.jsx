@@ -20,6 +20,7 @@ class Bio extends React.Component {
           <section className="section section-lg section-shaped my-0">
             <div className="shape">
               <img
+                  alt="..."
                   src={require('assets/img/theme/background.png')}
                   style={
                     {
@@ -74,6 +75,7 @@ class Bio extends React.Component {
                           <a href="https://mindcloud.dev/stephen">
                             <img
                                 className="icon"
+                                alt="GitLab"
                                 src={require('assets/img/icons/common/GitLab.png')} />
                           </a>
                         </div>
