@@ -30,6 +30,7 @@ class Projects extends React.Component {
                 <div className="shape">
                   <img
                       src={require('assets/img/theme/background.png')}
+                      alt="..."
                       style={
                         {
                           'max-height': '100%',
@@ -81,6 +82,7 @@ class Projects extends React.Component {
                           <CardBody className="py-5">
                               <img
                                   className='icon rounded-circle mb-4'
+                                  alt="..."
                                   src={require('assets/img/icons/projects/Ionic.png')}
                               />
                             <h6 className="text-ionic text-uppercase">
@@ -112,6 +114,7 @@ class Projects extends React.Component {
                           <CardBody className="py-5">
                             <img
                                 className='icon rounded-circle mb-4'
+                                alt="..."
                                 src={require('assets/img/icons/projects/Tectonix.png')}
                             />
                             <h6 className="text-tectonix text-uppercase">
@@ -143,6 +146,7 @@ class Projects extends React.Component {
                           <CardBody className="py-5">
                             <img
                                 className='icon rounded-circle mb-4'
+                                alt="..."
                                 src={require('assets/img/icons/projects/Schematic.png')}
                             />
                             <h6 className="text-schematic text-uppercase">
@@ -184,6 +188,7 @@ class Projects extends React.Component {
                           <CardBody className="py-5">
                             <img
                                 className='icon rounded-circle mb-4'
+                                alt="..."
                                 src={require('assets/img/icons/projects/ProtonMail.png')}
                             />
                             <h6 className="text-protonmail text-uppercase">
@@ -213,6 +218,7 @@ class Projects extends React.Component {
                           <CardBody className="py-5">
                             <img
                                 className='icon rounded-circle mb-4'
+                                alt="..."
                                 src={require('assets/img/icons/projects/Bogie.png')}
                             />
                             <h6 className="text-bogie text-uppercase">

@@ -27,6 +27,7 @@ class Home extends React.Component {
             <section className="section section-lg section-shaped pb-100">
               <div className="shape">
                 <img
+                  alt="..."
                   src={require('assets/img/theme/background.png')}
                   style={
                     {
