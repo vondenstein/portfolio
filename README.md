@@ -25,8 +25,7 @@ Definitely have a look at Adobe Stock, as they have a great collection of stock 
 Please feel free to inspect the code structure, and reuse what you feel is appropriate. But please 
 respect that the files in the following directories are © Stephen Vondenstein. You may not reuse
 anything therein without my written permission:
-- posts/
-- img/ (my copyrighted photos and photos licensed only for my own use)
-- fonts/ (fonts licensed only for my own use)
+- src/assets/img/ (my copyrighted photos and photos licensed only for my own use)
+
 
 All other directories and files are MIT Licensed (where applicable).
