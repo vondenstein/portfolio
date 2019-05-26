@@ -80,6 +80,38 @@ class Projects extends React.Component {
                       <Col lg="4">
                         <Card className="shadow border-0">
                           <CardBody className="py-5">
+                            <img
+                                className='icon rounded-circle mb-4'
+                                alt="..."
+                                src={require('assets/img/icons/projects/GitBlast.png')}
+                            />
+                            <h6 className="text-gitblast text-uppercase">
+                              GitBlast
+                            </h6>
+                            <p className="description mt-3">
+                              Mobile GitLab client in React Native. A streamlined experience designed for ease of use on iOS and Android.
+                            </p>
+                            <div>
+                              <Badge color="gitblast" pill className="mr-1">
+                                JavaScript
+                              </Badge>
+                              <Badge color="gitblast" pill className="mr-1">
+                                React Native
+                              </Badge>
+                            </div>
+                            <Button
+                                className="mt-4"
+                                color="gitblast"
+                                href="https://stephen.mindcloud.host/gitblast-site"
+                            >
+                              Download
+                            </Button>
+                          </CardBody>
+                        </Card>
+                      </Col>
+                      <Col lg="4">
+                        <Card className="shadow border-0">
+                          <CardBody className="py-5">
                               <img
                                   className='icon rounded-circle mb-4'
                                   alt="..."
@@ -141,7 +173,18 @@ class Projects extends React.Component {
                           </CardBody>
                         </Card>
                       </Col>
-                      <Col lg="4">
+                      
+                    </Row>
+                  </Col>
+                </Row>
+              </Container>
+            </section>
+            <section className="section section-lg pt-lg-0 mt-100">
+              <Container>
+                <Row className="justify-content-center">
+                  <Col lg="12">
+                    <Row className="row-grid">
+                    <Col lg="4">
                         <Card className="shadow border-0">
                           <CardBody className="py-5">
                             <img
@@ -153,7 +196,7 @@ class Projects extends React.Component {
                               Schematic
                             </h6>
                             <p className="description mt-3">
-                              An interpreter for MIT Scheme48. Covers most Scheme functions, including built-ins.
+                              An interpreter for MIT Scheme48. Covers most Scheme functions, including built-in functions.
                             </p>
                             <div>
                               <Badge color="schematic" pill className="mr-1">
@@ -173,16 +216,6 @@ class Projects extends React.Component {
                           </CardBody>
                         </Card>
                       </Col>
-                    </Row>
-                  </Col>
-                </Row>
-              </Container>
-            </section>
-            <section className="section section-lg pt-lg-0 mt-100">
-              <Container>
-                <Row className="justify-content-center">
-                  <Col lg="12">
-                    <Row className="row-grid justify-content-center">
                       <Col lg="4">
                         <Card className="shadow border-0">
                           <CardBody className="py-5">
