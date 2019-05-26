@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "Portfolio",
   "version": "1.0.0",
   "description": "React developer portfolio site which may be used as a template",
   "main": "index.js",
@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://mindcloud.dev/stephen/portfolio/issues"
   },
-  "homepage": "https://vondenstein.com/",
+  "homepage": "https://vondenstein.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
