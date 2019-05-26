@@ -102,7 +102,7 @@ class Projects extends React.Component {
                             <Button
                                 className="mt-4"
                                 color="gitblast"
-                                href="https://stephen.mindcloud.host/gitblast-site"
+                                href="https://gitblast.com"
                             >
                               Download
                             </Button>
