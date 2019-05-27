@@ -1,5 +1,6 @@
 {
   "projects": {
-    "production": "vondenstein-portfolio"
+    "production": "vondenstein-portfolio",
+    "default": "vondenstein-portfolio"
   }
 }
