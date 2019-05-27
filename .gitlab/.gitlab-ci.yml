@@ -43,8 +43,6 @@ web:
     - npm install -g firebase-tools
     - npm install # Install all dependencies
     - npm run build --prod # Build for production
-    - rm -rf public # Firebase and CRA use the public folder
-    - mv build public # Move build files to public dir for Firebase
     - firebase use --token $FIREBASE_TOKEN production
     - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_TOKEN
   artifacts:
