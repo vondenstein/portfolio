@@ -85,8 +85,8 @@ web:
     - npm install # Install all dependencies
     - npm run build --prod # Build for production
 
-    - scp -r build web@vondenstein.com:~/master_site/
-    - ssh root@vondenstein.com "systemctl restart nginx"
+    - ssh web@vondenstein.com "rm -rf ~/build/"
+    - scp -r build/ web@vondenstein.com:~/build/
   artifacts:
     paths:
     - build
