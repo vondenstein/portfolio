@@ -1,7 +1,7 @@
 {
-  "name": "Portfolio",
+  "name": "vondenstein-portfolio",
   "version": "1.0.0",
-  "description": "React developer portfolio site which may be used as a template",
+  "description": "React developer portfolio site",
   "main": "index.js",
   "author": "Stephen Vondenstein",
   "license": "MIT",
@@ -25,7 +25,6 @@
   "browserslist": [
     ">0.2%",
     "not dead",
-    "not ie <= 11",
     "not op_mini all"
   ],
   "dependencies": {
