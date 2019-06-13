@@ -153,15 +153,16 @@ class Bio extends React.Component {
                                 Frameworks:
                               </div>
                               <p>
-                                TensorFlow, Keras, React.JS, Redux
+                                TensorFlow, Keras, Node.JS, React.JS, Redux
                               </p>
                             </Col>
                           <Col>
                             <div className="h6">
-                              Dev Tools:
+                              Development & Deploy Tools:
                             </div>
                             <p>
-                              VS Code, IntelliJ, Xcode, GitHub & GitLab, Travis CI, GitLab CI, Linux Terminal
+                              VS Code, vim, Xcode, git, GitHub & GitLab, Travis CI, GitLab CI, Linux Shell,
+                              VMware vSphere, Docker, Kubernetes, nginx, BIND
                             </p>
                           </Col>
                         </Row>
