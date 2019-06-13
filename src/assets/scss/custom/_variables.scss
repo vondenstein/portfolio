@@ -90,12 +90,15 @@ $dribbble:      #ea4c89 !default;
 $github:        #222222 !default;
 $gitlab:        #292961 !default;
 $ionic:         #7dbfb1 !default;
-$tectonix:      #99cc00 !default;
-$schematic:     #d27f7f !default;
+$toolkit:       #cd4c4c !default;
 $portfolio:     #fcb040 !default;
 $bogie:         #25b7d3 !default;
 $protonmail:    #505061 !default;
 $gitblast:      #1a2b63 !default;
+$neuropy:       #407eaf !default;
+$easel:         #5f3c1e !default;
+$licenser:      #4b9dff !default;
+$devpi:         #e8bb30 !default;
 
 
 $theme-colors: () !default;
@@ -112,12 +115,15 @@ $theme-colors: map-merge((
   "dark":         $dark,
   "darker":       $darker,
   "ionic":        $ionic,
-  "tectonix":     $tectonix,
-  "schematic":    $schematic,
+  "toolkit":      $toolkit,
   "bogie":        $bogie,
   "portfolio":    $portfolio,
   "protonmail":   $protonmail,
   "gitblast":     $gitblast,
+  "neuropy":      $neuropy,
+  "easel":        $easel,
+  "licenser":     $licenser,
+  "devpi":        $devpi,
 ), $theme-colors);
 
 $brand-colors: () !default;
