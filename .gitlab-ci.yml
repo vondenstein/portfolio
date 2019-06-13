@@ -80,11 +80,21 @@ web:
     - chmod 644 ~/.ssh/known_hosts
 
     ##
+    ## Ensure we're starting fresh
+    ##
+    - rm -rf node_modules/
+    - rm -f package-lock.json
+    - unset PUBLIC_URL
+
+    ##
     ## Install dependencies and build the production site
     ##
     - npm install # Install all dependencies
     - npm run build --prod # Build for production
 
+    ##
+    ## Copy to production site
+    ##
     - ssh web@vondenstein.com "rm -rf ~/build/"
     - scp -r build/ web@vondenstein.com:~/build/
   artifacts:
