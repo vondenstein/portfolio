@@ -95,8 +95,8 @@ web:
     ##
     ## Copy to production site
     ##
-    - ssh web@vondenstein.com "rm -rf ~/build/"
-    - scp -r build/ web@vondenstein.com:~/build/
+    - ssh web@vondenstein.com "rm -rf ~/vondenstein/"
+    - scp -r build/ web@vondenstein.com:~/vondenstein/
   artifacts:
     paths:
     - build
