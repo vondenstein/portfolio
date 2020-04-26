@@ -35,7 +35,7 @@ build_prod:
   - npm run build --prod # Build for production
   artifacts:
     paths:
-      - build
+      - public
   only:
     - master
 
@@ -48,8 +48,6 @@ deploy_pages:
   script:
     - npm install # Install all dependencies
     - npm run build --prod # Build for production
-    - rm -rf public # CRA and gitlab pages both use the public folder. Only do this in a build pipeline.
-    - mv build public # Move build files to public dir for Gitlab Pages
   artifacts:
     paths:
     - public # The built files for Gitlab Pages to serve
@@ -59,7 +57,7 @@ deploy_prod:
   tags:
     - deploy
   script:
-    - sudo cp -r build/* /srv/vondenstein.com/
+    - sudo cp -r public/* /srv/vondenstein.com/
   environment:
     name: production
     url: https://vondenstein.com
