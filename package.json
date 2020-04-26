@@ -1,49 +1,39 @@
 {
-  "name": "vondenstein-portfolio",
-  "version": "1.0.0",
-  "description": "React developer portfolio site",
-  "main": "index.js",
-  "author": "Stephen Vondenstein",
+  "name": "portfolio",
+  "private": true,
+  "description": "Developer/Creator portfolio site in React with Gatsby",
+  "version": "2.0.0",
   "license": "MIT",
-  "bugs": {
-    "url": "https://mindcloud.dev/stephen/portfolio/issues"
-  },
-  "homepage": "https://vondenstein.com",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
-    "compile-sass": "node-sass src/assets/scss/argon-design-system-react.scss src/assets/css/argon-design-system-react.css",
-    "minify-sass": "node-sass src/assets/scss/argon-design-system-react.scss src/assets/css/argon-design-system-react.min.css --output-style compressed",
-    "map-sass": "node-sass src/assets/scss/argon-design-system-react.scss src/assets/css/argon-design-system-react.css --source-map true"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not op_mini all"
-  ],
   "dependencies": {
-    "classnames": "2.2.6",
-    "moment": "2.24.0",
-    "node-sass": "4.12.0",
-    "nouislider": "13.1.5",
-    "react": "16.8.6",
-    "react-datetime": "2.16.3",
-    "react-dom": "16.8.6",
-    "react-router": "5.0.0",
-    "react-router-dom": "5.0.0",
-    "react-scripts": "3.0.0",
-    "reactstrap": "8.0.0"
+    "gatsby": "^2.20.25",
+    "gatsby-plugin-manifest": "^2.3.7",
+    "gatsby-plugin-offline": "^3.1.5",
+    "gatsby-plugin-react-helmet": "^3.2.5",
+    "gatsby-plugin-typography": "^2.4.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.0.0",
+    "react-typography": "^0.16.19",
+    "typography": "^0.16.19",
+    "typography-theme-fairy-gates": "^0.16.19"
   },
   "devDependencies": {
-    "@types/googlemaps": "3.30.19",
-    "@types/markerclustererplus": "2.1.33",
-    "@types/react": "16.8.16",
-    "typescript": "3.4.5"
+    "prettier": "2.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
