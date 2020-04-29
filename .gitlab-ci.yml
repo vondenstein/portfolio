@@ -32,7 +32,7 @@ build_prod:
   ## Install dependencies and build the production site
   ##
   - npm install # Install all dependencies
-  - npm run build --prod # Build for production
+  - npm run build # Build for production
   artifacts:
     paths:
       - public
@@ -47,7 +47,7 @@ deploy_pages:
     PUBLIC_URL: /portfolio
   script:
     - npm install # Install all dependencies
-    - npm run build --prod # Build for production
+    - npm run build --prefix-paths # Build for production
   artifacts:
     paths:
     - public # The built files for Gitlab Pages to serve
