@@ -8,6 +8,15 @@ image: node:latest
 cache:
   paths:
   - node_modules/
+
+# Use template for dependency scanning
+
+include:
+  - template: Dependency-Scanning.gitlab-ci.yml
+  - template: Code-Quality.gitlab-ci.yml
+
+variables:
+  DS_DEFAULT_ANALYZERS: "bundler-audit,gemnasium"
   
 stages:
   - test
