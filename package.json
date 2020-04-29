@@ -14,9 +14,13 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "@sentry/browser": "^5.15.5",
     "gatsby": "^2.20.25",
+    "gatsby-plugin-emotion": "^4.3.0",
     "gatsby-plugin-manifest": "^2.3.7",
-    "gatsby-plugin-offline": "^3.1.5",
+    "gatsby-plugin-offline": "^3.2.0",
     "gatsby-plugin-react-helmet": "^3.2.5",
     "gatsby-plugin-typography": "^2.4.4",
     "react": "^16.12.0",
@@ -31,9 +35,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+    "url": "https://gitlab.com/vondenstein/portfoli"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://gitlab.com/vondenstein/portfolio/-/issues"
   }
 }
