@@ -50,13 +50,14 @@ build_prod:
 
 # Job name for gitlab to recognise this results in assets for Gitlab Pages
 # https://docs.gitlab.com/ee/user/project/pages/introduction.html#gitlab-pages-requirements
-deploy_pages:
+pages:
   stage: deploy
-  variables:
-    PUBLIC_URL: /portfolio
   script:
     - npm install # Install all dependencies
-    - npm run build --prefix-paths # Build for production
+    - ./node_modules/.bin/gatsby build --prefix-paths # Build for pages
+  environment:
+    name: pages
+    url: http://vondenstein.gitlab.io/portfolio
   artifacts:
     paths:
     - public # The built files for Gitlab Pages to serve
