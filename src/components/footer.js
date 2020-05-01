@@ -18,19 +18,19 @@ function Footer() {
     `
   )
 
-
   return (
-      <footer>
-        <HorizontalRule />
-        <FooterContainer>
-          <div>
-            &copy; {new Date().getFullYear()} {site.siteMetadata.author}. All rights reserved.
-          </div>
-          <div>
-            <a href={site.siteMetadata.sourceRepo}>Source Code</a>
-          </div>
-        </FooterContainer>
-      </footer>
+    <footer>
+      <HorizontalRule />
+      <FooterContainer>
+        <div>
+          &copy; {new Date().getFullYear()} {site.siteMetadata.author}. All
+          rights reserved.
+        </div>
+        <div>
+          <a href={site.siteMetadata.sourceRepo}>Source Code</a>
+        </div>
+      </FooterContainer>
+    </footer>
   )
 }
 

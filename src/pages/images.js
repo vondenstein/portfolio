@@ -1,8 +1,10 @@
 import React from "react"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 export default () => (
   <Layout>
+    <SEO title="Images" pathname="/images/" />
     <h1>Images</h1>
     <p>Sometimes my photos come out looking kinda cool.</p>
     <h2>Recent</h2>
