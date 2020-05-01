@@ -12,8 +12,11 @@
 const Sentry = require(`@sentry/browser`)
 
 exports.onClientEntry = () => {
-    console.log("onClientEntry")
-    Sentry.init({dsn: "https://70458e4d85ed430987ba0fcc479fc181@o385188.ingest.sentry.io/5217517"})
+  console.log("onClientEntry")
+  Sentry.init({
+    dsn:
+      "https://70458e4d85ed430987ba0fcc479fc181@o385188.ingest.sentry.io/5217517",
+  })
 }
 
 exports.onInitialClientRender = () => {
@@ -26,7 +29,7 @@ exports.onInitialClientRender = () => {
 //       `This application has been updated. ` +
 //         `Reload to display the latest version?`
 //     )
-  
+
 //     if (answer === true) {
 //       window.location.reload()
 //     }

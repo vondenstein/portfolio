@@ -17,17 +17,31 @@ include:
 
 variables:
   DS_DEFAULT_ANALYZERS: "bundler-audit,gemnasium"
-  
+
 stages:
+  - lint
   - test
   - build
   - deploy
 
-test:
+prettier:
+  stage: lint
+  script:
+    - npm install
+    - npm run check-format
+
+unit_test:
+  stage: test
   script:
    - npm install
-   # TODO: Run tests here
-   - echo "Testing..."
+   - npm run test
+
+integration_test:
+  stage: test
+  script:
+    - npm install
+    # TODO: Run tests here
+    - echo "Testing..."
 
 build_prod:
   stage: build
