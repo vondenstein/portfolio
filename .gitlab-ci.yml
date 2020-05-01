@@ -34,7 +34,7 @@ unit_test:
   stage: test
   script:
    - npm install
-   - npm run test
+   - npm run test:ci
 
 integration_test:
   stage: test
