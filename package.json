@@ -8,11 +8,12 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "check-format": "prettier --check .",
+    "check-format": "prettier --check \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "jest"
+    "test": "jest",
+    "test:ci": "jest --coverage"
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
