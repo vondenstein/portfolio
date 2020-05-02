@@ -2,7 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 
-import AppearanceToggle from "../components/appearance-toggle"
+import AppearanceToggle from "./appearance-toggle"
+import HorizontalRule from "./horizontal-rule"
 
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
@@ -30,6 +31,7 @@ const Header = ({ siteTitle }) => (
         <ListLink to="/connect/">Connect</ListLink>
       </ul>
     </div>
+    <HorizontalRule offset="80px" />
   </header>
 )
 
