@@ -142,5 +142,14 @@ exports[`Header renders correctly 1`] = `
       </li>
     </ul>
   </div>
+  <div
+    style={
+      Object {
+        "borderBottom": "1px solid grey",
+        "margin": "80px auto 50px",
+        "position": "relative",
+      }
+    }
+  />
 </header>
 `;
