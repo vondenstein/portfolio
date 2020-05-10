@@ -10,9 +10,26 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-alias-imports`,
+      options: {
+        aliases: {
+          "@components": "src/components",
+          "@assets": "src/assets",
+          "@styles": "src/styles",
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blog`,
+        path: `${__dirname}/content/blog`,
       },
     },
     {
@@ -36,12 +53,12 @@ module.exports = {
         description: `Site description`,
         lang: `en`,
         start_url: `/`,
-        background_color: `#6b37bf`,
-        theme_color: `#6b37bf`,
+        background_color: `#fff`,
+        theme_color: `#fff`,
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: `standalone`,
-        icon: `src/images/logo-rounded.png`, // This path is relative to the root of the site.
+        icon: `src/assets/logo-rounded.png`, // This path is relative to the root of the site.
         // crossOrigin: `use-credentials`,
         cache_busting_mode: `none`,
       },
@@ -57,6 +74,8 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-theme-ui`,
+    `gatsby-transformer-remark`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-sitemap`,

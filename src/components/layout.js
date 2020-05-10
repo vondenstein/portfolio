@@ -1,29 +1,43 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { Global } from "@emotion/core"
+import styled from "@emotion/styled"
+// import { useColorMode } from 'theme-ui';
 
 import Header from "./header"
 import Footer from "./footer"
 
+import { globalStyles } from "../styles/global"
+
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  // const [colorMode] = useColorMode();
+
+  // useEffect(() => {
+  //   parent.postMessage({ theme: colorMode }, '*');
+  // }, [colorMode]);
 
   return (
-    <div style={{ margin: `3rem auto`, maxWidth: 950, padding: `0 1rem` }}>
-      <Header siteTitle={data.site.siteMetadata.title} />
+    <Container>
+      <Global styles={globalStyles} />
+      <Header />
       {children}
       <Footer />
-    </div>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  // margin: 3rem auto;
+  // maxWidth: 950;
+  // padding: 0 1rem;
+`
+
+// const Container = styled.div`
+//   position: relative;
+//   background: ${p => p.theme.colors.background};
+//   transition: ${p => p.theme.colorModeTransition};
+//   min-height: 100vh;
+// `;
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

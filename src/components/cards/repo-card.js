@@ -4,8 +4,8 @@ import styled from "@emotion/styled"
 import { css } from "@emotion/core"
 
 import Card from "./card"
-import starIcon from "../../images/star.svg"
-import forkIcon from "../../images/fork.svg"
+import starIcon from "@assets/icons/star.svg"
+import forkIcon from "@assets/icons/fork.svg"
 
 function RepoCard({
   name,
