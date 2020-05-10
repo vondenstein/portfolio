@@ -8,17 +8,40 @@ image: node:latest
 cache:
   paths:
   - node_modules/
-  
+
+# Use template for dependency scanning
+
+include:
+  - template: Dependency-Scanning.gitlab-ci.yml
+  - template: Code-Quality.gitlab-ci.yml
+
+variables:
+  DS_DEFAULT_ANALYZERS: "bundler-audit,gemnasium"
+
 stages:
+  - lint
   - test
   - build
   - deploy
 
-test:
+prettier:
+  stage: lint
+  script:
+    - npm install
+    - npm run check-format
+
+unit_test:
+  stage: test
   script:
    - npm install
-   # TODO: Run tests here
-   - echo "Testing..."
+   - npm run test:ci
+
+integration_test:
+  stage: test
+  script:
+    - npm install
+    # TODO: Run tests here
+    - echo "Testing..."
 
 build_prod:
   stage: build
@@ -32,24 +55,23 @@ build_prod:
   ## Install dependencies and build the production site
   ##
   - npm install # Install all dependencies
-  - npm run build --prod # Build for production
+  - npm run build # Build for production
   artifacts:
     paths:
-      - build
+      - public
   only:
     - master
 
 # Job name for gitlab to recognise this results in assets for Gitlab Pages
 # https://docs.gitlab.com/ee/user/project/pages/introduction.html#gitlab-pages-requirements
-deploy_pages:
+pages:
   stage: deploy
-  variables:
-    PUBLIC_URL: /portfolio
   script:
     - npm install # Install all dependencies
-    - npm run build --prod # Build for production
-    - rm -rf public # CRA and gitlab pages both use the public folder. Only do this in a build pipeline.
-    - mv build public # Move build files to public dir for Gitlab Pages
+    - ./node_modules/.bin/gatsby build --prefix-paths # Build for pages
+  environment:
+    name: pages
+    url: http://vondenstein.gitlab.io/portfolio
   artifacts:
     paths:
     - public # The built files for Gitlab Pages to serve
@@ -59,7 +81,7 @@ deploy_prod:
   tags:
     - deploy
   script:
-    - sudo cp -r build/* /srv/vondenstein.com/
+    - sudo cp -r public/* /srv/vondenstein.com/
   environment:
     name: production
     url: https://vondenstein.com

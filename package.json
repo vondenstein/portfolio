@@ -1,49 +1,74 @@
 {
-  "name": "vondenstein-portfolio",
-  "version": "1.0.0",
-  "description": "React developer portfolio site",
-  "main": "index.js",
-  "author": "Stephen Vondenstein",
+  "name": "portfolio",
+  "private": true,
+  "description": "Fast, modern portfolio and blog powered by Gatsby",
+  "version": "2.0.0",
+  "author": "Stephen Vondenstein <stephen@vondenstein.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://mindcloud.dev/stephen/portfolio/issues"
-  },
-  "homepage": "https://vondenstein.com",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
-    "compile-sass": "node-sass src/assets/scss/argon-design-system-react.scss src/assets/css/argon-design-system-react.css",
-    "minify-sass": "node-sass src/assets/scss/argon-design-system-react.scss src/assets/css/argon-design-system-react.min.css --output-style compressed",
-    "map-sass": "node-sass src/assets/scss/argon-design-system-react.scss src/assets/css/argon-design-system-react.css --source-map true"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "check-format": "prettier --check \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "jest",
+    "test:ci": "jest --coverage"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not op_mini all"
-  ],
   "dependencies": {
-    "classnames": "2.2.6",
-    "moment": "2.24.0",
-    "node-sass": "4.12.0",
-    "nouislider": "13.1.5",
-    "react": "16.8.6",
-    "react-datetime": "2.16.3",
-    "react-dom": "16.8.6",
-    "react-router": "5.0.0",
-    "react-router-dom": "5.0.0",
-    "react-scripts": "3.0.0",
-    "reactstrap": "8.0.0"
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "@sentry/browser": "^5.15.5",
+    "gatsby": "^2.20.25",
+    "gatsby-alias-imports": "^1.0.4",
+    "gatsby-plugin-emotion": "^4.3.0",
+    "gatsby-plugin-manifest": "^2.3.7",
+    "gatsby-plugin-offline": "^3.2.0",
+    "gatsby-plugin-react-helmet": "^3.2.5",
+    "gatsby-plugin-sitemap": "^2.4.0",
+    "gatsby-plugin-theme-ui": "^0.3.0",
+    "gatsby-plugin-typography": "^2.4.4",
+    "gatsby-source-filesystem": "^2.3.0",
+    "gatsby-source-graphql": "^2.5.0",
+    "gatsby-transformer-remark": "^2.8.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.0.0",
+    "react-typography": "^0.16.19",
+    "theme-ui": "^0.3.1",
+    "typography": "^0.16.19"
   },
   "devDependencies": {
-    "@types/googlemaps": "3.30.19",
-    "@types/markerclustererplus": "2.1.33",
-    "@types/react": "16.8.16",
-    "typescript": "3.4.5"
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.4",
+    "babel-jest": "^25.5.1",
+    "babel-plugin-emotion": "^10.0.33",
+    "babel-preset-gatsby": "^0.4.0",
+    "husky": "^4.2.5",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^25.5.3",
+    "jest-emotion": "^10.0.32",
+    "lint-staged": "^10.2.1",
+    "prettier": "2.0.4",
+    "react-test-renderer": "^16.13.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vondenstein/portfolio"
+  },
+  "bugs": {
+    "url": "https://github.com/vondenstein/portfolio/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,md}": "prettier --write"
   }
 }
