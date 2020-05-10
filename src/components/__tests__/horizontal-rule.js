@@ -1,11 +1,11 @@
 import React from "react"
 import renderer from "react-test-renderer"
 
-import Header from "../header"
+import HorizontalRule from "../horizontal-rule"
 
-describe("Header", () => {
+describe("HorizontalRule", () => {
   it("renders correctly", () => {
-    const tree = renderer.create(<Header siteTitle="Test Title" />).toJSON()
+    const tree = renderer.create(<HorizontalRule />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HorizontalRule renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "borderBottom": "1px solid grey",
+      "margin": "140px auto 50px",
+      "position": "relative",
+    }
+  }
+/>
+`;

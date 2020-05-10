@@ -8,6 +8,8 @@ module.exports = {
   },
   testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`],
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
+  collectCoverage: true,
+  coverageReporters: ["lcov"],
   collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}", "!<rootDir>/node_modules/"],
   globals: {
     __PATH_PREFIX__: ``,
