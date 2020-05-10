@@ -1,31 +1,50 @@
-vondenstein.com
-==================
+<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+<p align="center">
+  <a href="https://vondenstein.com/">
+    <img alt="Vondenstein" src="src/assets/logo-rounded.png" width="80" />
+  </a>
+</p>
+<h1 align="center">
+  vondenstein.com
+</h1>
 
-## About This Site
+<h3 align="center">
+  📸 💻 🎸
+</h3>
+<h3 align="center">
+  Fast, modern portfolio and blog powered by Gatsby
+</h3>
+<p align="center">
+  This site makes use of Theme-UI for darkmode support, the GitHub GraphQL API for loading the repository list and information, an MDX-based blog, and other Gatsby plugins/features to create a clean, full-featured personal portfolio.
+</p>
+<p align="center">
+  <a href="https://codeclimate.com/github/vondenstein/portfolio/test_coverage">
+    <img src="https://api.codeclimate.com/v1/badges/aabf10ece0fc5e901e2d/test_coverage" />
+  </a>
+  <a href="https://codeclimate.com/github/vondenstein/portfolio/maintainability">
+    <img src="https://api.codeclimate.com/v1/badges/aabf10ece0fc5e901e2d/maintainability" />
+  </a>
+</p>
 
-This site is my personal space On The Line™. I write about things, link to interesting material, and 
-showcase projects I've done/built/designed. My written content is purely personal in nature and does not
-necessarily reflect the views of my employer, my University (Geaux Tigers), or any complex AI I've written
+<h3 align="center">
+  <a href="https://vondenstein.com/">Live Site</a>
+  <span> · </span>
+  <a href="https://vondenstein.github.io/portfolio/">GitHub Pages</a>
+</h3>
+
+## ❓ About This Project
+
+This site is my personal space On The Line™. I showcase my photos, music, code, and write about things. My written content is personal in nature and does not
+necessarily reflect the views of my employer, my University (Geaux Tigers), or any AI I've written
 now or in the future.
 
-It lives here: [vondenstein.com](http://vondenstein.com)
+## 📝 License
 
-In addition to software development, another creative outlet I've been excited to explore is photography.   
-The photographs used on my site are taken by me in my free time. Feel free to check out my Instagram, 
-[shvphoto](http://instagram.com/shvphoto), as many of my images are posted there. While I have also
-designed most of the graphics used on this site, a small minority are licensed from others, namely Adobe. 
-Definitely have a look at Adobe Stock, as they have a great collection of stock images and graphics.
-
-## Running locally
-
-- Currently changing. Instructions coming soon.
-
-## Licensing
-
-Please feel free to inspect the code structure, and reuse what you feel is appropriate. But please 
-respect that the files in the following directories are © Stephen Vondenstein. You may not reuse
+Feel free to review the code and reuse what you feel is appropriate. However, please
+respect that the files in the following directories are © Stephen Vondenstein. You **may not** reuse
 anything therein without my written permission:
-- src/assets/img/ (my copyrighted photos and photos licensed only for my own use)
 
+- content/
+- src/images/
 
 All other directories and files are MIT Licensed (where applicable).
