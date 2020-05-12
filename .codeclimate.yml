@@ -8,8 +8,6 @@ plugins:
       - BUG
       - TODO
       - HACK
-  markdownlint:
-    enabled: true
 exclude_patterns:
   - "public/"
   - "node_modules/"
