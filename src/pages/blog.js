@@ -6,23 +6,23 @@ import SEO from "../components/seo"
 import Section from "../components/section"
 import PageHero from "../components/page-hero"
 
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 250)
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            path
-            title
-          }
-        }
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query {
+//     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+//       edges {
+//         node {
+//           id
+//           excerpt(pruneLength: 250)
+//           frontmatter {
+//             date(formatString: "MMMM DD, YYYY")
+//             path
+//             title
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
 
 const PostLink = ({ post }) => (
   <div>
@@ -48,9 +48,7 @@ export default ({ ...props }) => {
     <Layout>
       <SEO title="Words" pathname="/words/" />
       <PageHero heading="Sometimes sharing means more than a tweet or Instagram post. This is my place for thoughts that deserve more." />
-      <Section>
-        <PostGroup data={props.data} />
-      </Section>
+      <Section>{/* <PostGroup data={props.data} /> */}</Section>
     </Layout>
   )
 }
