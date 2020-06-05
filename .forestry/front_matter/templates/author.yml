@@ -31,3 +31,5 @@ fields:
     min: 
     max: 
   description: Social links
+pages:
+- content/author.md
