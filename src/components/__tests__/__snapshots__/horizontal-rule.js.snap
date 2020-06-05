@@ -4,7 +4,9 @@ exports[`HorizontalRule renders correctly 1`] = `
 <div
   style={
     Object {
-      "borderBottom": "1px solid grey",
+      "borderBottom": "1px dotted grey",
+      "borderTop": "1px dotted grey",
+      "height": "3px",
       "margin": "140px auto 50px",
       "position": "relative",
     }
