@@ -1,4 +1,25 @@
 ---
 label: Social link
 hide_body: true
-fields: []
+fields:
+- name: service
+  type: select
+  default: github
+  config:
+    required: true
+    options:
+    - github
+    - instagram
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Service
+  description: Service to show
+- name: url
+  type: text
+  config:
+    required: true
+  label: URL
+  description: Link URL
