@@ -9,31 +9,31 @@ import SocialLinks from "@components/social-links"
 import { useStaticQuery, graphql } from "gatsby"
 
 export default () => {
-  const {
-    prismic: {
-      allAuthors: {
-        edges: [{ node }],
-      },
-    },
-  } = useStaticQuery(graphql`
-    {
-      prismic {
-        allAuthors {
-          edges {
-            node {
-              profile_photo
-              name
-              quote
-              social_links {
-                service
-                link
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+  // const {
+  //   prismic: {
+  //     allAuthors: {
+  //       edges: [{ node }],
+  //     },
+  //   },
+  // } = useStaticQuery(graphql`
+  //   {
+  //     prismic {
+  //       allAuthors {
+  //         edges {
+  //           node {
+  //             profile_photo
+  //             name
+  //             quote
+  //             social_links {
+  //               service
+  //               link
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
   return (
     <Layout>
@@ -41,12 +41,12 @@ export default () => {
       <Section>
         <Hero>
           <ProfilePicture>
-            <img src={node.profile_photo.url} alt={node.profile_photo.alt} />
+            {/* <img src={node.profile_photo.url} alt={node.profile_photo.alt} /> */}
           </ProfilePicture>
-          <ProfileName>{node.name}</ProfileName>
-          <ProfileInfo>{node.quote}</ProfileInfo>
+          <ProfileName>Stephen Vondenstein</ProfileName>
+          <ProfileInfo>Just one more cup of coffee...</ProfileInfo>
           <ProfileLinks>
-            <SocialLinks links={node.links} />
+            <SocialLinks links={null} />
           </ProfileLinks>
         </Hero>
         <ProfileBio>

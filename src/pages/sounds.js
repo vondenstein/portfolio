@@ -10,10 +10,10 @@ export default () => (
     <SEO title="Sounds" pathname="/sounds/" />
     <PageHero heading="Music isn't just a sound you hear, it's a place you go to. Welcome to my place." />
     <Section>
-      <h2>Releases</h2>
-      <p>Releases go here</p>
-      <h2>SoundCloud</h2>
+      <h2>Sounds</h2>
       <p>SoundCloud stuff goes here</p>
+      <h2>Playlists</h2>
+      <p>Playlists go here</p>
     </Section>
   </Layout>
 )

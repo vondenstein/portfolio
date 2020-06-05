@@ -11,6 +11,4 @@ All versions before 2.0.0 will no longer be supported because the project moved 
 
 ## Reporting a Vulnerability
 
-To report a security vulnerability, submit an issue with 'VULNERABILITY' as the subject.
-Issues regarding security vulnerabilities will be prioritized over new features and other bugfixes.
-Note that this project is a personal project, not a professional project - I'll get to issues as soon as I can, but I can't make any guarantees as far as response time.
+To report a security vulnerability, please email support@vondenstein.com
