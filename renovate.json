@@ -1,10 +1,5 @@
 {
-  "extends": [
-    "config:base",
-    ":semanticCommits",
-    ":masterIssue",
-    ":rebaseStalePrs"
-  ],
+  "extends": ["config:base", ":masterIssue", ":rebaseStalePrs"],
   "lockFileMaintenance": {
     "enabled": true,
     "schedule": ["at any time"],
@@ -13,7 +8,6 @@
   },
   "stabilityDays": 3,
   "prCreation": "status-success",
-  "semanticCommitScope": "package",
   "labels": ["dependencies"],
   "packageRules": [
     {

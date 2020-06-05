@@ -24,7 +24,6 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\" --require-pragma",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
@@ -45,6 +44,7 @@
     "gatsby-plugin-typography": "2.5.1",
     "gatsby-source-filesystem": "2.3.1",
     "gatsby-source-graphql": "2.5.1",
+    "gatsby-source-instagram": "^0.7.2",
     "gatsby-transformer-remark": "2.8.7",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -59,8 +59,6 @@
     "babel-jest": "26.0.1",
     "babel-plugin-emotion": "10.0.33",
     "babel-preset-gatsby": "0.4.1",
-    "commitizen": "4.1.2",
-    "cz-conventional-changelog": "3.2.0",
     "husky": "4.2.5",
     "identity-obj-proxy": "3.0.0",
     "jest": "26.0.1",
@@ -71,16 +69,10 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "*.{js,jsx,json,md}": "prettier --write --require-pragma"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "*.{js,jsx,json,md}": "prettier --write"
   }
 }
