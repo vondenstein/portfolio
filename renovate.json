@@ -1,5 +1,32 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+    ":semanticCommits",
+    ":masterIssue",
+    ":rebaseStalePrs"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["at any time"],
+    "stabilityDays": 0,
+    "masterIssueApproval": true
+  },
+  "stabilityDays": 3,
+  "prCreation": "status-success",
+  "semanticCommitScope": "package",
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "updateTypes": ["major"],
+      "masterIssueApproval": true
+    },
+    {
+      "packageNames": ["npm", "yarn"],
+      "automerge": false
+    }
   ]
 }
