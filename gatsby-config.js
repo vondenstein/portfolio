@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   pathPrefix: `/portfolio`,
   siteMetadata: {
@@ -6,7 +10,7 @@ module.exports = {
     author: `Stephen Vondenstein`,
     keywords: [`developer`],
     siteUrl: `https://vondenstein.com`,
-    sourceRepo: `https://gitlab.com/vondenstein/portfolio`,
+    sourceRepo: `https://github.com/vondenstein/portfolio`,
   },
   plugins: [
     {
@@ -23,13 +27,6 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `blog`,
-        path: `${__dirname}/content/blog`,
       },
     },
     {
@@ -75,7 +72,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-theme-ui`,
-    `gatsby-transformer-remark`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-sitemap`,

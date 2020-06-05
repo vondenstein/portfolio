@@ -4,7 +4,7 @@ import { Global } from "@emotion/core"
 import styled from "@emotion/styled"
 // import { useColorMode } from 'theme-ui';
 
-import Header from "./header"
+import Header from "./Header"
 import Footer from "./footer"
 
 import { globalStyles } from "../styles/global"

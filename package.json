@@ -3,18 +3,32 @@
   "private": true,
   "description": "Fast, modern portfolio and blog powered by Gatsby",
   "version": "2.0.0",
-  "author": "Stephen Vondenstein <stephen@vondenstein.com>",
   "license": "MIT",
+  "homepage": "https://vondenstein.com",
+  "author": {
+    "name": "Stephen Vondenstein",
+    "email": "stephen@vondenstein.com",
+    "url": "https://vondenstein.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vondenstein/portfolio"
+  },
+  "bugs": {
+    "email": "support@vondenstein.com",
+    "url": "https://github.com/vondenstein/portfolio/issues"
+  },
+  "keywords": [
+    "gatsby"
+  ],
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "check-format": "prettier --check \"**/*.{js,jsx,json,md}\"",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\" --require-pragma",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "jest",
-    "test:ci": "jest --coverage"
+    "test": "jest"
   },
   "dependencies": {
     "@emotion/core": "10.0.28",
@@ -55,16 +69,6 @@
     "prettier": "2.0.5",
     "react-test-renderer": "16.13.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vondenstein/portfolio"
-  },
-  "bugs": {
-    "url": "https://github.com/vondenstein/portfolio/issues"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -72,7 +76,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,json,md}": "prettier --write"
+    "*.{js,jsx,json,md}": "prettier --write --require-pragma"
   },
   "config": {
     "commitizen": {
