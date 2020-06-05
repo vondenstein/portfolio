@@ -9,7 +9,6 @@ sections:
 - type: document
   path: content/author.md
   label: Author
-  match: "**/*"
 - type: directory
   path: content/posts
   label: Posts
