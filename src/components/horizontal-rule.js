@@ -7,7 +7,9 @@ function HorizontalRule({ offset }) {
       style={{
         position: `relative`,
         margin: `${offset} auto 50px`,
-        borderBottom: `1px solid grey`,
+        borderBottom: `1px dotted grey`,
+        borderTop: `1px dotted grey`,
+        height: `3px`,
       }}
     />
   )

@@ -2,6 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 
 import Section from "@components/section"
+import Button from "./Button"
 
 const ActionPrompt = ({ heading, text, actionLink }) => {
   return (
@@ -10,7 +11,9 @@ const ActionPrompt = ({ heading, text, actionLink }) => {
         <Content>
           <Heading>{heading}</Heading>
           <Text>{text}</Text>
-          {actionLink}
+          <a href={actionLink}>
+            <Button>See More</Button>
+          </a>
         </Content>
       </Container>
     </Section>
