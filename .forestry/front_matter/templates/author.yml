@@ -25,7 +25,8 @@ fields:
 - name: links
   type: blocks
   label: links
-  template_types: []
+  template_types:
+  - social-link
   config:
     min: 
     max: 
