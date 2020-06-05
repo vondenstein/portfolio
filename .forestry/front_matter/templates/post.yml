@@ -8,6 +8,19 @@ fields:
     required: true
   label: Title
   description: Title of post
+- name: image
+  type: file
+  config:
+    maxSize: 64
+  label: Image
+  description: Header image for post
+- name: summary
+  type: text
+  config:
+    required: true
+    max: 240
+  label: Summary
+  description: Short summary of post
 - name: slug
   type: text
   config:
