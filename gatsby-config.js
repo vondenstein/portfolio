@@ -2,8 +2,6 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-const PrismicLink = require("apollo-link-prismic").PrismicLink
-
 module.exports = {
   pathPrefix: `/portfolio`,
   siteMetadata: {
@@ -42,19 +40,6 @@ module.exports = {
           Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
         },
         fetchOptions: {},
-      },
-    },
-    {
-      resolve: `gatsby-source-graphql`,
-      options: {
-        typeName: `Prismic`,
-        fieldName: `prismic`,
-        createLink: pluginOptions => {
-          return PrismicLink({
-            uri: `https://${process.env.PRISMIC_REPO}.prismic.io/graphql`,
-            accessToken: `${process.env.PRISMIC_TOKEN}`,
-          })
-        },
       },
     },
     {

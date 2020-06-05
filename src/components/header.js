@@ -16,38 +16,6 @@ const ListLink = props => (
 )
 
 function Header() {
-  const {
-    prismic: {
-      allNavigators: {
-        edges: [{ node }],
-      },
-    },
-  } = useStaticQuery(
-    graphql`
-      {
-        prismic {
-          allNavigators {
-            edges {
-              node {
-                logo
-                title
-                links {
-                  label
-                  path {
-                    ... on Prismic__Document {
-                      _meta {
-                        uid
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `
-  )
   return (
     <header style={{ marginBottom: `1.5rem` }}>
       <Section>
@@ -57,15 +25,11 @@ function Header() {
           </HomeLink>
           <NavLinks>
             <ul>
-              {node.links.map(link => (
-                <ListLink
-                  key={`navlink-${link.label}`}
-                  to={`/${link.path._meta.uid}`}
-                >
-                  {link.label}
-                </ListLink>
-              ))}
-              <ListLink to="/bio">Bio</ListLink>
+              <ListLink to="/code/">{"{Code}"}</ListLink>
+              <ListLink to="/images/">Images</ListLink>
+              <ListLink to="/blog/">Words</ListLink>
+              <ListLink to="/sounds/">Sounds</ListLink>
+              <ListLink to="/bio/">Bio</ListLink>
               <li style={{ display: `inline-block`, marginRight: `1rem` }}>
                 <ColorModeToggle />
               </li>
