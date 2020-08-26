@@ -21,9 +21,6 @@
   <a href="https://github.com/vondenstein/portfolio/actions?query=workflow%3ABuild">
     <img src="https://github.com/vondenstein/portfolio/workflows/Build/badge.svg?branch=master">
   </a>
-  <a href="https://codeclimate.com/github/vondenstein/portfolio/test_coverage">
-    <img src="https://api.codeclimate.com/v1/badges/aabf10ece0fc5e901e2d/test_coverage" />
-  </a>
   <a href="https://codeclimate.com/github/vondenstein/portfolio/maintainability">
     <img src="https://api.codeclimate.com/v1/badges/aabf10ece0fc5e901e2d/maintainability" />
   </a>
