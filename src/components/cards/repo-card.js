@@ -17,39 +17,57 @@ function RepoCard({
   topics,
   isArchived,
 }) {
+  console.log(language)
   return (
-    <Card
-      css={hoverAnimation}
-      as="a"
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <CardContent>
-        <h4>{name}</h4>
-        <p>{description}</p>
-      </CardContent>
-      <ExtraCardContent>
-        {language === null ? null : (
-          <ContentItem>
-            <div>
-              <svg height="15" width="15">
-                <circle cx="7.5" cy="7.5" r="7.5" fill={language.color} />
-              </svg>
-            </div>
-            <span>{language.name}</span>
-          </ContentItem>
-        )}
-        <ContentItem>
-          <img src={starIcon} alt="stars" />
-          <span>{stars}</span>
-        </ContentItem>
-        <ContentItem>
-          <img src={forkIcon} alt="stars" />
-          <span>{forks}</span>
-        </ContentItem>
-      </ExtraCardContent>
-    </Card>
+    // <Card
+    //   css={hoverAnimation}
+    //   as="a"
+    //   href={url}
+    //   target="_blank"
+    //   rel="noopener noreferrer"
+    // >
+    //   <CardContent>
+    //     <h4>{name}</h4>
+    //     <p>{description}</p>
+    //   </CardContent>
+    //   <ExtraCardContent>
+    //     {language === null ? null : (
+    //       <ContentItem>
+    //         <div>
+    //           <svg height="15" width="15">
+    //             <circle cx="7.5" cy="7.5" r="7.5" fill={language.color} />
+    //           </svg>
+    //         </div>
+    //         <span>{language.name}</span>
+    //       </ContentItem>
+    //     )}
+    //     <ContentItem>
+    //       <img src={starIcon} alt="stars" />
+    //       <span>{stars}</span>
+    //     </ContentItem>
+    //     <ContentItem>
+    //       <img src={forkIcon} alt="stars" />
+    //       <span>{forks}</span>
+    //     </ContentItem>
+    //   </ExtraCardContent>
+    // </Card>
+    <PreviewCard style={{ background: "#0D0709" }}>
+      <Heading style={{ color: "#fafafa" }}>{name}</Heading>
+      <SubHeading style={{ color: "#fafafa" }}>{description}</SubHeading>
+      {/* <Image src={needlBackground.childImageSharp.fluid} /> */}
+      <Border style={{ background: "rgba(255,255,255,0.06)" }} />
+      {/* <Anchor as="div" style={{ background: "#070202", color: "#515359" }}> */}
+      <Anchor
+        as="div"
+        href={url}
+        style={{
+          background: `${language === null ? "#070202" : language.color}`,
+          color: "#515359",
+        }}
+      >
+        View on GitHub
+      </Anchor>
+    </PreviewCard>
   )
 }
 
@@ -106,3 +124,45 @@ RepoCard.propTypes = {
 }
 
 export default RepoCard
+
+const PreviewCard = styled.div`
+  border-radius: 5px;
+  overflow: hidden;
+  background: red;
+  margin-bottom: 25px;
+`
+
+const Heading = styled.h3`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 40px 15px 40px;
+  font-size: 22px;
+  color: #fff;
+  /* font-family: ${p => p.theme.fontfamily.serif}; */
+`
+
+const SubHeading = styled.p`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 40px 15px 40px;
+  font-size: 14px;
+  color: #fff;
+  /* font-family: ${p => p.theme.fontfamily.serif}; */
+`
+
+const Anchor = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  font-size: 18px;
+  font-weight: 600;
+`
+
+const Border = styled.div`
+  position: relative;
+  top: 1px;
+  height: 1px;
+`

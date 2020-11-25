@@ -9,8 +9,8 @@ const _ = require("lodash")
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
-  const blogPostTemplate = require.resolve(`./src/templates/blog-post.js`)
-  const tagTemplate = require.resolve("./src/templates/blog-tags.js")
+  const blogPostTemplate = require.resolve(`./src/templates/blog.post.tsx`)
+  const tagTemplate = require.resolve("./src/templates/blog.tags.tsx")
   const result = await graphql(`
     {
       postsRemark: allMarkdownRemark(

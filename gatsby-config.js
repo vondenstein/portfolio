@@ -24,12 +24,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
@@ -48,6 +42,12 @@ module.exports = {
           Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
         },
         fetchOptions: {},
+      },
+    },
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `vondensteins`,
       },
     },
     {
