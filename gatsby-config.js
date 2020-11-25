@@ -44,12 +44,12 @@ module.exports = {
         fetchOptions: {},
       },
     },
-    {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `vondensteins`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-instagram`,
+    //   options: {
+    //     username: `vondensteins`,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
