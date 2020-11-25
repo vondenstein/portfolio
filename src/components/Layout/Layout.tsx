@@ -4,12 +4,12 @@ import { Global } from "@emotion/core"
 import styled from "@emotion/styled"
 // import { useColorMode } from 'theme-ui';
 
-import Header from "./Header"
-import Footer from "./footer"
+import Header from "../Navigation/Navigation.Header"
+import Footer from "../Navigation/Navigation.Footer"
 
-import { globalStyles } from "../styles/global"
+import { globalStyles } from "../../styles/global"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, showFooter }) => {
   // const [colorMode] = useColorMode();
 
   // useEffect(() => {
@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
       <Global styles={globalStyles} />
       <Header />
       {children}
-      <Footer />
+      {showFooter && <Footer />}
     </Container>
   )
 }
@@ -39,8 +39,13 @@ const Container = styled.div`
 //   min-height: 100vh;
 // `;
 
+Layout.defaultProps = {
+  showFooter: true,
+}
+
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  showFooter: PropTypes.bool,
 }
 
 export default Layout
