@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Section from "../components/section"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
+import Section from "../components/Section"
 import Hero from "@components/hero"
 import SocialLinks from "@components/social-links"
 import { useStaticQuery, graphql } from "gatsby"

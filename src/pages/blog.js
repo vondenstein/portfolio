@@ -1,9 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Section from "../components/section"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
+import Section from "../components/Section"
 import PageHero from "../components/page-hero"
 
 import BlogHero from "../sections/blog/Blog.Hero"

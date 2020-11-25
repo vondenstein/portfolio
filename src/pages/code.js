@@ -1,7 +1,7 @@
 import React from "react"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
 import PageHero from "../components/page-hero"
 
 import CodeRepositories from "../sections/code/Code.Repositories"
