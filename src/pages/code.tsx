@@ -2,7 +2,7 @@ import React from "react"
 
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-import PageHero from "../components/page-hero"
+import PageHero from "../components/PageHero"
 
 import CodeRepositories from "../sections/code/Code.Repositories"
 import CodeProjects from "../sections/code/Code.Projects"

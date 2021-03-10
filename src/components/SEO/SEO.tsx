@@ -2,7 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import { useThemeUI } from "theme-ui"
 
 function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
   const { site } = useStaticQuery(
@@ -27,7 +26,6 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
       ? `${site.siteMetadata.siteUrl}${metaImage.src}`
       : null
   const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null
-  const { theme } = useThemeUI()
 
   return (
     <Helmet

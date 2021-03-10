@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import styled from "@emotion/styled"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 
 interface BlogPostsProps {
   posts: Post[]
@@ -112,12 +112,12 @@ const Item = styled.div<{ gridLayout: string }>`
 const Metadata = styled.div`
   font-weight: 600;
   font-size: 16px;
-  color: ${p => p.theme.colors.grey};
+  /* color: ${p => p.theme.colors.grey}; */
   opacity: 0.33;
 `
 const Title = styled.h2`
   font-size: 21px;
-  font-family: ${p => p.theme.fonts.serif};
+  /* font-family: ${p => p.theme.fonts.serif}; */
   margin-bottom: ${p =>
     p.hasOverflow && p.gridLayout === "tiles" ? "35px" : "10px"};
   transition: color 0.3s ease-in-out;
@@ -131,7 +131,7 @@ const Excerpt = styled.p<{
 }>`
   font-size: 16px;
   margin-bottom: 10px;
-  color: ${p => p.theme.colors.grey};
+  /* color: ${p => p.theme.colors.grey}; */
   display: ${p => (p.hasOverflow && p.gridLayout === "tiles" ? "none" : "box")};
   max-width: ${p => (p.narrow ? "415px" : "515px")};
 `
@@ -182,7 +182,7 @@ const PostLink = styled(Link)`
 
   &:hover h2,
   &:focus h2 {
-    color: ${p => p.theme.colors.accent};
+    /* color: ${p => p.theme.colors.accent}; */
   }
 
   &[data-a11y="true"]:focus::after {
@@ -192,7 +192,7 @@ const PostLink = styled(Link)`
     top: -2%;
     width: 103%;
     height: 104%;
-    border: 3px solid ${p => p.theme.colors.accent};
+    /* border: 3px solid ${p => p.theme.colors.accent}; */
     background: rgba(255, 255, 255, 0.01);
     border-radius: 5px;
   }

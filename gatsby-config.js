@@ -79,7 +79,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-theme-ui`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-sitemap`,

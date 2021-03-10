@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-import Section from "./section"
+import Section from "./Section"
 
 const ProfileHero = ({ heading }) => {
   return (

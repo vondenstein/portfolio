@@ -39,7 +39,7 @@ const TextContainer = styled.div`
 const MainText = styled.p`
   font-size: 3.2rem;
   font-weight: 400;
-  color: ${p => p.theme.colors.grey};
+  /* color: ${p => p.theme.colors.grey}; */
   line-height: 1.3;
   margin-bottom: 50px;
 `
@@ -78,7 +78,7 @@ const ContentContainer = styled.div`
   `}; */
 
 const Contact = styled.button`
-  color: ${p => p.theme.colors.grey};
+  /* color: ${p => p.theme.colors.grey}; */
   font-weight: 600;
   transition: color 0.25s ease;
 
@@ -100,7 +100,7 @@ const Key = styled.span`
   justify-content: center;
   margin: 0 1px;
   color: #000;
-  background: ${p => p.theme.colors.grey};
+  /* background: ${p => p.theme.colors.grey}; */
   font-size: 13px;
   width: 16px;
   height: 16px;

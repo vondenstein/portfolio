@@ -4,12 +4,12 @@ import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 
 import HomeHero from "../sections/home/Home.Hero"
-import Contact from "../components/contact"
 
-export default () => (
+const HomePage = () => (
   <Layout showFooter={false}>
     <SEO title="Intro" />
     <HomeHero />
-    <Contact />
   </Layout>
 )
+
+export default HomePage
