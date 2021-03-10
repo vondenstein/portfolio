@@ -1,12 +1,9 @@
-/** @jsx jsx */
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "@emotion/styled"
-import { jsx } from "theme-ui"
 
-import Section from "../section"
-import ColorModeToggle from "../colormode-toggle"
+import Section from "../Section"
 
 import Logo from "../Logo"
 
@@ -44,11 +41,6 @@ function Header() {
                       {/* <ListLink to="/blog/">Words</ListLink> */}
                       {/* <ListLink to="/sounds/">Sounds</ListLink> */}
                       <ListLink to="/bio/">Bio</ListLink>
-                      <li
-                        style={{ display: `inline-block`, marginRight: `1rem` }}
-                      >
-                        <ColorModeToggle />
-                      </li>
                     </ul>
                   </NavLinks>
                 </DesktopNavList>
@@ -124,7 +116,7 @@ const LogoContainer = styled(Link)`
     top: -42%;
     width: 120%;
     height: 200%;
-    border: 2px solid ${p => p.theme.colors.purple};
+    /* border: 2px solid ${p => p.theme.colors.purple}; */
     background: rgba(255, 255, 255, 0.01);
     border-radius: 5px;
   }

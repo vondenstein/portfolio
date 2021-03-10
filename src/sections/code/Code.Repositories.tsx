@@ -1,9 +1,9 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Section from "../../components/section"
-import CardGroup from "../../components/cards/card-group"
-import RepoCard from "../../components/cards/repo-card"
+import Section from "../../components/Section"
+import CardGroup from "../../components/Card/Card.Group"
+import RepoCard from "../../components/Card/Card.Repo"
 
 export default () => {
   const {

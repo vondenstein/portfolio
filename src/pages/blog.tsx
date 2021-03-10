@@ -4,9 +4,9 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import Section from "../components/Section"
-import PageHero from "../components/page-hero"
+import PageHero from "../components/PageHero"
 
-import BlogHero from "../sections/blog/Blog.Hero"
+// import BlogHero from "../sections/blog/Blog.Hero"
 import BlogPosts from "../sections/blog/Blog.Posts"
 
 export const pageQuery = graphql`
