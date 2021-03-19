@@ -14,23 +14,28 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-alias-imports`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        aliases: {
-          "@components": "src/components",
-          "@assets": "src/assets",
-          "@styles": "src/styles",
-        },
+        path: `${__dirname}/static/images`,
+        name: "images",
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `posts`,
-        path: `${__dirname}/content/posts`,
+        path: `${__dirname}/src/pages`,
+        name: "pages",
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/src/data`,
       },
     },
     `gatsby-transformer-remark`,
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-graphql`,
       options: {
@@ -63,7 +68,7 @@ module.exports = {
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: `standalone`,
-        icon: `src/assets/logo-rounded.png`, // This path is relative to the root of the site.
+        icon: `static/images/logo-rounded.png`, // This path is relative to the root of the site.
         // crossOrigin: `use-credentials`,
         cache_busting_mode: `none`,
       },
@@ -73,14 +78,21 @@ module.exports = {
     {
       resolve: "gatsby-plugin-offline",
       options: {
-        precachePages: [`/meet/`, `/connect/`],
+        precachePages: [`/bio/`],
         workboxConfig: {
           globPatterns: ["**/*"],
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://vondenstein.com`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-catch-links`,
   ],
 }

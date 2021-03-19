@@ -1,0 +1,22 @@
+---
+label: Navigation Menu
+hide_body: false
+fields:
+  - name: navigation
+    label: Navigation menu
+    type: field_group_list
+    fields:
+      - name: url
+        label: Url
+        type: text
+        hidden: false
+        default: ""
+      - name: title
+        label: Title
+        type: text
+        hidden: false
+        default: ""
+    hidden: false
+    default: ""
+    config:
+      labelField: title

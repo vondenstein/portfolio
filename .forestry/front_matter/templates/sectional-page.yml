@@ -1,0 +1,21 @@
+---
+label: Sectional Page
+hide_body: true
+fields:
+  - type: text
+    name: title
+    label: Title
+  - type: text
+    hidden: true
+    label: Template
+    name: template
+    default: sectional
+  - type: blocks
+    name: sections
+    label: Sections
+    template_types:
+      - section__hero
+      - section__showcase
+pages:
+  - src/pages/index.md
+  - src/pages/code.md

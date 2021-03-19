@@ -1,0 +1,34 @@
+---
+label: Site Config
+hide_body: false
+fields:
+  - name: title
+    label: Title
+    type: text
+    hidden: false
+    default: ""
+  - name: shortname
+    label: Shortname
+    type: text
+    hidden: false
+    default: ""
+  - name: description
+    label: Description
+    type: text
+    hidden: false
+    default: ""
+  - name: author
+    label: Author
+    type: text
+    hidden: false
+    default: ""
+  - name: language
+    label: Language
+    type: text
+    hidden: false
+    default: ""
+  - name: icon
+    label: Icon
+    type: text
+    hidden: false
+    default: ""
