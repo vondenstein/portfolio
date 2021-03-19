@@ -1,62 +1,102 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
-// You can delete this file if you're not using it
+const path = require("path")
+const { createFilePath } = require("gatsby-source-filesystem")
 const _ = require("lodash")
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
+function isIndexPage(post) {
+  return path.basename(post.node.fileAbsolutePath) === "index.md"
+}
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+
+  // add slug field to nodes based on filepath
+  if (node.internal.type === "MarkdownRemark") {
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    })
+  }
+}
+
+exports.createPages = ({ actions, graphql, reporter }) => {
   const { createPage } = actions
-  const blogPostTemplate = require.resolve(`./src/templates/blog.post.tsx`)
-  const tagTemplate = require.resolve("./src/templates/blog.tags.tsx")
-  const result = await graphql(`
-    {
-      postsRemark: allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            frontmatter {
-              slug
-              tags
+
+  return new Promise((resolve, reject) => {
+    // load template options
+    const templates = {
+      list: require.resolve(`./src/templates/list.tsx`),
+      post: require.resolve(`./src/templates/post.tsx`),
+      bio: require.resolve(`./src/templates/bio.tsx`),
+      sectional: require.resolve(`./src/templates/sectional.tsx`),
+      tag: require.resolve(`./src/templates/tag.tsx`),
+    }
+    resolve(
+      // query for posts and tags
+      graphql(`
+        {
+          postsRemark: allMarkdownRemark(
+            sort: { order: DESC, fields: [frontmatter___date] }
+            limit: 1000
+          ) {
+            edges {
+              node {
+                excerpt(format: PLAIN)
+                fileAbsolutePath
+                fields {
+                  slug
+                }
+                frontmatter {
+                  title
+                  template
+                  date(formatString: "MMMM DD, YYYY")
+                }
+              }
+            }
+          }
+          tagsGroup: allMarkdownRemark(limit: 2000) {
+            group(field: frontmatter___tags) {
+              fieldValue
             }
           }
         }
-      }
-      tagsGroup: allMarkdownRemark(limit: 2000) {
-        group(field: frontmatter___tags) {
-          fieldValue
+      `).then(result => {
+        // handle errors
+        if (result.errors) {
+          reporter.panicOnBuild(`Error while running GraphQL query.`)
+          return
         }
-      }
-    }
-  `)
-  // Handle errors
-  if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
-  }
-  const posts = result.data.postsRemark.edges
-  posts.forEach(({ node }) => {
-    createPage({
-      path: node.frontmatter.slug,
-      component: blogPostTemplate,
-      context: {
-        // additional data can be passed via context
-        slug: node.frontmatter.slug,
-      },
-    })
-  })
-  const tags = result.data.tagsGroup.group
-  tags.forEach(tag => {
-    createPage({
-      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
-      component: tagTemplate,
-      context: {
-        tag: tag.fieldValue,
-      },
-    })
+        // create the posts
+        const posts = result.data.postsRemark.edges
+        posts.forEach(({ node }) => {
+          // determine which template to use
+          let templateComponent
+          if (node.frontmatter.template) {
+            templateComponent = templates[node.frontmatter.template]
+          } else {
+            templateComponent = templates.post
+          }
+          createPage({
+            path: node.fields.slug,
+            component: templateComponent,
+            context: {
+              slug: node.fields.slug,
+            },
+          })
+        })
+        // create the tags
+        const tags = result.data.tagsGroup.group
+        tags.forEach(tag => {
+          createPage({
+            path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+            component: templates["tag"],
+            context: {
+              tag: tag.fieldValue,
+            },
+          })
+        })
+      })
+    )
   })
 }

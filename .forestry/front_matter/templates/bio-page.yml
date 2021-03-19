@@ -1,0 +1,43 @@
+---
+label: Bio Page
+hide_body: false
+fields:
+  - type: text
+    name: title
+    label: Title
+  - type: text
+    hidden: true
+    label: Template
+    name: template
+    default: bio
+  - name: name
+    type: text
+    config:
+      required: true
+    label: Name
+    description: Author name
+  - name: quote
+    type: text
+    config:
+      required: false
+      max: 180
+    label: Quote
+    description: A short quote or status update
+  - name: photo
+    type: file
+    config:
+      maxSize: 64
+    label: Profile photo
+    description: Author profile photo
+    default: "/uploads/default_profile.jpg"
+  - name: links
+    type: blocks
+    label: links
+    template_types:
+      - social-link
+    config:
+      min:
+      max:
+    description: Social links
+pages:
+  - src/pages/bio.md

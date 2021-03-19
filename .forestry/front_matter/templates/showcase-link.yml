@@ -1,0 +1,41 @@
+---
+label: Showcase link
+hide_body: true
+fields:
+  - name: type
+    type: select
+    default: external
+    config:
+      required: true
+      options:
+        - internal
+        - external
+    label: Icon
+    description: Type of link
+  - name: icon
+    type: select
+    default: planet
+    config:
+      required: true
+      options:
+        - planet
+        - github
+      source:
+        type: simple
+        section:
+        file:
+        path:
+    label: Icon
+    description: Icon to show
+  - name: text
+    type: text
+    config:
+      required: true
+    label: Text
+    description: Link Text
+  - name: url
+    type: text
+    config:
+      required: true
+    label: URL
+    description: Link URL
