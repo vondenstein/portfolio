@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 import styled from "@emotion/styled"
 import { css } from "@emotion/react"
 
-import Card from "./Card"
-import starIcon from "../../assets/icons/star.svg"
+import media from "../../styles/media"
+import starIcon from "../../../static/icons/star.svg"
 import forkIcon from "../../assets/icons/fork.svg"
 
 function RepoCard({
@@ -51,48 +51,121 @@ function RepoCard({
     //     </ContentItem>
     //   </ExtraCardContent>
     // </Card>
-    <PreviewCard style={{ background: "#0D0709" }}>
-      <Heading style={{ color: "#fafafa" }}>{name}</Heading>
-      <SubHeading style={{ color: "#fafafa" }}>{description}</SubHeading>
-      {/* <Image src={needlBackground.childImageSharp.fluid} /> */}
-      <Border style={{ background: "rgba(255,255,255,0.06)" }} />
-      {/* <Anchor as="div" style={{ background: "#070202", color: "#515359" }}> */}
-      <Anchor
-        as="div"
-        href={url}
-        style={{
-          background: `${language === null ? "#070202" : language.color}`,
-          color: "#515359",
-        }}
-      >
-        View on GitHub
-      </Anchor>
-    </PreviewCard>
+
+    // <PreviewCard style={{ background: "#0D0709" }}>
+    //   <Heading style={{ color: "#fafafa" }}>{name}</Heading>
+    //   <SubHeading style={{ color: "#fafafa" }}>{description}</SubHeading>
+    //   {/* <Image src={needlBackground.childImageSharp.fluid} /> */}
+    //   <Border style={{ background: "rgba(255,255,255,0.06)" }} />
+    //   {/* <Anchor as="div" style={{ background: "#070202", color: "#515359" }}> */}
+    //   <Anchor
+    //     as="div"
+    //     href={url}
+    //     style={{
+    //       background: `${language === null ? "#070202" : language.color}`,
+    //       color: "#515359",
+    //     }}
+    //   >
+    //     View on GitHub
+    //   </Anchor>
+    // </PreviewCard>
+    <Card background={`${language === null ? "#070202" : language.color}`}>
+      <Content>
+        <Title dark>{name}</Title>
+        <Description>{description}</Description>
+        <HorizontalRule dark={true} />
+        <ActionLink
+          key={name}
+          target="_blank"
+          data-ally="false"
+          href={`https://github.com/${name}`}
+          dark
+        >
+          <LinkIcon type="image/svg+xml" data={`icons/github.svg`} />
+          View on GitHub
+        </ActionLink>
+      </Content>
+    </Card>
   )
 }
 
-const hoverAnimation = css`
-  &:hover {
-    cursor: pointer;
-    z-index: 5;
+const Card = styled.div<{ background }>`
+  position: relative;
+  height: 380px;
+  padding: 80px 70px;
+  background: ${p => p.background};
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+`
 
-    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.03),
-      0 30px 60px -10px rgba(0, 0, 0, 0.05),
-      0 18px 36px -18px rgba(0, 0, 0, 0.11);
-    // -webkit-transition: -webkit-transform 2s var(--ease-out-quad), box-shadow 0.3s var(--ease-out-quad);
-    // -webkit-transition: transform 2s var(--ease-out-quad), box-shadow 0.3s var(--ease-out-quad);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+const Content = styled.div`
+  position: relative;
+  z-index: 1;
+  max-width: 371px;
 
-    -webkit-transform: translateY(-1px);
-    transform: translateY(-1px);
+  ${media.phablet`
+    text-align: center;
+    margin: 0 auto;
+  `}
+`
+
+const Title = styled.div`
+  height: 25px;
+  margin-bottom: 25px;
+  font-weight: 600;
+  font-size: 24px;
+  color: ${p => (p.dark ? p.theme.colors.kepler : "#fff")};
+`
+const Description = styled.p`
+  height: 120px;
+  font-size: 18px;
+  color: ${p => p.theme.colors.grey};
+  margin-bottom: 30px;
+
+  ${media.phablet`
+    margin-bottom: 25px;
+  `}
+`
+
+const HorizontalRule = styled.hr<{ dark }>`
+  width: 140px;
+  height: 1px;
+  border: none;
+  margin-bottom: 30px;
+  background: ${p => (p.dark ? "rgba(0, 0, 0, 0.1)" : "rgba(255,255,255,0.1)")};
+`
+
+const ActionLink = styled.a`
+  position: relative;
+  font-weight: 600;
+  font-size: 16px;
+  color: ${p => (p.dark ? p.theme.colors.kepler : "#fff")};
+
+  svg {
+    margin-right: 13px;
+  }
+
+  &:nth-child(2) {
+    margin-left: 30px;
+  }
+
+  &[data-a11y="true"]:focus::after {
+    content: "";
+    position: absolute;
+    left: -10%;
+    top: -42%;
+    width: 120%;
+    height: 200%;
+    border: 2px solid ${p => p.theme.colors.purple};
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 5px;
   }
 `
 
-const CardContent = styled.div`
-  padding: 1rem 0;
-  h4 {
-    margin-top: 0;
-  }
+const LinkIcon = styled.object`
+  height: 16px;
+  margin-right: 12px;
 `
 
 const ContentItem = styled.div`

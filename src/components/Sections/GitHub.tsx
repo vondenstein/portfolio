@@ -5,7 +5,7 @@ import Section from "../Section"
 import CardGroup from "../Card/Card.Group"
 import RepoCard from "../Card/Card.Repo"
 
-export default () => {
+export default ({ section }) => {
   const {
     github: {
       viewer: {

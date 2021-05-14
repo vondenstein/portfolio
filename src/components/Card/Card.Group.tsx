@@ -7,6 +7,7 @@ function CardGroup({ children }) {
 }
 
 const CardGrid = styled.div`
+  margin-top: 30px;
   display: grid;
   align-items: center;
   grid-template-columns: repeat(3, 1fr);
