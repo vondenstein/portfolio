@@ -6,6 +6,7 @@ import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import Section from "../components/Section"
 import SocialLinks from "../components/SocialLinks"
+import media from "../styles/media"
 
 export default function BioTemplate({
   data, // this prop will be injected by the GraphQL query below.
@@ -22,9 +23,9 @@ export default function BioTemplate({
           </ProfilePicture>
           <ProfileName>{frontmatter.name}</ProfileName>
           <ProfileInfo>{frontmatter.quote}</ProfileInfo>
-          <ProfileLinks>
+          {/* <ProfileLinks>
             <SocialLinks links={frontmatter.links} />
-          </ProfileLinks>
+          </ProfileLinks> */}
         </Hero>
         <ProfileBio>
           <div
@@ -81,6 +82,9 @@ const ProfileBio = styled.div`
   padding: 88px 98px;
   position: relative;
   z-index: 1;
+  ${media.phablet`
+    padding: 35px;
+  `}
 `
 const ProfilePicture = styled.div`
   position: relative;
