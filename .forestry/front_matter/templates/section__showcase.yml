@@ -1,11 +1,11 @@
 ---
-label: section__showcase
+label: Showcase
 hide_body: false
 display_field: title
 fields:
   - type: text
     name: component
-    label: component
+    label: Component
     hidden: true
     default: Showcase
   - type: text
