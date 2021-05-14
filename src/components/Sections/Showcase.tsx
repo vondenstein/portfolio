@@ -90,6 +90,11 @@ const Card = styled.div<{ background }>`
   &:hover::after {
     opacity: 1;
   }
+
+  ${media.phablet`
+    height: 100%;
+    padding: 40px 35px;
+  `}
 `
 
 const LinkIcon = styled.object`
@@ -136,11 +141,6 @@ const Content = styled.div`
   position: relative;
   z-index: 1;
   max-width: 371px;
-
-  ${media.phablet`
-    text-align: center;
-    margin: 0 auto;
-  `}
 `
 
 const Icon = styled.div`
