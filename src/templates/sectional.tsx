@@ -5,6 +5,7 @@ import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import Hero from "../components/Sections/Hero"
 import Showcase from "../components/Sections/Showcase"
+import GitHub from "../components/Sections/GitHub"
 
 export default function SectionalTemplate({ data }) {
   const { markdownRemark } = data
@@ -18,6 +19,8 @@ export default function SectionalTemplate({ data }) {
             return <Hero section={section} />
           case "Showcase":
             return <Showcase section={section} />
+          case "GitHub":
+            return <GitHub section={section} />
           default:
             return ""
         }
