@@ -54,6 +54,7 @@ export default ({ section }) => (
 )
 
 const ShowcaseBody = styled.div`
+  margin-top: 30px;
   position: relative;
   z-index: 1;
 `
@@ -89,10 +90,6 @@ const Card = styled.div<{ background }>`
   &:hover::after {
     opacity: 1;
   }
-
-  ${media.tablet`
-    display: none;
-  `}
 `
 
 const LinkIcon = styled.object`
@@ -161,7 +158,7 @@ const ShowcaseIcon = styled.object`
 
 const Excerpt = styled.p`
   font-size: 18px;
-  color: ${p => p.theme.colors.grey};
+  color: ${p => p.theme.colors.kepler};
   margin-bottom: 30px;
 
   ${media.phablet`
