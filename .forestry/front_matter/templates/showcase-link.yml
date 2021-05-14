@@ -1,5 +1,5 @@
 ---
-label: Showcase link
+label: Showcase Link
 hide_body: true
 fields:
   - name: type
@@ -10,7 +10,7 @@ fields:
       options:
         - internal
         - external
-    label: Icon
+    label: Type
     description: Type of link
   - name: icon
     type: select
