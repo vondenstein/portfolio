@@ -1,9 +1,4 @@
-import React from "react"
-
-export default function Logo() {
-  return (
-    <>
-      <svg
+<svg
         width="38"
         height="23px"
         viewBox="0 0 38 23"
@@ -25,7 +20,7 @@ export default function Logo() {
             <clipPath id="_clip1">
               <rect x="-111.738" y="148.378" width="3323.09" height="2460.08" />
             </clipPath>
-            <g clipPath="url(#_clip1)">
+            <g clip-path="url(#_clip1)">
               <g transform="matrix(1.34224,0,0,1.61135,-274.802,-1176.86)">
                 <g transform="matrix(1,0,0,1,-58.633,50.4241)">
                   <g transform="matrix(1,0,0,1,-206.068,-108.011)">
@@ -62,6 +57,3 @@ export default function Logo() {
           </g>
         </g>
       </svg>
-    </>
-  )
-}
