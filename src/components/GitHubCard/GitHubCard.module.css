@@ -1,0 +1,46 @@
+.cardContainer {
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+}
+
+.right {
+  border-radius: 20px;
+  width: 500px;
+  margin-left: 25px;
+}
+
+.left {
+  border-radius: 20px;
+  width: 100%;
+  min-width: 300px;
+}
+
+.content {
+  padding: 30px;
+}
+
+.badge {
+  background-color: rgba(253, 249, 242, 0.3);
+  height: 30px;
+  padding: 3px 9px;
+  border-radius: 7px;
+  color: rgba(253, 249, 242, 0.9);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  height: 0.75rem;
+  margin-right: 12px;
+  opacity: 90%;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 25px 0;
+}

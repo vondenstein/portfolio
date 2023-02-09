@@ -1,48 +1,53 @@
-import React from "react"
-import { graphql } from "gatsby"
+import * as React from "react"
+import type { HeadFC, PageProps } from "gatsby"
+import { graphql, Link } from "gatsby"
 
+import * as styles from "../../styles/Page.module.css"
 import Layout from "../../components/Layout"
-import SEO from "../../components/SEO"
-import Section from "../../components/Section"
+import PostCard from "../../components/PostCard"
 
-import Hero from "../../components/Sections/Hero"
-import BlogPosts from "../../components/Blog.Posts"
-
-const section = {
-  title: "Elegant solutions to complex problems.",
-  subtitle:
-    "These are what keep me up at night - they help me grow as a developer and problem-solver. Take a look at the ones that I found interesting.",
+const BlogPage: React.FC<PageProps> = ({ data }) => {
+  return (
+    <Layout>
+      <main className={styles.main}>
+        <h1>Posts</h1>
+        {data.allMdx.nodes.map(node => (
+          <PostCard
+            id={node.id}
+            frontmatter={node.frontmatter}
+            excerpt={node.excerpt}
+            internal={node.internal}
+            children={node.children}
+            parent={node.parent}
+          />
+        ))}
+      </main>
+    </Layout>
+  )
 }
 
-export const pageQuery = graphql`
+export default BlogPage
+
+export const query = graphql`
   query {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 250)
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            summary
+    allMdx(sort: { frontmatter: { date: DESC } }) {
+      nodes {
+        frontmatter {
+          date(formatString: "MMMM Do, YYYY")
+          title
+          slug
+          hero_image_alt
+          hero_image {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
+        id
+        excerpt
       }
     }
   }
 `
 
-export default ({ ...props }) => {
-  return (
-    <Layout>
-      <SEO title="Words" pathname="/words/" />
-      <Hero section={section} />
-      {/* <Section>
-        <BlogPosts posts={props.data} />
-      </Section> */}
-    </Layout>
-  )
-}
+export const Head: HeadFC = () => <title>Blog Page</title>
