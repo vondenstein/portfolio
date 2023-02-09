@@ -6,5 +6,9 @@
   {
     "url": "/bio",
     "title": "Bio"
+  },
+  {
+    "url": "/blog",
+    "title": "Posts"
   }
 ]
