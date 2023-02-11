@@ -1,0 +1,19 @@
+.header {
+  width: 600px;
+  margin: 0 auto 100px;
+}
+
+.heroImage {
+  margin-bottom: 100px;
+  max-height: 480px;
+}
+
+.authorLink {
+  font-weight: bold;
+  transition: color 0.3s cubic-bezier(0.3, 0.46, 0.45, 0.9);
+}
+
+.authorLink:hover {
+  text-decoration: none;
+  color: #fdf9f2;
+}
