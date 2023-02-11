@@ -22,7 +22,6 @@ const NavBar = () => {
               className={styles.link}
               key={node.url ?? ""}
               to={node.url ?? ""}
-              data-a11y="false"
               getProps={({ isPartiallyCurrent, isCurrent }) =>
                 isPartiallyCurrent && isCurrent
                   ? { ["data-active"]: "true" }

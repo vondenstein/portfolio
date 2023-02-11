@@ -1,35 +1,36 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
+import { Link } from "gatsby"
 
 import Layout from "../components/Layout"
 import { StaticImage } from "gatsby-plugin-image"
+import Block from "../components/Block"
+import SocialLinks from "../components/SocialLinks"
 
 const BioPage: React.FC<PageProps> = () => {
   return (
     <Layout>
-      <h1>Bio</h1>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "40% 60%",
-          gridGap: "20px",
-          marginBottom: "30px",
-        }}
-      >
+      <Block>
         <StaticImage
           src={"../images/profile.jpg"}
           alt={"Me in a field looking off into the distance."}
-          height={400}
-          width={400}
+          loading={"eager"}
+          height={180}
+          width={180}
           placeholder={"blurred"}
-          imgStyle={{ borderRadius: "20px" }}
-          style={{ borderRadius: "20px" }}
+          imgStyle={{ borderRadius: "50%" }}
+          style={{
+            borderRadius: "50%",
+            border: "2px solid #434343",
+            boxShadow: "0px 15px 30px rgba(0, 0, 0, 0.25)",
+            marginBottom: "35px",
+          }}
         />
-        <div>
-          <h2>I'm Stephen.</h2>
-          <p>I like to do things! Look, here they are!</p>
-        </div>
-      </div>
+        <h2 style={{ marginBottom: "15px" }}>👋🏻 I'm Stephen.</h2>
+        <p style={{ marginBottom: "5px" }}>
+          Software Engineer · Tinkerer · Occasional Photographer
+        </p>
+      </Block>
       <h2>Passions</h2>
       <p>
         I'm looking for new opportunities to learn and collaborate with other

@@ -13,3 +13,19 @@
   background-color: #dddddd;
   color: #1b1b1b;
 }
+
+.darkButton {
+  background-color: #111111;
+  width: fit-content;
+  border: 1px solid #9a9a9a;
+  border-radius: 30px;
+  padding: 5px 40px;
+  text-decoration: none;
+  color: #9a9a9a;
+}
+
+.darkButton:hover {
+  text-decoration: none;
+  background-color: #9a9a9a;
+  color: #111111;
+}

@@ -1,5 +1,6 @@
 import React from "react"
 import { useGitHubRepos } from "../../hooks/use-github-repositories"
+import Button from "../Button"
 
 import * as styles from "./GitHubCard.module.css"
 
@@ -64,7 +65,11 @@ const GitHubCard = ({}) => {
         {repositories
           .slice(2)
           .map(({ node }: Queries.GitHub_PinnableItemEdge) => {
-            return <a href={node?.url}>{node?.name}</a>
+            return (
+              <a href={node?.url} style={{ textDecoration: "none" }}>
+                <Button dark>{node?.name}</Button>
+              </a>
+            )
           })}
       </div>
     </div>
