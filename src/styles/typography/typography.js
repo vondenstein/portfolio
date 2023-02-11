@@ -20,7 +20,7 @@ const vondensteinTheme = {
   headerFontFamily: ["Rosario", "sans-serif"],
   bodyFontFamily: ["Crimson Text", "serif"],
   headerColor: "#fdf9f2",
-  bodyColor: "hsla(0,0%,80%,0.73)",
+  bodyColor: "#9a9a9a",
   headerWeight: "700",
   bodyWeight: 400,
   boldWeight: 600,

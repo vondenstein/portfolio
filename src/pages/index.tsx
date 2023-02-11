@@ -6,6 +6,7 @@ import PostCard from "../components/PostCard"
 import { useLatestPost } from "../hooks/use-latest-post"
 import { useGitHubProfile } from "../hooks/use-github-profile"
 import Button from "../components/Button"
+import Block from "../components/Block"
 
 const IndexPage: React.FC<PageProps> = () => {
   const latestPost = useLatestPost()
@@ -39,6 +40,7 @@ const IndexPage: React.FC<PageProps> = () => {
               textDecoration: "underline",
               textDecorationStyle: "dashed",
             }}
+            title="Link to S&P Global website"
           >
             S&P Global
           </a>
@@ -53,20 +55,9 @@ const IndexPage: React.FC<PageProps> = () => {
         children={latestPost.children}
         parent={latestPost.parent}
       />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-          marginTop: "100px",
-          marginBottom: "60px",
-          padding: "50px 0",
-          borderRadius: "20px",
-          backgroundColor: "#1b1b1b",
-        }}
-      >
-        <h2>Open Source Software</h2>
+      <div style={{ height: "100px" }} />
+      <Block>
+        <h2>Software Projects</h2>
         <p style={{ maxWidth: "500px", margin: "0 auto 25px" }}>
           I love to tinker and follow ideas to their logical end. Take a look at
           a few projects that I wanted to share, or head over to my{" "}
@@ -78,15 +69,20 @@ const IndexPage: React.FC<PageProps> = () => {
               textDecoration: "underline",
               textDecorationStyle: "dashed",
             }}
+            title="Link to GitHub"
           >
             GitHub
           </a>
           .
         </p>
-        <Link to={"/code"} style={{ textDecoration: "none" }}>
+        <Link
+          to={"/code"}
+          style={{ textDecoration: "none" }}
+          title="Link to Projects Page"
+        >
           <Button>View projects</Button>
         </Link>
-      </div>
+      </Block>
     </Layout>
   )
 }
