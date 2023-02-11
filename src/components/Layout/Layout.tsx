@@ -9,7 +9,9 @@ const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <>
       <NavBar />
-      <div className={styles.container}>{children}</div>
+      <div className={styles.container}>
+        <main className={styles.main}>{children}</main>
+      </div>
       <Footer />
     </>
   )
