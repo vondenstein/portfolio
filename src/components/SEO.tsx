@@ -20,6 +20,7 @@ const SEO = ({
 
   return (
     <>
+      <html lang="en" />
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
       {/* <meta name="image/> */}
