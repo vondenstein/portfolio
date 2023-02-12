@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 import Layout from "../components/Layout"
 import { StaticImage } from "gatsby-plugin-image"
 import Block from "../components/Block"
-import SocialLinks from "../components/SocialLinks"
+import SEO from "../components/SEO"
 
 const BioPage: React.FC<PageProps> = () => {
   return (
@@ -61,4 +61,4 @@ const BioPage: React.FC<PageProps> = () => {
 
 export default BioPage
 
-export const Head: HeadFC = () => <title>Bio Page</title>
+export const Head: HeadFC = () => <SEO title="Bio" />

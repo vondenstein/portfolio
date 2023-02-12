@@ -6,11 +6,11 @@ require("dotenv").config({
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `Vondenstein`,
-    description: `All the information you never wished you knew about Stephen.`,
-    author: `Stephen Vondenstein`,
+    title: `Stephen Vondenstein`,
+    description: `The portfolio site and personal blog of Stephen Vondenstein, Software Engineer at S&P Global`,
     siteUrl: `https://vondenstein.com`,
-    sourceRepo: `https://github.com/vondenstein/portfolio`,
+    author: `Stephen Vondenstein`,
+    twitterHandle: ``,
   },
   graphqlTypegen: true,
   trailingSlash: `never`,
@@ -24,7 +24,7 @@ const config: GatsbyConfig = {
         lang: `en`,
         start_url: `/`,
         background_color: `#111111`,
-        theme_color: `#ffffff`,
+        theme_color: `#fdf9f2`,
         icon: `src/images/icon.png`,
         display: `standalone`,
         cache_busting_mode: `none`,

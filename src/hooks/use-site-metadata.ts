@@ -10,7 +10,7 @@ export const useSiteMetadata = () => {
             siteUrl
             description
             author
-            sourceRepo
+            twitterHandle
           }
         }
       }
