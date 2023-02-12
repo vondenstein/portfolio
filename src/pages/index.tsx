@@ -7,6 +7,7 @@ import { useLatestPost } from "../hooks/use-latest-post"
 import { useGitHubProfile } from "../hooks/use-github-profile"
 import Button from "../components/Button"
 import Block from "../components/Block"
+import SEO from "../components/SEO"
 
 const IndexPage: React.FC<PageProps> = () => {
   const latestPost = useLatestPost()
@@ -89,4 +90,4 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Head: HeadFC = () => <SEO />

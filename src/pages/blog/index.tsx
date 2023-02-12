@@ -4,6 +4,7 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../../components/Layout"
 import PostCard from "../../components/PostCard"
+import SEO from "../../components/SEO"
 
 const BlogPage: React.FC<PageProps> = ({ data }) => {
   return (
@@ -47,4 +48,4 @@ export const query = graphql`
   }
 `
 
-export const Head: HeadFC = () => <title>Blog Page</title>
+export const Head: HeadFC = () => <SEO title="Posts" />

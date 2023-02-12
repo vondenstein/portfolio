@@ -5,6 +5,7 @@ import Layout from "../components/Layout"
 import ProjectCard from "../components/ProjectCard"
 import { useProjects } from "../hooks/use-projects"
 import GitHubCard from "../components/GitHubCard"
+import SEO from "../components/SEO"
 
 const CodePage: React.FC<PageProps> = () => {
   const projects = useProjects()
@@ -38,4 +39,4 @@ const CodePage: React.FC<PageProps> = () => {
 
 export default CodePage
 
-export const Head: HeadFC = () => <title>Code Page</title>
+export const Head: HeadFC = () => <SEO title="Software Projects" />
