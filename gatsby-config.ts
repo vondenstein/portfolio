@@ -12,9 +12,6 @@ const config: GatsbyConfig = {
     siteUrl: `https://vondenstein.com`,
     sourceRepo: `https://github.com/vondenstein/portfolio`,
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   trailingSlash: `never`,
   plugins: [
@@ -33,8 +30,25 @@ const config: GatsbyConfig = {
         cache_busting_mode: `none`,
       },
     },
-    "gatsby-plugin-image",
-    "gatsby-plugin-sitemap",
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://vondenstein.com`,
+        stripQueryString: true,
+      },
+    },
+    `gatsby-plugin-catch-links`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/styles/typography/typography`,
+      },
+    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -46,30 +60,21 @@ const config: GatsbyConfig = {
         ],
       },
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    "gatsby-transformer-json",
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        pathToConfigModule: `src/styles/typography/typography`,
+        name: `images`,
+        path: `./src/images/`,
       },
+      __key: `images`,
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: "images",
-        path: "./src/images/",
+        name: `pages`,
+        path: `./src/pages/`,
       },
-      __key: "images",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "pages",
-        path: "./src/pages/",
-      },
-      __key: "pages",
+      __key: `pages`,
     },
     {
       resolve: `gatsby-source-filesystem`,
