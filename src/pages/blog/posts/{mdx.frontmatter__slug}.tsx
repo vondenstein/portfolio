@@ -6,6 +6,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import * as styles from "../../../styles/PostsPage.module.css"
 import Layout from "../../../components/Layout"
 import { useSiteMetadata } from "../../../hooks/use-site-metadata"
+import SEO from "../../../components/SEO"
 
 const BlogPost = ({ data, children }: PageProps) => {
   const heroImage = getImage(data.mdx.frontmatter.hero_image)
@@ -53,4 +54,4 @@ export const query = graphql`
   }
 `
 
-export const Head: HeadFC = () => <title>Blog Post</title>
+export const Head: HeadFC = () => <SEO />

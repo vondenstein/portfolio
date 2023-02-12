@@ -6,11 +6,11 @@ require("dotenv").config({
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `Vondenstein`,
+    title: `Stephen Vondenstein`,
     description: `All the information you never wished you knew about Stephen.`,
-    author: `Stephen Vondenstein`,
     siteUrl: `https://vondenstein.com`,
-    sourceRepo: `https://github.com/vondenstein/portfolio`,
+    author: `Stephen Vondenstein`,
+    twitterHandle: ``,
   },
   graphqlTypegen: true,
   trailingSlash: `never`,
