@@ -18,7 +18,7 @@ const BioPage: React.FC<PageProps> = () => {
           loading={"eager"}
           height={180}
           width={180}
-          placeholder={"blurred"}
+          placeholder="blurred"
         />
         <h2 style={{ marginBottom: "15px" }}>👋🏻 I'm Stephen.</h2>
         <p style={{ marginBottom: "5px" }}>

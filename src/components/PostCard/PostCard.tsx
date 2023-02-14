@@ -21,7 +21,7 @@ const PostCard = ({ id, excerpt, frontmatter }: Queries.Mdx) => {
             <GatsbyImage
               width={550}
               height={220}
-              placeholder={"blurred"}
+              placeholder="blurred"
               image={image}
               alt={frontmatter.hero_image_alt}
               className={styles.image}
