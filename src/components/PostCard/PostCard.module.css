@@ -1,3 +1,13 @@
+.image {
+  height: 200px;
+  max-width: 480px;
+  border-radius: 20px;
+}
+
+.image * {
+  border-radius: 20px;
+}
+
 .link:hover div div h2 {
   opacity: 0.6;
   transition: opacity 0.3s cubic-bezier(0.3, 0.46, 0.45, 0.9);
