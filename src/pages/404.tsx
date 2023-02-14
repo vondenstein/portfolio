@@ -30,7 +30,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
           Looks like you got lost in space.
         </p>
         <Link to="/" style={{ textDecoration: "none" }}>
-          <Button dark>Go home</Button>
+          <Button dark>Phone home</Button>
         </Link>
       </div>
     </Layout>
