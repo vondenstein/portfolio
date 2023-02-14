@@ -9,6 +9,7 @@ const config: GatsbyConfig = {
     title: `Stephen Vondenstein`,
     description: `The portfolio site and personal blog of Stephen Vondenstein, Software Engineer at S&P Global`,
     siteUrl: `https://vondenstein.com`,
+    ogImageUrl: ``,
     author: `Stephen Vondenstein`,
     twitterHandle: ``,
   },
