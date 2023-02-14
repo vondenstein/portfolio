@@ -21,15 +21,10 @@ const PostCard = ({ id, excerpt, frontmatter }: Queries.Mdx) => {
             <GatsbyImage
               width={550}
               height={220}
-              placeholder={"blurred"}
+              placeholder="blurred"
               image={image}
               alt={frontmatter.hero_image_alt}
-              imgStyle={{ borderRadius: "20px" }}
-              style={{
-                height: "200px",
-                maxWidth: "480px",
-                borderRadius: "20px",
-              }}
+              className={styles.image}
             />
           </div>
           <div style={{ margin: "1rem 2rem 0", width: "480px" }}>

@@ -1,30 +1,24 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import { Link } from "gatsby"
 
 import Layout from "../components/Layout"
 import { StaticImage } from "gatsby-plugin-image"
 import Block from "../components/Block"
-import SEO from "../components/SEO"
+
+import * as styles from "../styles/BioPage.module.css"
 
 const BioPage: React.FC<PageProps> = () => {
   return (
     <Layout>
       <Block>
         <StaticImage
+          className={styles.image}
           src={"../images/profile.jpg"}
           alt={"Me in a field looking off into the distance."}
           loading={"eager"}
           height={180}
           width={180}
-          placeholder={"blurred"}
-          imgStyle={{ borderRadius: "50%" }}
-          style={{
-            borderRadius: "50%",
-            border: "2px solid #434343",
-            boxShadow: "0px 15px 30px rgba(0, 0, 0, 0.25)",
-            marginBottom: "35px",
-          }}
+          placeholder="blurred"
         />
         <h2 style={{ marginBottom: "15px" }}>👋🏻 I'm Stephen.</h2>
         <p style={{ marginBottom: "5px" }}>
@@ -61,4 +55,4 @@ const BioPage: React.FC<PageProps> = () => {
 
 export default BioPage
 
-export const Head: HeadFC = () => <SEO title="Bio" />
+export const Head: HeadFC = () => <title>Bio Page</title>

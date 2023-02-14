@@ -25,7 +25,7 @@ const BlogPost = ({ data, children }: PageProps) => {
         </p>
       </div>
       <GatsbyImage
-        placeholder={"blurred"}
+        placeholder="blurred"
         image={heroImage}
         alt={data.mdx.frontmatter.hero_image_alt}
         className={styles.heroImage}
