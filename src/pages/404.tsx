@@ -36,8 +36,6 @@ const NotFoundPage: React.FC<PageProps> = () => {
           alt={"A cartoon astronaut floating away from his ship."}
           loading={"eager"}
           width={500}
-          // width={1084}
-          // height={708}
           style={{ marginTop: "-50px", marginBottom: "2rem" }}
           placeholder="none"
         />
