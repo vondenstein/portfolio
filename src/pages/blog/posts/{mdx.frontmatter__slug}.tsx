@@ -19,7 +19,7 @@ const BlogPost = ({ data, children }: PageProps) => {
         <p>
           By{" "}
           <Link to="/bio" className={styles.authorLink}>
-            {author}
+            {author.name}
           </Link>
           , {data.mdx.frontmatter.date} · 5 minute read
         </p>

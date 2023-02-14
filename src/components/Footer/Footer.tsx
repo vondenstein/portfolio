@@ -18,7 +18,7 @@ const Footer = () => {
           <Logo />
         </Link>
         <div className={styles.copyright}>
-          &copy; {new Date().getFullYear()} {author}.
+          &copy; {new Date().getFullYear()} {author.name}.
         </div>
       </div>
       <div className={styles.right}>

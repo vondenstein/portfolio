@@ -13,11 +13,11 @@ const SEO = ({
   const siteMetadata = useSiteMetadata()
 
   const seo = {
-    title: title ? `${title} · ${siteMetadata.author}` : siteMetadata.title,
+    title: title ? `${title} · ${siteMetadata.title}` : siteMetadata.title,
     description: description ? description : siteMetadata.description,
     twitterHandle: siteMetadata.twitterHandle,
     image: siteMetadata.ogImageUrl
-      ? `https://og-examples.vercel.sh/api/static`
+      ? `${siteMetadata.ogImageUrl}?title=${title}`
       : siteMetadata.ogImageUrl,
   }
 

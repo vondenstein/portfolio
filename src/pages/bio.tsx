@@ -7,8 +7,11 @@ import Block from "../components/Block"
 
 import * as styles from "../styles/BioPage.module.css"
 import SEO from "../components/SEO"
+import { useSiteMetadata } from "../hooks/use-site-metadata"
 
 const BioPage: React.FC<PageProps> = () => {
+  const { author } = useSiteMetadata()
+
   return (
     <Layout>
       <Block>
@@ -21,10 +24,8 @@ const BioPage: React.FC<PageProps> = () => {
           width={180}
           placeholder="blurred"
         />
-        <h2 style={{ marginBottom: "15px" }}>👋🏻 I'm Stephen.</h2>
-        <p style={{ marginBottom: "5px" }}>
-          Software Engineer · Tinkerer · Occasional Photographer
-        </p>
+        <h2 style={{ marginBottom: "15px" }}>{author.title}</h2>
+        <p style={{ marginBottom: "5px" }}>{author.subtitle}</p>
       </Block>
       <h2>Passions</h2>
       <p>
