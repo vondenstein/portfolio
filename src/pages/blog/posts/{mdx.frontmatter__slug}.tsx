@@ -50,8 +50,11 @@ export const query = graphql`
           }
         }
       }
+      excerpt
     }
   }
 `
 
-export const Head: HeadFC = () => <SEO />
+export const Head: HeadFC = ({ data }) => (
+  <SEO title={data.mdx.frontmatter.title} description={data.mdx.excerpt} />
+)

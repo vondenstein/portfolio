@@ -48,4 +48,9 @@ export const query = graphql`
   }
 `
 
-export const Head: HeadFC = () => <SEO title="Posts" />
+export const Head: HeadFC = () => (
+  <SEO
+    title="Posts"
+    description="A collection of posts about software engineering, electronics and photography with the occasional post about life and travels."
+  />
+)

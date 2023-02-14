@@ -6,6 +6,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Block from "../components/Block"
 
 import * as styles from "../styles/BioPage.module.css"
+import SEO from "../components/SEO"
 
 const BioPage: React.FC<PageProps> = () => {
   return (
@@ -55,4 +56,9 @@ const BioPage: React.FC<PageProps> = () => {
 
 export default BioPage
 
-export const Head: HeadFC = () => <title>Bio Page</title>
+export const Head: HeadFC = () => (
+  <SEO
+    title="Bio"
+    description="Hi, I'm Stephen. Software engineer, tinkerer, and occasional photographer."
+  />
+)
