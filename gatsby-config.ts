@@ -31,7 +31,7 @@ const config: GatsbyConfig = {
         background_color: `#111111`,
         theme_color: `#111111`,
         display: `standalone`,
-        cache_busting_mode: `name`,
+        cache_busting_mode: `query`,
         icon: `src/images/icon.png`,
         icons: [
           {
