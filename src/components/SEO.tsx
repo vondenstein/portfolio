@@ -1,32 +1,43 @@
 import React from "react"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 
+type SEOProps = {
+  title?: string
+  description?: string
+  children?: React.ReactNode
+  type?: string
+  image?: string
+  imgTitle?: string
+  imgSubtitle?: string
+}
+
 const SEO = ({
   title,
   description,
   children,
   type,
   image,
-}: {
-  title?: string
-  description?: string
-  children?: any
-  type?: string
-  image?: string
-}) => {
-  const siteMetadata = useSiteMetadata()
+  imgTitle,
+  imgSubtitle,
+}: SEOProps) => {
+  const {
+    title: siteTitle,
+    description: siteDescription,
+    twitterHandle,
+    ogImageUrl,
+  } = useSiteMetadata()
 
   const seo = {
-    title: title ? `${title} · ${siteMetadata.title}` : siteMetadata.title,
-    description: description ? description : siteMetadata.description,
-    twitterHandle: siteMetadata.twitterHandle,
-    image: siteMetadata.ogImageUrl,
+    title: title ? `${title} · ${siteTitle}` : siteTitle,
+    description: description ?? siteDescription,
+    twitterHandle: twitterHandle,
+    image: ogImageUrl,
   }
 
   if (seo.image) {
     const imageUrl = new URL(seo.image)
-    imageUrl.searchParams.append("title", title ? title : siteMetadata.title)
-    imageUrl.searchParams.append("subtitle", seo.description)
+    imageUrl.searchParams.append("title", imgTitle ?? title ?? siteTitle)
+    imageUrl.searchParams.append("subtitle", imgSubtitle ?? seo.description)
     if (type) imageUrl.searchParams.append("type", type)
     if (image) imageUrl.searchParams.append("image", image)
     seo.image = imageUrl
@@ -40,21 +51,17 @@ const SEO = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />
-      {seo.twitterHandle ? (
+      {seo.twitterHandle && (
         <meta name="twitter:creator" content={seo.twitterHandle} />
-      ) : (
-        <></>
       )}
       <meta name="og:title" content={seo.title} />
       <meta name="og:description" content={seo.description} />
-      {seo.image ? (
+      {seo.image && (
         <>
           <meta name="image" content={seo.image} />
           <meta name="twitter:image" content={seo.image} />
           <meta name="og:image" content={seo.image} />
         </>
-      ) : (
-        <></>
       )}
 
       {/* <meta name="og:type" />
