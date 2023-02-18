@@ -5,10 +5,14 @@ const SEO = ({
   title,
   description,
   children,
+  type,
+  image,
 }: {
   title?: string
   description?: string
   children?: any
+  type?: string
+  image?: string
 }) => {
   const siteMetadata = useSiteMetadata()
 
@@ -16,9 +20,16 @@ const SEO = ({
     title: title ? `${title} · ${siteMetadata.title}` : siteMetadata.title,
     description: description ? description : siteMetadata.description,
     twitterHandle: siteMetadata.twitterHandle,
-    image: siteMetadata.ogImageUrl
-      ? `${siteMetadata.ogImageUrl}?title=${title}`
-      : siteMetadata.ogImageUrl,
+    image: siteMetadata.ogImageUrl,
+  }
+
+  if (seo.image) {
+    const imageUrl = new URL(seo.image)
+    imageUrl.searchParams.append("title", seo.title)
+    imageUrl.searchParams.append("subtitle", seo.description)
+    if (type) imageUrl.searchParams.append("type", type)
+    if (image) imageUrl.searchParams.append("image", image)
+    seo.image = imageUrl
   }
 
   return (
@@ -51,7 +62,6 @@ const SEO = ({
       <meta name="og:url" />
       <meta name="og:image:width" />
       <meta name="og:image:height" /> */}
-      {/* <link rel="icon" href="" /> */}
       {children}
     </>
   )
