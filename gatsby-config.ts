@@ -45,7 +45,14 @@ const config: GatsbyConfig = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          placeholder: `blurred`,
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-transformer-json`,
     {

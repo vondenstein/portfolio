@@ -5,7 +5,7 @@ type SEOProps = {
   title?: string
   description?: string
   children?: React.ReactNode
-  type?: string
+  imgType?: string
   image?: string
   imgTitle?: string
   imgSubtitle?: string
@@ -15,7 +15,7 @@ const SEO = ({
   title,
   description,
   children,
-  type,
+  imgType,
   image,
   imgTitle,
   imgSubtitle,
@@ -38,7 +38,7 @@ const SEO = ({
     const imageUrl = new URL(seo.image)
     imageUrl.searchParams.append("title", imgTitle ?? title ?? siteTitle)
     imageUrl.searchParams.append("subtitle", imgSubtitle ?? seo.description)
-    if (type) imageUrl.searchParams.append("type", type)
+    if (imgType) imageUrl.searchParams.append("type", imgType)
     if (image) imageUrl.searchParams.append("image", image)
     seo.image = imageUrl
   }

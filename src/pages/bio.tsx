@@ -57,9 +57,17 @@ const BioPage: React.FC<PageProps> = () => {
 
 export default BioPage
 
-export const Head: HeadFC = () => (
-  <SEO
-    title="Bio"
-    description="Hi, I'm Stephen. Software engineer, tinkerer, and occasional photographer."
-  />
-)
+export const Head: HeadFC = () => {
+  const { author } = useSiteMetadata()
+
+  return (
+    <SEO
+      title="Bio"
+      description="Hi, I'm Stephen. Software engineer, tinkerer, and occasional photographer."
+      imgType="profile"
+      imgTitle={author.title}
+      imgSubtitle={author.subtitle}
+      image="https://vondenstein.com/static/d6739856934033244f0b7ed44b54d539/90089/profile.jpg"
+    />
+  )
+}

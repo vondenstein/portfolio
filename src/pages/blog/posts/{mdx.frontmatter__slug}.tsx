@@ -26,7 +26,7 @@ const BlogPost = ({ data, children }: PageProps) => {
       </div>
       <GatsbyImage
         placeholder="blurred"
-        image={heroImage}
+        image={heroImage!}
         alt={data.mdx.frontmatter.hero_image_alt}
         className={styles.heroImage}
       />
@@ -55,6 +55,15 @@ export const query = graphql`
   }
 `
 
-export const Head: HeadFC = ({ data }) => (
-  <SEO title={data.mdx.frontmatter.title} description={data.mdx.excerpt} />
-)
+export const Head: HeadFC = ({ data }) => {
+  const { siteUrl } = useSiteMetadata()
+
+  return (
+    <SEO
+      title={data.mdx.frontmatter.title}
+      description={data.mdx.excerpt}
+      imgType="post"
+      image={`${siteUrl}${data.mdx.frontmatter.hero_image.childImageSharp.gatsbyImageData.images.fallback.src}`}
+    />
+  )
+}
