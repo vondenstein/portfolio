@@ -25,7 +25,7 @@ const SEO = ({
 
   if (seo.image) {
     const imageUrl = new URL(seo.image)
-    imageUrl.searchParams.append("title", seo.title)
+    imageUrl.searchParams.append("title", title ? title : siteMetadata.title)
     imageUrl.searchParams.append("subtitle", seo.description)
     if (type) imageUrl.searchParams.append("type", type)
     if (image) imageUrl.searchParams.append("image", image)
