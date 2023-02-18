@@ -1,21 +1,46 @@
 import React from "react"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 
+type SEOProps = {
+  title?: string
+  description?: string
+  children?: React.ReactNode
+  imgType?: string
+  image?: string
+  imgTitle?: string
+  imgSubtitle?: string
+}
+
 const SEO = ({
   title,
   description,
   children,
-}: {
-  title?: string
-  description?: string
-  children?: any
-}) => {
-  const siteMetadata = useSiteMetadata()
+  imgType,
+  image,
+  imgTitle,
+  imgSubtitle,
+}: SEOProps) => {
+  const {
+    title: siteTitle,
+    description: siteDescription,
+    twitterHandle,
+    ogImageUrl,
+  } = useSiteMetadata()
 
   const seo = {
-    title: title ? `${title} · ${siteMetadata.author}` : siteMetadata.title,
-    description: description ? description : siteMetadata.description,
-    twitterHandle: siteMetadata.twitterHandle,
+    title: title ? `${title} · ${siteTitle}` : siteTitle,
+    description: description ?? siteDescription,
+    twitterHandle: twitterHandle,
+    image: ogImageUrl,
+  }
+
+  if (seo.image) {
+    const imageUrl = new URL(seo.image)
+    imageUrl.searchParams.append("title", imgTitle ?? title ?? siteTitle)
+    imageUrl.searchParams.append("subtitle", imgSubtitle ?? seo.description)
+    if (imgType) imageUrl.searchParams.append("type", imgType)
+    if (image) imageUrl.searchParams.append("image", image)
+    seo.image = imageUrl
   }
 
   return (
@@ -23,25 +48,27 @@ const SEO = ({
       <html lang="en" />
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
-      {/* <meta name="image/> */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />
-      {/* <meta name="twitter:image" content={seo.image} /> */}
-      {seo.twitterHandle ? (
+      {seo.twitterHandle && (
         <meta name="twitter:creator" content={seo.twitterHandle} />
-      ) : (
-        <></>
       )}
       <meta name="og:title" content={seo.title} />
       <meta name="og:description" content={seo.description} />
+      {seo.image && (
+        <>
+          <meta name="image" content={seo.image} />
+          <meta name="twitter:image" content={seo.image} />
+          <meta name="og:image" content={seo.image} />
+        </>
+      )}
+
       {/* <meta name="og:type" />
       <meta name="og:article? "/>
       <meta name="og:url" />
-      <meta name="og:image" />
       <meta name="og:image:width" />
       <meta name="og:image:height" /> */}
-      {/* <link rel="icon" href="" /> */}
       {children}
     </>
   )
