@@ -9,7 +9,12 @@ const config: GatsbyConfig = {
     title: `Stephen Vondenstein`,
     description: `The portfolio site and personal blog of Stephen Vondenstein, Software Engineer at S&P Global`,
     siteUrl: `https://vondenstein.com`,
-    author: `Stephen Vondenstein`,
+    ogImageUrl: `https://og.vondenstein.com/api/generate`,
+    author: {
+      name: `Stephen Vondenstein`,
+      title: `👋🏻 I'm Stephen.`,
+      subtitle: `Software Engineer · Tinkerer · Occasional Photographer`,
+    },
     twitterHandle: ``,
   },
   graphqlTypegen: true,
@@ -40,7 +45,14 @@ const config: GatsbyConfig = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          placeholder: `blurred`,
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-transformer-json`,
     {

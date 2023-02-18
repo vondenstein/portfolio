@@ -39,4 +39,9 @@ const NotFoundPage: React.FC<PageProps> = () => {
 
 export default NotFoundPage
 
-export const Head: HeadFC = () => <SEO title="404 - Not Found" />
+export const Head: HeadFC = () => (
+  <SEO
+    title="404 - Not Found"
+    description="Sorry, there is nothing at this URL."
+  />
+)

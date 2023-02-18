@@ -39,4 +39,10 @@ const CodePage: React.FC<PageProps> = () => {
 
 export default CodePage
 
-export const Head: HeadFC = () => <SEO title="Software Projects" />
+export const Head: HeadFC = () => (
+  <SEO
+    title="Software Projects"
+    description="A collection of software projects Stephen has worked on ~ for fun or to learn ~
+that he wanted to share."
+  />
+)

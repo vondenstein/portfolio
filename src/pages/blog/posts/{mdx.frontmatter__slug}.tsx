@@ -19,14 +19,14 @@ const BlogPost = ({ data, children }: PageProps) => {
         <p>
           By{" "}
           <Link to="/bio" className={styles.authorLink}>
-            {author}
+            {author.name}
           </Link>
           , {data.mdx.frontmatter.date} · 5 minute read
         </p>
       </div>
       <GatsbyImage
         placeholder="blurred"
-        image={heroImage}
+        image={heroImage!}
         alt={data.mdx.frontmatter.hero_image_alt}
         className={styles.heroImage}
       />
@@ -50,8 +50,20 @@ export const query = graphql`
           }
         }
       }
+      excerpt
     }
   }
 `
 
-export const Head: HeadFC = () => <SEO />
+export const Head: HeadFC = ({ data }) => {
+  const { siteUrl } = useSiteMetadata()
+
+  return (
+    <SEO
+      title={data.mdx.frontmatter.title}
+      description={data.mdx.excerpt}
+      imgType="post"
+      image={`${siteUrl}${data.mdx.frontmatter.hero_image.childImageSharp.gatsbyImageData.images.fallback.src}`}
+    />
+  )
+}

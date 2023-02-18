@@ -6,8 +6,12 @@ import { StaticImage } from "gatsby-plugin-image"
 import Block from "../components/Block"
 
 import * as styles from "../styles/BioPage.module.css"
+import SEO from "../components/SEO"
+import { useSiteMetadata } from "../hooks/use-site-metadata"
 
 const BioPage: React.FC<PageProps> = () => {
+  const { author } = useSiteMetadata()
+
   return (
     <Layout>
       <Block>
@@ -20,10 +24,8 @@ const BioPage: React.FC<PageProps> = () => {
           width={180}
           placeholder="blurred"
         />
-        <h2 style={{ marginBottom: "15px" }}>👋🏻 I'm Stephen.</h2>
-        <p style={{ marginBottom: "5px" }}>
-          Software Engineer · Tinkerer · Occasional Photographer
-        </p>
+        <h2 style={{ marginBottom: "15px" }}>{author.title}</h2>
+        <p style={{ marginBottom: "5px" }}>{author.subtitle}</p>
       </Block>
       <h2>Passions</h2>
       <p>
@@ -55,4 +57,17 @@ const BioPage: React.FC<PageProps> = () => {
 
 export default BioPage
 
-export const Head: HeadFC = () => <title>Bio Page</title>
+export const Head: HeadFC = () => {
+  const { author } = useSiteMetadata()
+
+  return (
+    <SEO
+      title="Bio"
+      description="Hi, I'm Stephen. Software engineer, tinkerer, and occasional photographer."
+      imgType="profile"
+      imgTitle={author.title}
+      imgSubtitle={author.subtitle}
+      image="https://vondenstein.com/static/d6739856934033244f0b7ed44b54d539/90089/profile.jpg"
+    />
+  )
+}
