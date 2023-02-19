@@ -15,6 +15,11 @@ const NavBar = () => {
         <Logo />
       </Link>
       <div className={styles.right}>
+        <div className={styles.menuButton}>
+          <span className={styles.bar} />
+          <span className={styles.bar} />
+          <span className={styles.bar} />
+        </div>
         {navLinks.edges.map(({ node }: Queries.NavigationJsonEdge) => {
           return (
             <Link
