@@ -10,7 +10,6 @@ const NavBar = () => {
   const navLinks = useNavigationLinks()
 
   return (
-    // <nav className={styles.nav}>
     <nav className={styles.container}>
       <Link className={styles.logoLink} to={"/"}>
         <Logo />
@@ -34,7 +33,6 @@ const NavBar = () => {
         })}
       </div>
     </nav>
-    // </nav>
   )
 }
 

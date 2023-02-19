@@ -1,18 +1,35 @@
 .container {
-  max-width: 1024px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 2rem;
   box-sizing: content-box;
-  /* height: 100%; */
 }
 
 .main {
-  /* min-height: 100vh; */
   padding: 4rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* margin: 0 2rem; */
-  /* align-items: center; */
+}
+
+@media (max-width: 1080px) {
+  .container {
+    max-width: 688px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .main {
+    padding: 2rem 0 1rem;
+  }
 }

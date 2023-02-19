@@ -22,6 +22,17 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.right}>
+        <Link
+          className={styles.link}
+          key="/"
+          to="/</div>"
+          data-a11y="false"
+          getProps={({ isPartiallyCurrent, isCurrent }) =>
+            isPartiallyCurrent && isCurrent ? { ["data-active"]: "true" } : null
+          }
+        >
+          Home
+        </Link>
         {navLinks.edges.map(({ node }: Queries.NavigationJsonEdge) => {
           return (
             <Link
