@@ -1,0 +1,9 @@
+.drawer {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #1b1b1b;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}

@@ -1,0 +1,11 @@
+.open {
+  background-color: #111111;
+  transform: translate(0, calc(100vh - 5rem));
+  transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.closed {
+  background-color: #111111;
+  /* transform: translate(0, calc(100vh - 10rem)); */
+  transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+}

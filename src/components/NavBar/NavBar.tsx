@@ -1,13 +1,19 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "gatsby"
 
 import * as styles from "./NavBar.module.css"
 import { useNavigationLinks } from "../../hooks/use-navigation-links"
+import MenuContext from "../MenuContext"
 
 import Logo from "../Logo"
 
 const NavBar = () => {
   const navLinks = useNavigationLinks()
+  const { isOpen, setOpen } = useContext(MenuContext)
+
+  const toggleNav = () => {
+    setOpen(isOpen => !isOpen)
+  }
 
   return (
     <nav className={styles.container}>
@@ -15,7 +21,7 @@ const NavBar = () => {
         <Logo />
       </Link>
       <div className={styles.right}>
-        <div className={styles.menuButton}>
+        <div className={styles.menuButton} onClick={toggleNav}>
           <span className={styles.bar} />
           <span className={styles.bar} />
           <span className={styles.bar} />
