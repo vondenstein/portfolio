@@ -1,6 +1,6 @@
 .open {
   background-color: #111111;
-  transform: translate(0, calc(100vh - 5rem));
+  transform: translate(0, calc(100vh - 8rem));
   transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
