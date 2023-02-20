@@ -6,7 +6,6 @@
   height: 100%;
   justify-content: space-between;
   display: flex;
-  z-index: 2;
   align-items: center;
   padding: 10rem 0 4rem;
 }
@@ -115,7 +114,7 @@
 
   .link {
     margin: 1rem 0 !important;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .left {

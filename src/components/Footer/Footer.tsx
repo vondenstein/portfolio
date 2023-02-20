@@ -25,7 +25,7 @@ const Footer = () => {
         <Link
           className={styles.link}
           key="/"
-          to="/</div>"
+          to="/"
           data-a11y="false"
           getProps={({ isPartiallyCurrent, isCurrent }) =>
             isPartiallyCurrent && isCurrent ? { ["data-active"]: "true" } : null
