@@ -1,23 +1,23 @@
 .cardContainer {
-  height: 200px;
   display: flex;
   flex-direction: row;
-}
-
-.right {
-  border-radius: 20px;
-  width: 500px;
-  margin-left: 25px;
 }
 
 .left {
   border-radius: 20px;
   width: 100%;
-  min-width: 300px;
+}
+
+.right {
+  border-radius: 20px;
+  width: 18rem;
+  margin-left: 2rem;
+  flex-shrink: 0;
 }
 
 .content {
-  padding: 30px;
+  color: #fdf9f2;
+  padding: 2rem;
 }
 
 .badge {
@@ -39,8 +39,69 @@
   opacity: 90%;
 }
 
+.description {
+  margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
 .links {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 35px 25px 0;
+  flex-wrap: wrap;
+}
+
+.link {
+  text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+  .right {
+    width: 12rem;
+    margin-left: 1rem;
+  }
+
+  .description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .content {
+    padding: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardContainer {
+    flex-direction: column;
+  }
+
+  .right {
+    width: 100%;
+    margin: 1.5rem 0;
+  }
+
+  .content {
+    padding: 1.4rem;
+  }
+
+  .link {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .content {
+    padding: 1.2rem;
+  }
+
+  .links {
+    align-items: center;
+    flex-direction: column;
+  }
 }

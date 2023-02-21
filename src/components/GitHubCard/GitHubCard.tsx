@@ -32,7 +32,9 @@ const GitHubCard = ({}) => {
                 {repositories[0].node.stargazerCount}
               </div>
             </div>
-            <p>{repositories[0].node.description}</p>
+            <p className={styles.description}>
+              {repositories[0].node.description}
+            </p>
           </div>
         </div>
         <div
@@ -57,7 +59,9 @@ const GitHubCard = ({}) => {
                 {repositories[1].node.stargazerCount}
               </div>
             </div>
-            <p>{repositories[1].node.description}</p>
+            <p className={styles.description}>
+              {repositories[1].node.description}
+            </p>
           </div>
         </div>
       </div>
@@ -66,7 +70,7 @@ const GitHubCard = ({}) => {
           .slice(2)
           .map(({ node }: Queries.GitHub_PinnableItemEdge) => {
             return (
-              <a href={node?.url} style={{ textDecoration: "none" }}>
+              <a href={node?.url} className={styles.link}>
                 <Button dark>{node?.name}</Button>
               </a>
             )
