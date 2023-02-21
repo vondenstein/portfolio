@@ -15,6 +15,7 @@ export const useGitHubRepos = () => {
                     owner {
                       id
                     }
+                    isArchived
                     nameWithOwner
                     description
                     homepageUrl
