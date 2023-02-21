@@ -58,6 +58,7 @@
 .link object {
   height: 16px;
   margin-right: 12px;
+  margin-bottom: -2px;
 }
 
 .links {
