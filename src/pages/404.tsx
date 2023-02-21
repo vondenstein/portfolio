@@ -15,6 +15,8 @@ const NotFoundPage: React.FC<PageProps> = () => {
           flexDirection: "column",
           alignItems: "center",
           textAlign: "center",
+          margin:
+            "max(calc(calc(100vh - 32rem) / 2), 4rem) 0 max(calc(calc(100vh - 32rem) / 2), 6rem)",
         }}
       >
         <StaticImage
