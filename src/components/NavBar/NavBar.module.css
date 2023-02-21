@@ -1,6 +1,6 @@
 .container {
   padding-top: 9px !important;
-  max-width: 1000px;
+  max-width: 1200px;
   box-sizing: content-box;
   position: relative;
   margin: 0 auto;
@@ -82,15 +82,29 @@
   margin-bottom: 6px;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1280px) {
   .container {
-    max-width: 688px;
+    margin: 0 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 848px) {
+  .container {
+    margin: 0 2rem;
   }
 }
 
 @media (max-width: 768px) {
   .container {
-    max-width: 440px;
+    max-width: 480px;
+    margin: 0 auto;
   }
 
   .link:not(:last-child) {
@@ -98,7 +112,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .container {
     padding: 0 1rem;
     padding-top: 10px;

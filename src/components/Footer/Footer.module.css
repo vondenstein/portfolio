@@ -1,5 +1,5 @@
 .container {
-  max-width: 1000px;
+  max-width: 1200px;
   box-sizing: content-box;
   position: relative;
   margin: 0 auto;
@@ -79,14 +79,26 @@
   margin-left: 50px;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1280px) {
   .container {
-    max-width: 688px;
+    margin: 0 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 848px) {
+  .container {
+    margin: 0 2rem;
   }
 }
 
 @media (max-width: 768px) {
-  /* .right, */
   .logoLink {
     display: none;
   }
@@ -107,7 +119,6 @@
     justify-content: center;
     flex-direction: column-reverse;
     margin: 5rem 2rem 5rem;
-    /* padding: 10rem 2rem 4rem; */
     padding: 5rem 0 0;
     border-top: 1px solid #1b1b1b;
   }
@@ -126,7 +137,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .container {
     margin: 0rem 1rem 4rem;
     padding: 4rem 0 0;
