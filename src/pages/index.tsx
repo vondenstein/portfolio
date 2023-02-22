@@ -41,7 +41,7 @@ const IndexPage: React.FC<PageProps> = () => {
               textDecoration: "underline",
               textDecorationStyle: "dashed",
             }}
-            title="Link to S&P Global website"
+            title="S&P Global website"
           >
             S&P Global
           </a>
@@ -70,7 +70,7 @@ const IndexPage: React.FC<PageProps> = () => {
               textDecoration: "underline",
               textDecorationStyle: "dashed",
             }}
-            title="Link to GitHub"
+            title="Vondenstein on GitHub"
           >
             GitHub
           </a>

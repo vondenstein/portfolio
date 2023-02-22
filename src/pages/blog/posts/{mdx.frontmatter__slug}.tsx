@@ -18,7 +18,11 @@ const BlogPost = ({ data, children }: PageProps) => {
         <h1 className={styles.title}>{data.mdx.frontmatter.title}</h1>
         <p className={styles.subtitle}>
           By{" "}
-          <Link to="/bio" className={styles.authorLink}>
+          <Link
+            to="/bio"
+            className={styles.authorLink}
+            title={`${author.name}'s Bio`}
+          >
             {author.name}
           </Link>
           , {data.mdx.frontmatter.date} · 5 minute read

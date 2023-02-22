@@ -8,8 +8,12 @@ const PostCard = ({ id, excerpt, frontmatter }: Queries.Mdx) => {
   const image = getImage(frontmatter.hero_image)
 
   return (
-    <article key={id} className={styles.article}>
-      <Link to={`/blog/posts/${frontmatter?.slug}`} className={styles.link}>
+    <article key={id} className={styles.article} title={frontmatter?.title!}>
+      <Link
+        to={`/blog/posts/${frontmatter?.slug}`}
+        className={styles.link}
+        title={frontmatter?.title!}
+      >
         <div className={styles.container}>
           <div>
             <GatsbyImage
