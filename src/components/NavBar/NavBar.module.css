@@ -1,28 +1,14 @@
 .container {
-  margin-top: 9px !important;
-  max-width: 1024px;
-  padding: 0 2rem;
+  padding-top: 2.2rem;
+  max-width: 1200px;
   box-sizing: content-box;
   position: relative;
   margin: 0 auto;
   height: 54px;
-  padding-top: 25px;
   justify-content: space-between;
   display: flex;
-  /* z-index: 2; */
   align-items: center;
 }
-
-/* .nav {
-  padding-top: 100px;
-  min-width: 320px;
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  height: 54px;
-} */
 
 .right {
   margin-bottom: 9px;
@@ -34,7 +20,7 @@
 .link {
   position: relative;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 0.85rem;
   font-family: "SF Pro Display", "-apple-system", "BlinkMacSystemFont",
     "San Francisco", "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto",
     "Segoe UI", "Arial", sans-serif;
@@ -70,4 +56,71 @@
 
 .logoLink:hover {
   opacity: 0.6;
+}
+
+.menuButton {
+  background-color: transparent;
+  border: none;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  display: none;
+}
+
+.bar {
+  display: block;
+  background-color: #fdf9f2;
+  height: 2px;
+  border-radius: 2px;
+}
+
+.bar:nth-of-type(2) {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 1280px) {
+  .container {
+    margin: 0 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 848px) {
+  .container {
+    margin: 0 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .link:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    padding: 2.2rem 1rem 0;
+  }
+
+  .link {
+    display: none;
+  }
+
+  .menuButton {
+    display: block;
+  }
 }

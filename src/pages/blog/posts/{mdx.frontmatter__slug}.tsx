@@ -15,8 +15,8 @@ const BlogPost = ({ data, children }: PageProps) => {
   return (
     <Layout>
       <div className={styles.header}>
-        <h1>{data.mdx.frontmatter.title}</h1>
-        <p>
+        <h1 className={styles.title}>{data.mdx.frontmatter.title}</h1>
+        <p className={styles.subtitle}>
           By{" "}
           <Link to="/bio" className={styles.authorLink}>
             {author.name}
@@ -30,7 +30,7 @@ const BlogPost = ({ data, children }: PageProps) => {
         alt={data.mdx.frontmatter.hero_image_alt}
         className={styles.heroImage}
       />
-      {children}
+      <div className={styles.content}>{children}</div>
     </Layout>
   )
 }
