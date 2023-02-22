@@ -24,7 +24,11 @@ const ProjectCard = ({
         <hr className={styles.hr} />
         <div className={styles.links}>
           {links?.map(link => (
-            <a className={styles.link} href={link?.url ?? "/"}>
+            <a
+              className={styles.link}
+              href={link?.url ?? "/"}
+              title={link?.text!}
+            >
               <object type="image/svg+xml" data={`icons/${link?.icon}.svg`} />
               {link?.text}
             </a>

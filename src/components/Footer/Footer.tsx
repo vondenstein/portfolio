@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <footer className={styles.container}>
       <div className={styles.left}>
-        <Link className={styles.logoLink} to={"/"}>
+        <Link className={styles.logoLink} to={"/"} title="Home">
           <Logo />
         </Link>
         <div className={styles.copyright}>
@@ -27,6 +27,7 @@ const Footer = () => {
           key="/"
           to="/"
           data-a11y="false"
+          title="Home"
           getProps={({ isPartiallyCurrent, isCurrent }) =>
             isPartiallyCurrent && isCurrent ? { ["data-active"]: "true" } : null
           }
@@ -45,6 +46,7 @@ const Footer = () => {
                   ? { ["data-active"]: "true" }
                   : null
               }
+              title={node.title!}
             >
               {node.title}
             </Link>
