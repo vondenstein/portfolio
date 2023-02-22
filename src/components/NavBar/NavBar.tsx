@@ -1,21 +1,31 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "gatsby"
 
 import * as styles from "./NavBar.module.css"
 import { useNavigationLinks } from "../../hooks/use-navigation-links"
+import MenuContext from "../MenuContext"
 
 import Logo from "../Logo"
 
 const NavBar = () => {
   const navLinks = useNavigationLinks()
+  const { isOpen, setOpen } = useContext(MenuContext)
+
+  const toggleNav = () => {
+    setOpen(isOpen => !isOpen)
+  }
 
   return (
-    // <nav className={styles.nav}>
     <nav className={styles.container}>
       <Link className={styles.logoLink} to={"/"}>
         <Logo />
       </Link>
       <div className={styles.right}>
+        <div className={styles.menuButton} onClick={toggleNav}>
+          <span className={styles.bar} />
+          <span className={styles.bar} />
+          <span className={styles.bar} />
+        </div>
         {navLinks.edges.map(({ node }: Queries.NavigationJsonEdge) => {
           return (
             <Link
@@ -34,7 +44,6 @@ const NavBar = () => {
         })}
       </div>
     </nav>
-    // </nav>
   )
 }
 
