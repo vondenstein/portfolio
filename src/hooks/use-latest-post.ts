@@ -17,6 +17,11 @@ export const useLatestPost = () => {
                 }
               }
             }
+            fields {
+              timeToRead {
+                minutes
+              }
+            }
             id
             excerpt
           }

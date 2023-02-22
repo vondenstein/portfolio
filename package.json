@@ -49,6 +49,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-typography": "^0.16.23",
+    "reading-time": "^1.5.0",
     "typography": "^0.16.21"
   },
   "devDependencies": {
