@@ -25,7 +25,8 @@ const BlogPost = ({ data, children }: PageProps) => {
           >
             {author.name}
           </Link>
-          , {data.mdx.frontmatter.date} · 5 minute read
+          , {data.mdx.frontmatter.date} ·{" "}
+          {Math.round(data.mdx.fields.timeToRead.minutes)} minute read
         </p>
       </div>
       <GatsbyImage
@@ -52,6 +53,11 @@ export const query = graphql`
           childImageSharp {
             gatsbyImageData
           }
+        }
+      }
+      fields {
+        timeToRead {
+          minutes
         }
       }
       excerpt

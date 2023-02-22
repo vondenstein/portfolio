@@ -55,6 +55,7 @@ const IndexPage: React.FC<PageProps> = () => {
         internal={latestPost.internal}
         children={latestPost.children}
         parent={latestPost.parent}
+        fields={latestPost.fields}
       />
       <div style={{ height: "100px" }} />
       <Block>

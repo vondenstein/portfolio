@@ -18,6 +18,7 @@ const BlogPage: React.FC<PageProps> = ({ data }) => {
           internal={node.internal}
           children={node.children}
           parent={node.parent}
+          fields={node.fields}
         />
       ))}
     </Layout>
@@ -39,6 +40,11 @@ export const query = graphql`
             childImageSharp {
               gatsbyImageData
             }
+          }
+        }
+        fields {
+          timeToRead {
+            minutes
           }
         }
         id
