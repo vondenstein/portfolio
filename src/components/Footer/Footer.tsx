@@ -18,10 +18,21 @@ const Footer = () => {
           <Logo />
         </Link>
         <div className={styles.copyright}>
-          &copy; {new Date().getFullYear()} {author}.
+          &copy; {new Date().getFullYear()} {author.name}.
         </div>
       </div>
       <div className={styles.right}>
+        <Link
+          className={styles.link}
+          key="/"
+          to="/"
+          data-a11y="false"
+          getProps={({ isPartiallyCurrent, isCurrent }) =>
+            isPartiallyCurrent && isCurrent ? { ["data-active"]: "true" } : null
+          }
+        >
+          Home
+        </Link>
         {navLinks.edges.map(({ node }: Queries.NavigationJsonEdge) => {
           return (
             <Link

@@ -2,26 +2,24 @@ import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
 import { graphql, Link } from "gatsby"
 
-import * as styles from "../../styles/Page.module.css"
 import Layout from "../../components/Layout"
 import PostCard from "../../components/PostCard"
+import SEO from "../../components/SEO"
 
 const BlogPage: React.FC<PageProps> = ({ data }) => {
   return (
     <Layout>
-      <main className={styles.main}>
-        <h1>Posts</h1>
-        {data.allMdx.nodes.map(node => (
-          <PostCard
-            id={node.id}
-            frontmatter={node.frontmatter}
-            excerpt={node.excerpt}
-            internal={node.internal}
-            children={node.children}
-            parent={node.parent}
-          />
-        ))}
-      </main>
+      <h1>Posts</h1>
+      {data.allMdx.nodes.map(node => (
+        <PostCard
+          id={node.id}
+          frontmatter={node.frontmatter}
+          excerpt={node.excerpt}
+          internal={node.internal}
+          children={node.children}
+          parent={node.parent}
+        />
+      ))}
     </Layout>
   )
 }
@@ -50,4 +48,9 @@ export const query = graphql`
   }
 `
 
-export const Head: HeadFC = () => <title>Blog Page</title>
+export const Head: HeadFC = () => (
+  <SEO
+    title="Posts"
+    description="A collection of posts about software engineering, electronics and photography with the occasional post about life and travels."
+  />
+)
