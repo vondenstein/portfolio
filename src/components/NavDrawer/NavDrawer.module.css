@@ -10,6 +10,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 9.5rem;
+  transition: opacity 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .drawer * {
