@@ -27,6 +27,7 @@ const NavDrawer = () => {
                 ? { ["data-active"]: "true" }
                 : null
             }
+            title={node.title!}
           >
             {node.title}
           </Link>

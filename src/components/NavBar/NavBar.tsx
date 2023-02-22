@@ -17,7 +17,7 @@ const NavBar = () => {
 
   return (
     <nav className={styles.container}>
-      <Link className={styles.logoLink} to={"/"}>
+      <Link className={styles.logoLink} to="/" title="Home">
         <Logo />
       </Link>
       <div className={styles.right}>
@@ -37,6 +37,7 @@ const NavBar = () => {
                   ? { ["data-active"]: "true" }
                   : null
               }
+              title={node.title!}
             >
               {node.title}
             </Link>

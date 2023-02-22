@@ -22,7 +22,9 @@ const GitHubCard = ({}) => {
               <div className={styles.content}>
                 <div className={styles.top}>
                   <h3>
-                    <a href={node?.url}>{node?.name}</a>
+                    <a href={node?.url} title={`${node?.name} on GitHub`}>
+                      {node?.name}
+                    </a>
                   </h3>
                   <div className={styles.badge}>
                     {node?.isArchived ? (
@@ -52,7 +54,11 @@ const GitHubCard = ({}) => {
           to see all of my projects - some of which are not listed here - head
           over to GitHub to check them out!{" "}
         </p>
-        <a href="https://github.com/vondenstein" className={styles.link}>
+        <a
+          href="https://github.com/vondenstein"
+          className={styles.link}
+          title="Vondenstein on GitHub"
+        >
           <Button>GitHub</Button>
         </a>
       </Block>
