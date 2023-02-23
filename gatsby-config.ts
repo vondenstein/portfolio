@@ -25,7 +25,7 @@ const config: GatsbyConfig = {
       options: {
         name: `Stephen Vondenstein`,
         short_name: `Vondenstein`,
-        description: `All the information you never wished you knew about Stephen.`,
+        description: `The portfolio site and personal blog of Stephen Vondenstein, Software Engineer at S&P Global`,
         lang: `en`,
         start_url: `/`,
         background_color: `#111111`,
@@ -95,7 +95,34 @@ const config: GatsbyConfig = {
       },
     },
     `gatsby-plugin-catch-links`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+          allSitePage {
+            nodes {
+              path
+              pageContext
+            }
+          }
+        }
+        `,
+        serialize: ({ path, pageContext }: Queries.SitePage) => {
+          return {
+            url: path,
+            priority: pageContext?.priority,
+            changefreq: pageContext?.changeFreq,
+            lastmod: pageContext?.lastMod,
+          }
+        },
+      },
+    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-sharp`,
