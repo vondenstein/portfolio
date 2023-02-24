@@ -33,6 +33,14 @@ const vondensteinTheme = {
         textDecoration: "underline",
         textDecorationStyle: "solid",
       },
+      hr: {
+        height: "8px",
+        color: "#1b1b1b",
+        backgroundColor: "#1b1b1b",
+        backgroundSize: "3px 3px",
+        borderRadius: "4px",
+        // width: "65%",
+      },
     }
   },
   // plugins: [new CodePlugin()],
