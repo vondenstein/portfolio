@@ -7,16 +7,6 @@ import Typography from "typography"
 const vondensteinTheme = {
   baseFontSize: "21px",
   baseLineHeight: 1.5,
-  googleFonts: [
-    {
-      name: "Rosario",
-      styles: ["700"],
-    },
-    {
-      name: "Crimson Text",
-      styles: ["400", "400i", "600"],
-    },
-  ],
   headerFontFamily: ["Rosario", "sans-serif"],
   bodyFontFamily: ["Crimson Text", "serif"],
   headerColor: "#fdf9f2",
