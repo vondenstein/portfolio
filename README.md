@@ -34,6 +34,34 @@
 
 This site is my personal space On The Line™. I showcase my projects, share life experiences, and shed light on things I find interesting - whether it be new photos I've taken, or a helpful new tool I've found. My written content is personal in nature and does not necessarily reflect the views of my employer, my University (Geaux Tigers), or anyone I've collaborated with on projects and products.
 
+## 💡 Features
+
+Gatsby, React and Vercel have a lot of advanced features available to help developers design a modern, high-performance static site. Below is a list of features that this site makes use of.
+
+### Open Graph Images
+
+### Fully Compliant XML Sitemap
+
+### Responsive Design
+
+### Responsive Images
+
+### Vercel Header Configuration
+
+### Font Preloading
+
+### MDX Blog
+
+### Reading Time Estimates
+
+### Typography.JS
+
+### Lighthouse Score
+
+### GitHub Integration
+
+### Custom React UI
+
 ## 📝 License
 
 Feel free to review the code and reuse what you feel is appropriate. However, please respect that the files in the following directories are © Stephen Vondenstein. As they contain copyrighted photos and posts, you **may not** reuse anything therein without my written permission:
