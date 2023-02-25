@@ -129,6 +129,7 @@ const config: GatsbyConfig = {
       options: {
         defaults: {
           placeholder: `blurred`,
+          quality: 75,
         },
       },
     },
@@ -147,6 +148,16 @@ const config: GatsbyConfig = {
           {
             resolve: `gatsby-remark-prismjs`,
             options: {},
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 672,
+              showCaptions: true,
+              markdownCaptions: false,
+              backgroundColor: `transparent`,
+              quality: 75,
+            },
           },
         ],
       },
