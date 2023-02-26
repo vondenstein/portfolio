@@ -67,7 +67,8 @@
   display: block;
 }
 
-.link:active {
+.link:active,
+.link:focus {
   background-color: transparent;
   border-radius: 20px;
 }
