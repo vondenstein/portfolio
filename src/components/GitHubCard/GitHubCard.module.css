@@ -69,8 +69,10 @@
 
 .link:active,
 .link:focus,
+.link:focus-visible,
 .card:active,
-.card:focus {
+.card:focus,
+.card:focus-visible {
   background-color: transparent;
   border-radius: 20px;
 }
