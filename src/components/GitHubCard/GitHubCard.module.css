@@ -65,7 +65,10 @@
   height: 100%;
   width: 100%;
   display: block;
-  border-radius: 20px;
+}
+
+.link:active {
+  background-color: transparent;
 }
 
 .blockText {
