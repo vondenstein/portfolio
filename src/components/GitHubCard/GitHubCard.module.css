@@ -26,6 +26,7 @@
 .content {
   color: #fdf9f2;
   padding: 1.7rem;
+  opacity: inherit;
 }
 
 .badge {
@@ -61,6 +62,10 @@
 
 .link {
   text-decoration: none;
+}
+
+.link:hover {
+  opacity: 0.6;
 }
 
 .blockText {
