@@ -18,10 +18,13 @@ const vondensteinTheme = {
     return {
       a: {
         color: "inherit",
+        textDecoration: "underline",
+        textDecorationStyle: "dashed",
+        fontWeight: "bold",
+        transition: "opacity 0.3s cubic-bezier(0.3, 0.46, 0.45, 0.9)",
       },
       "a:hover": {
-        textDecoration: "underline",
-        textDecorationStyle: "solid",
+        opacity: "0.6",
       },
       hr: {
         height: "8px",

@@ -1,3 +1,11 @@
+.link {
+  text-decoration: none;
+}
+
+.link:hover {
+  opacity: 1;
+}
+
 .button {
   background-color: #1b1b1b;
   width: fit-content;
@@ -6,6 +14,8 @@
   padding: 5px 40px;
   text-decoration: none;
   color: #dddddd;
+  transition: color 0.3s cubic-bezier(0.3, 0.46, 0.45, 0.9),
+    background-color 0.3s cubic-bezier(0.3, 0.46, 0.45, 0.9);
 }
 
 .button:hover {
@@ -22,6 +32,8 @@
   padding: 5px 40px;
   text-decoration: none;
   color: #9a9a9a;
+  transition: color 0.3s cubic-bezier(0.3, 0.46, 0.45, 0.9),
+    background-color 0.3s cubic-bezier(0.3, 0.46, 0.45, 0.9);
 }
 
 .darkButton:hover {

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link, HeadFC, PageProps } from "gatsby"
+import { HeadFC, PageProps } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/Layout"
@@ -31,9 +31,9 @@ const NotFoundPage: React.FC<PageProps> = () => {
         <p style={{ marginBottom: "2rem" }}>
           Looks like you got lost in space.
         </p>
-        <Link to="/" style={{ textDecoration: "none" }} title="Home">
-          <Button dark>Phone home</Button>
-        </Link>
+        <Button to="/" title="Home" dark>
+          Phone home
+        </Button>
       </div>
     </Layout>
   )

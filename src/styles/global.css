@@ -4,12 +4,6 @@ body {
   margin: 0;
 }
 
-button,
-a {
-  text-decoration: none;
-  cursor: pointer;
-}
-
 @font-face {
   font-family: "Rosario";
   font-style: normal;

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { HeadFC, Link, PageProps } from "gatsby"
+import { HeadFC, PageProps } from "gatsby"
 
 import Layout from "../components/Layout"
 import PostCard from "../components/PostCard"
@@ -37,9 +37,6 @@ const IndexPage: React.FC<PageProps> = () => {
             href="https://spglobal.com"
             style={{
               color: "#fdf9f2",
-              fontWeight: "bold",
-              textDecoration: "underline",
-              textDecorationStyle: "dashed",
             }}
             title="S&P Global website"
           >
@@ -67,9 +64,6 @@ const IndexPage: React.FC<PageProps> = () => {
             href={githubProfile.url}
             style={{
               color: "#fdf9f2",
-              fontWeight: "bold",
-              textDecoration: "underline",
-              textDecorationStyle: "dashed",
             }}
             title="Vondenstein on GitHub"
           >
@@ -77,13 +71,9 @@ const IndexPage: React.FC<PageProps> = () => {
           </a>
           .
         </p>
-        <Link
-          to={"/code"}
-          style={{ textDecoration: "none" }}
-          title="Link to Projects Page"
-        >
-          <Button>View projects</Button>
-        </Link>
+        <Button to="/code" title="Link to Projects Page">
+          View projects
+        </Button>
       </Block>
     </Layout>
   )
