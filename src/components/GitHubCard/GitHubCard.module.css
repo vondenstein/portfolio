@@ -68,10 +68,8 @@
 }
 
 .link:active {
-  background-color: inherit;
-  border-radius: inherit;
-  outline: transparent;
-  border: transparent;
+  outline: none;
+  border: none;
 }
 
 .blockText {
