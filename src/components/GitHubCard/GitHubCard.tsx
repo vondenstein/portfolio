@@ -13,39 +13,35 @@ const GitHubCard = ({}) => {
       <div className={styles.cardContainer}>
         {repositories.map(({ node }: Queries.GitHub_PinnableItemEdge) => {
           return (
-            <div
+            <a
+              href={node?.url}
+              title={`${node?.name} on GitHub`}
+              className={styles.card}
               style={{
                 backgroundColor: `${node?.primaryLanguage.color}`,
               }}
-              className={styles.card}
             >
-              <a
-                href={node?.url}
-                title={`${node?.name} on GitHub`}
-                className={styles.link}
-              >
-                <div className={styles.content}>
-                  <div className={styles.top}>
-                    <h3>{node?.name}</h3>
-                    <div className={styles.badge}>
-                      {node?.isArchived ? (
-                        <>Archive</>
-                      ) : (
-                        <>
-                          <object
-                            type="image/svg+xml"
-                            data={`icons/star.svg`}
-                            className={styles.icon}
-                          />
-                          {node?.stargazerCount}
-                        </>
-                      )}
-                    </div>
+              <div className={styles.content}>
+                <div className={styles.top}>
+                  <h3>{node?.name}</h3>
+                  <div className={styles.badge}>
+                    {node?.isArchived ? (
+                      <>Archive</>
+                    ) : (
+                      <>
+                        <object
+                          type="image/svg+xml"
+                          data={`icons/star.svg`}
+                          className={styles.icon}
+                        />
+                        {node?.stargazerCount}
+                      </>
+                    )}
                   </div>
-                  <p className={styles.description}>{node?.description}</p>
                 </div>
-              </a>
-            </div>
+                <p className={styles.description}>{node?.description}</p>
+              </div>
+            </a>
           )
         })}
       </div>
