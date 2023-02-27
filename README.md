@@ -38,29 +38,41 @@ This site is my personal space On The Line™. I showcase my projects, share lif
 
 Gatsby, React and Vercel have a lot of advanced features available to help developers design a modern, high-performance static site. Below is a list of features that this site makes use of.
 
-### Open Graph Images
+### MDX Blog
 
-### Fully Compliant XML Sitemap
+[gatsby-plugin-mdx](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/) makes it easy to create a blog using MDX files as posts, and supports most remark plugins for additional features.
 
-### Responsive Design
+### Open Graph Data
+
+Sharing links are populated with rich open graph data built from page titles and descriptions, along with open graph images genereated on-demand using [@vercel/og](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation). Information about this site's deployment for open graph image generation can be found [here](https://github.com/vondenstein/og).
+
+### Compliant XML Sitemap
+
+[gatsby-plugin-sitemap](https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/) generates an XML sitemap based on page information. According to Google, the most important field in the sitemap is the `lastmod` field. In [gatsby-node.ts](./gatsby-node.ts), we generate the information required to populate the `lastmod` field using [simple-git](https://github.com/steveukx/git-js), along with data for the `priority` and `changefreq` fields, even though these may not be used by Google crawlers.
 
 ### Responsive Images
 
-### Vercel Header Configuration
+[gatsby-plugin-image](https://www.gatsbyjs.com/plugins/gatsby-plugin-image/) is used to display blurred placeholder while lazily loading images, and generating multiple image sizes for different displays.
+
+### Vercel Headers
+
+The `vercel.json` file was added to customize the response headers, such as:
+
+- `cache-control` headers set according to [gatsby guidance](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/caching/)
+- `Strict-Transport-Security` headers for [HSTS Preload](https://hstspreload.org) functionality
+- Security headers such as `X-XSS-Protection`, `X-Frame-Options` etc.
 
 ### Font Preloading
 
-### MDX Blog
+Fonts are hosted with the site and preloaded in [gatsby-ssr.tsx](./gatsby-ssr.tsx) to increase performance.
 
 ### Reading Time Estimates
 
-### Typography.JS
-
-### Lighthouse Score
+Reading time estimates are generated for each blog post using the [reading-time](https://github.com/ngryman/reading-time) package in [gatsby-node.ts](./gatsby-node.ts).
 
 ### GitHub Integration
 
-### Custom React UI
+GitHub profile data is made available on the `/code` page using [gatsby-source-graphql](https://www.gatsbyjs.com/plugins/gatsby-source-graphql/) to access the GitHub GraphQL API.
 
 ## 📝 License
 
