@@ -15,24 +15,26 @@ const NavDrawer = () => {
 
   return (
     <div className={styles.drawer}>
-      {navLinks.edges.map(({ node }: Queries.NavigationJsonEdge) => {
-        return (
-          <Link
-            onClick={toggleNav}
-            className={styles.link}
-            key={node.url ?? ""}
-            to={node.url ?? ""}
-            getProps={({ isPartiallyCurrent, isCurrent }) =>
-              isPartiallyCurrent && isCurrent
-                ? { ["data-active"]: "true" }
-                : null
-            }
-            title={node.title!}
-          >
-            {node.title}
-          </Link>
-        )
-      })}
+      <div className={styles.links}>
+        {navLinks.edges.map(({ node }: Queries.NavigationJsonEdge) => {
+          return (
+            <Link
+              onClick={toggleNav}
+              className={styles.link}
+              key={node.url ?? ""}
+              to={node.url ?? ""}
+              getProps={({ isPartiallyCurrent, isCurrent }) =>
+                isPartiallyCurrent && isCurrent
+                  ? { ["data-active"]: "true" }
+                  : null
+              }
+              title={node.title!}
+            >
+              {node.title}
+            </Link>
+          )
+        })}
+      </div>
     </div>
   )
 }
