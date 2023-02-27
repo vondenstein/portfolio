@@ -17,29 +17,33 @@ const GitHubCard = ({}) => {
               href={node?.url}
               title={`${node?.name} on GitHub`}
               className={styles.card}
-              style={{
-                backgroundColor: `${node?.primaryLanguage.color}`,
-              }}
             >
-              <div className={styles.content}>
-                <div className={styles.top}>
-                  <h3>{node?.name}</h3>
-                  <div className={styles.badge}>
-                    {node?.isArchived ? (
-                      <>Archive</>
-                    ) : (
-                      <>
-                        <object
-                          type="image/svg+xml"
-                          data={`icons/star.svg`}
-                          className={styles.icon}
-                        />
-                        {node?.stargazerCount}
-                      </>
-                    )}
+              <div
+                style={{
+                  backgroundColor: `${node?.primaryLanguage.color}`,
+                }}
+                className={styles.contentContainer}
+              >
+                <div className={styles.content}>
+                  <div className={styles.top}>
+                    <h3>{node?.name}</h3>
+                    <div className={styles.badge}>
+                      {node?.isArchived ? (
+                        <>Archive</>
+                      ) : (
+                        <>
+                          <object
+                            type="image/svg+xml"
+                            data={`icons/star.svg`}
+                            className={styles.icon}
+                          />
+                          {node?.stargazerCount}
+                        </>
+                      )}
+                    </div>
                   </div>
+                  <p className={styles.description}>{node?.description}</p>
                 </div>
-                <p className={styles.description}>{node?.description}</p>
               </div>
             </a>
           )

@@ -12,6 +12,7 @@
   flex-grow: 1;
   flex-basis: 12rem;
   border-radius: 20px;
+  overflow: hidden;
 }
 
 .card:first-child {
@@ -30,6 +31,11 @@
 
 .card:hover .content {
   opacity: 0.6;
+}
+
+.contentContainer {
+  height: 100%;
+  width: 100%;
 }
 
 .content {
@@ -68,6 +74,19 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+.link {
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+}
+
+.link:active {
+  background: none;
+  outline: none;
+  border: none;
 }
 
 .blockText {
