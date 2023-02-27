@@ -50,6 +50,7 @@
 }
 
 .excerpt {
+  font-weight: 400;
   margin-bottom: 0.5rem;
   overflow: hidden;
   display: -webkit-box;
@@ -59,7 +60,7 @@
 
 .metadata {
   margin-bottom: 0;
-  font-weight: bold;
+  font-weight: 600;
   opacity: 0.3;
 }
 
