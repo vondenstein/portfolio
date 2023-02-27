@@ -69,6 +69,7 @@
 
 .link:active {
   background-color: inherit;
+  border-radius: inherit;
 }
 
 .blockText {
