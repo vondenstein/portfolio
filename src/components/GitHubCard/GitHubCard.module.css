@@ -73,6 +73,7 @@
 .card:active,
 .card:focus,
 .card:focus-visible {
+  -webkit-tap-highlight-color: transparent;
   background-color: transparent;
   border-radius: 20px;
 }
