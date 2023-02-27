@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 
 import * as styles from "./NavBar.module.css"
 import { useNavigationLinks } from "../../hooks/use-navigation-links"
@@ -15,9 +15,25 @@ const NavBar = () => {
     setOpen(isOpen => !isOpen)
   }
 
+  /* This is pretty bad. TODO: remove duplicate code
+  maybe pass these functions down from layout? */
+  const handleNav = (e, path) => {
+    e.preventDefault()
+    setOpen(isOpen => !isOpen)
+
+    setTimeout(() => {
+      navigate(path)
+    }, 700)
+  }
+
   return (
     <nav className={styles.container}>
-      <Link className={styles.logoLink} to="/" title="Home">
+      <Link
+        className={styles.logoLink}
+        to="/"
+        title="Home"
+        onClick={isOpen ? e => handleNav(e, "/") : undefined}
+      >
         <Logo />
       </Link>
       <div className={styles.right}>
