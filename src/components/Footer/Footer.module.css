@@ -38,7 +38,7 @@
   font-weight: 600;
   font-size: 0.85rem;
   color: #fdf9f2;
-  transition: opacity 0.3s cubic-bezier(0.3, 0.46, 0.45, 0.9);
+  text-decoration: none;
 }
 
 .link:hover {

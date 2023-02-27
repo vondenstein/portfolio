@@ -8,9 +8,11 @@
 }
 
 .card {
+  text-decoration: none;
   flex-grow: 1;
   flex-basis: 12rem;
   border-radius: 20px;
+  overflow: hidden;
 }
 
 .card:first-child {
@@ -23,9 +25,23 @@
   flex-shrink: 0;
 }
 
+.card:hover {
+  opacity: 1;
+}
+
+.card:hover .content {
+  opacity: 0.6;
+}
+
+.contentContainer {
+  height: 100%;
+  width: 100%;
+}
+
 .content {
   color: #fdf9f2;
   padding: 1.7rem;
+  transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .badge {
@@ -51,6 +67,7 @@
 }
 
 .description {
+  font-weight: 400;
   font-size: 18px;
   margin: 0;
   overflow: hidden;
@@ -60,7 +77,16 @@
 }
 
 .link {
-  text-decoration: none !important;
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+}
+
+.link:active {
+  background: none;
+  outline: none;
+  border: none;
 }
 
 .blockText {
