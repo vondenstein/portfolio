@@ -72,10 +72,10 @@
 .link:focus-visible,
 .card:active,
 .card:focus,
-.card:focus-visible {
+.card:focus-visible,
+.card,
+.link {
   -webkit-tap-highlight-color: transparent;
-  background-color: transparent;
-  border-radius: 20px;
 }
 
 .blockText {
