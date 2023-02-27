@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { useNavigationLinks } from "../../hooks/use-navigation-links"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 
 import * as styles from "./NavDrawer.module.css"
 import MenuContext from "../MenuContext"
@@ -9,8 +9,13 @@ const NavDrawer = () => {
   const navLinks = useNavigationLinks()
   const { isOpen, setOpen } = useContext(MenuContext)
 
-  const toggleNav = () => {
+  const handleNav = (e, path) => {
+    e.preventDefault()
     setOpen(isOpen => !isOpen)
+
+    setTimeout(() => {
+      navigate(path)
+    }, 700)
   }
 
   return (
@@ -19,7 +24,7 @@ const NavDrawer = () => {
         {navLinks.edges.map(({ node }: Queries.NavigationJsonEdge) => {
           return (
             <Link
-              onClick={toggleNav}
+              onClick={e => handleNav(e, node.url)}
               className={styles.link}
               key={node.url ?? ""}
               to={node.url ?? ""}
