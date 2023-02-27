@@ -13,40 +13,43 @@ const GitHubCard = ({}) => {
       <div className={styles.cardContainer}>
         {repositories.map(({ node }: Queries.GitHub_PinnableItemEdge) => {
           return (
-            <div
-              style={{
-                backgroundColor: `${node?.primaryLanguage.color}`,
-              }}
+            <a
+              href={node?.url}
+              title={`${node?.name} on GitHub`}
               className={styles.card}
             >
-              <div className={styles.content}>
-                <div className={styles.top}>
-                  <h3>
-                    <a href={node?.url} title={`${node?.name} on GitHub`}>
-                      {node?.name}
-                    </a>
-                  </h3>
-                  <div className={styles.badge}>
-                    {node?.isArchived ? (
-                      <>Archive</>
-                    ) : (
-                      <>
-                        <object
-                          type="image/svg+xml"
-                          data={`icons/star.svg`}
-                          className={styles.icon}
-                        />
-                        {node?.stargazerCount}
-                      </>
-                    )}
+              <div
+                style={{
+                  backgroundColor: `${node?.primaryLanguage.color}`,
+                }}
+                className={styles.contentContainer}
+              >
+                <div className={styles.content}>
+                  <div className={styles.top}>
+                    <h3>{node?.name}</h3>
+                    <div className={styles.badge}>
+                      {node?.isArchived ? (
+                        <>Archive</>
+                      ) : (
+                        <>
+                          <object
+                            type="image/svg+xml"
+                            data={`icons/star.svg`}
+                            className={styles.icon}
+                          />
+                          {node?.stargazerCount}
+                        </>
+                      )}
+                    </div>
                   </div>
+                  <p className={styles.description}>{node?.description}</p>
                 </div>
-                <p className={styles.description}>{node?.description}</p>
               </div>
-            </div>
+            </a>
           )
         })}
       </div>
+
       <Block>
         <h2>Want to see more?</h2>
         <p className={styles.blockText}>
@@ -54,13 +57,12 @@ const GitHubCard = ({}) => {
           to see all of my projects - some of which are not listed here - head
           over to GitHub to check them out!{" "}
         </p>
-        <a
-          href="https://github.com/vondenstein"
-          className={styles.link}
+        <Button
+          to="https://github.com/vondenstein"
           title="Vondenstein on GitHub"
         >
-          <Button>GitHub</Button>
-        </a>
+          GitHub
+        </Button>
       </Block>
     </div>
   )

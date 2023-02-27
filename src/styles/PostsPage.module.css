@@ -17,13 +17,14 @@
 }
 
 .authorLink {
+  text-decoration: none;
   font-weight: bold;
   transition: color 0.3s cubic-bezier(0.3, 0.46, 0.45, 0.9);
 }
 
 .authorLink:hover {
-  text-decoration: none;
   color: #fdf9f2;
+  opacity: 1;
 }
 
 .content {
