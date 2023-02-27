@@ -67,6 +67,10 @@
   display: inline-block;
 }
 
+.link:active {
+  background-color: #ffffff;
+}
+
 .blockText {
   max-width: 500px;
   margin: 0 auto 25px;
