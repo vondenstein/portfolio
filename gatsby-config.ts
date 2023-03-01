@@ -32,7 +32,7 @@ const config: GatsbyConfig = {
         theme_color: `#111111`,
         display: `standalone`,
         cache_busting_mode: `none`,
-        icon: `src/images/icon.png`,
+        icon: `src/images/logo.svg`,
         icons: [
           {
             src: "icons/icon-16x16.png",

@@ -13,7 +13,10 @@ export const useLatestPost = () => {
               hero_image_alt
               hero_image {
                 childImageSharp {
-                  gatsbyImageData
+                  gatsbyImageData(
+                    width: 570
+                    outputPixelDensities: [0.65, 1.0, 1.3, 2.0]
+                  )
                 }
               }
             }
