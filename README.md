@@ -82,3 +82,5 @@ Feel free to review the code and reuse what you feel is appropriate. However, pl
 - src/images/
 
 All other directories and files are [MIT Licensed](LICENSE) (where applicable).
+
+NOTE: I would love it if this code inspires your own portfolio, helps you solve a problem or implement a feature, but I would greatly appreciate if you did not make exact clones of this site.
