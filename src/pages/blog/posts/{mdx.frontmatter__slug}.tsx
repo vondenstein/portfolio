@@ -30,7 +30,7 @@ const BlogPost = ({ data, children }: PageProps) => {
         </p>
       </div>
       <GatsbyImage
-        placeholder="blurred"
+        loading="eager"
         image={heroImage!}
         alt={data.mdx.frontmatter.hero_image_alt}
         className={styles.heroImage}
@@ -51,7 +51,10 @@ export const query = graphql`
         hero_image_alt
         hero_image {
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(
+              width: 1200
+              outputPixelDensities: [0.4, 0.65, 0.8, 1.0, 1.3, 2.0]
+            )
           }
         }
       }

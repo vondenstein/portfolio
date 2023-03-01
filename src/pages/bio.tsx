@@ -17,12 +17,12 @@ const BioPage: React.FC<PageProps> = () => {
       <Block>
         <StaticImage
           className={styles.image}
-          src={"../images/profile.jpg"}
-          alt={"Me in a field looking off into the distance."}
-          loading={"eager"}
+          src="../images/profile.jpg"
+          alt="Me in a field looking off into the distance."
+          layout="fixed"
+          loading="eager"
           height={180}
           width={180}
-          placeholder="blurred"
         />
         <h2 style={{ marginBottom: "15px" }}>{author.title}</h2>
         <p style={{ marginBottom: "5px" }}>{author.subtitle}</p>
