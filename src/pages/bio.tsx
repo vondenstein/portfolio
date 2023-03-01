@@ -29,10 +29,13 @@ const BioPage: React.FC<PageProps> = () => {
       </Block>
       <h2>Background</h2>
       <p>
-        I'm a software engineer who loves to build new things. I graduated from
-        Louisiana State Univerity (Geaux Tigers) with a degree in computer
-        science, and since then have been enjoying connecting with people who
-        share my passion for engineering and design.
+        I'm a software engineer who loves to build new things. While I was born
+        and raised in New Orleans, Louisiana, I'm currently enjoying the
+        sunshine and lack of mosquitoes in Colorado. I graduated from Louisiana
+        State Univerity with a degree in computer science, and since then have
+        been enjoying connecting with people who share my passion for
+        engineering and design. If this sounds like you, I'd absolutely love to
+        hear from you!
       </p>
       <h2>Work</h2>
       <p>
