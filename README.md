@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://vondenstein.com/">
-    <img alt="Vondenstein" src="src/images/icon.png" width="80" />
+    <img alt="Vondenstein" src="src/images/logo.svg" width="80" />
   </a>
 </p>
 <h1 align="center">
