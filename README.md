@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://vondenstein.com/">
-    <img alt="Vondenstein" src="src/images/icon.png" width="80" />
+    <img alt="Vondenstein" src="https://vondenstein.com/icons/icon-144x144.png" width="80" />
   </a>
 </p>
 <h1 align="center">
@@ -82,3 +82,5 @@ Feel free to review the code and reuse what you feel is appropriate. However, pl
 - src/images/
 
 All other directories and files are [MIT Licensed](LICENSE) (where applicable).
+
+NOTE: I would love it if this code inspires your own portfolio, helps you solve a problem or implement a feature, but I would greatly appreciate if you did not make exact clones of this site.
