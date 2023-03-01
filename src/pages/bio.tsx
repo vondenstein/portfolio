@@ -35,6 +35,7 @@ const BioPage: React.FC<PageProps> = () => {
         design.{" "}
       </p>
       <h2>Work</h2>
+      <p></p>
       <p>
         I'm a computer science student at Louisiana State University with a
         knack for software development and design. My favorite projects are
@@ -45,11 +46,44 @@ const BioPage: React.FC<PageProps> = () => {
         neural networks in and outside of the classroom, as well as building and
         deploying web applications with React.JS and GraphQL.{" "}
       </p>
+      <p>
+        If you're looking for more in-depth information about my professional
+        work or would like to work together, please reach out on{" "}
+        <a
+          href="https://linkedin.com/in/stephen-vondenstein/"
+          title="Stephen Vondenstein on LinkedIn"
+        >
+          LinkedIn
+        </a>
+        .
+      </p>
       <h2>Hobbies</h2>
       <p>
         When I'm waiting for builds to compile, I like to pursue a few other
-        hobbies - my favorite being photography. If you'd like to check out my
-        photos, you can find them here.
+        hobbies - one of my favorites being photography. If you'd like to check
+        out my photos, you can find them{" "}
+        <a
+          href="https://instagram.com/vondensteins"
+          title="@vondensteins on Instagram"
+        >
+          here
+        </a>
+        .
+      </p>
+      <p>
+        I also enjoy tinkering with computer hardware and consumer electronics.
+        The projects I've been most excited about are: restoring a vintage
+        Macintosh SE/30, building a 6502-based computer, and designing a
+        cyberdeck - all of which I'll be posting on this site with every 'aha!'
+        moment and failure included.
+      </p>
+      <p>
+        Lastly, living in the beautiful state of Colorado has awakened my inner
+        explorer. My wife Blake and I have had an absolute blast getting
+        outdoors and exploring the Rocky Mountains, both on foot or in our Jeep.
+        When we're not exploring, you can probably find me in the garage
+        figuring out which upgrade to install next - and if you see us out on
+        the trail, be sure to give us a wave! ✌🏻
       </p>
     </Layout>
   )
