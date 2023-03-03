@@ -1,0 +1,59 @@
+.header {
+  width: 32rem;
+  margin: 0 auto 5rem;
+}
+
+.heroImage {
+  margin-bottom: 7rem;
+  max-height: 480px;
+}
+
+.title {
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  margin-bottom: 0;
+}
+
+.authorLink {
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s cubic-bezier(0.3, 0.46, 0.45, 0.9);
+}
+
+.authorLink:hover {
+  color: #fdf9f2;
+  opacity: 1;
+}
+
+.content {
+  width: 32rem;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .header,
+  .content {
+    width: 24rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header,
+  .content {
+    max-width: 480px;
+  }
+
+  .header,
+  .heroImage {
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .header,
+  .content {
+    width: auto;
+  }
+}

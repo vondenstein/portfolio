@@ -4,6 +4,7 @@ const simpleGit = require(`simple-git`)
 const path = require(`path`)
 
 const postTemplate = path.resolve(`./src/templates/PostTemplate.tsx`)
+const photosetTemplate = path.resolve(`./src/templates/PhotosetTemplate.tsx`)
 
 exports.onCreateNode = ({ node, actions, getNode }: CreateNodeArgs) => {
   const { createNodeField } = actions
@@ -59,11 +60,20 @@ exports.createPages = async ({
     reporter.panicOnBuild("Error loading MDX content", mdxPageQuery.errors)
   }
 
+  const templates = {
+    blog: postTemplate,
+    photos: photosetTemplate,
+  }
+
   const mdxPages = mdxPageQuery.data?.allMdx.nodes
   mdxPages.forEach(node => {
+    console.log(`${templates[node.fields.contentType]}`)
+
     createPage({
       path: `/${node.fields.contentType}/${node.frontmatter.slug}`,
-      component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
+      component: `${templates[node.fields.contentType]}?__contentFilePath=${
+        node.internal.contentFilePath
+      }`,
       context: { id: node.id },
     })
   })
