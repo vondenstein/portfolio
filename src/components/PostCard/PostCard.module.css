@@ -58,12 +58,6 @@
   -webkit-box-orient: vertical;
 }
 
-.metadata {
-  margin-bottom: 0;
-  font-weight: 600;
-  opacity: 0.3;
-}
-
 @media (max-width: 1024px) {
   .text {
     width: 18rem;
@@ -104,9 +98,5 @@
 
   .text {
     padding: 1rem;
-  }
-
-  .metadata {
-    opacity: 0.35;
   }
 }

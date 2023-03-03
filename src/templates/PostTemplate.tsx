@@ -7,6 +7,7 @@ import * as styles from "../styles/PostTemplate.module.css"
 import Layout from "../components/Layout"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import SEO from "../components/SEO"
+import ContentHeading from "../components/ContentHeading"
 
 const BlogPost = ({ data, children }: PageProps) => {
   const heroImage = getImage(data.mdx.frontmatter.hero_image)
@@ -14,21 +15,12 @@ const BlogPost = ({ data, children }: PageProps) => {
 
   return (
     <Layout>
-      <div className={styles.header}>
-        <h1 className={styles.title}>{data.mdx.frontmatter.title}</h1>
-        <p className={styles.subtitle}>
-          By{" "}
-          <Link
-            to="/bio"
-            className={styles.authorLink}
-            title={`${author.name}'s Bio`}
-          >
-            {author.name}
-          </Link>
-          , {data.mdx.frontmatter.date} ·{" "}
-          {Math.round(data.mdx.fields.timeToRead.minutes)} minute read
-        </p>
-      </div>
+      <ContentHeading
+        title={data.mdx.frontmatter.title}
+        showAuthor
+        date={data.mdx.frontmatter.date}
+        readingTime={data.mdx.fields.timeToRead.minutes}
+      />
       <GatsbyImage
         loading="eager"
         image={heroImage!}

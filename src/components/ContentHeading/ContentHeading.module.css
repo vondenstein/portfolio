@@ -1,31 +1,28 @@
-.heroImage {
-  margin-bottom: 7rem;
-  max-height: 480px;
+.heading {
+  width: 32rem;
+  margin: 0 auto 5rem;
 }
 
-.content {
-  width: 32rem;
-  margin: 0 auto;
+.title {
+  margin-bottom: 0.5rem;
 }
 
 @media (max-width: 1024px) {
+  .header,
   .content {
     width: 24rem;
   }
 }
 
 @media (max-width: 768px) {
-  .content {
+  .heading {
     max-width: 480px;
-  }
-
-  .heroImage {
     margin-bottom: 3rem;
   }
 }
 
 @media (max-width: 520px) {
-  .content {
+  .heading {
     width: auto;
   }
 }

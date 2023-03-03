@@ -50,7 +50,7 @@ const IndexPage: React.FC<PageProps> = () => {
         title={latestPost.frontmatter.title}
         description={latestPost.excerpt}
         date={latestPost.frontmatter.date}
-        readingTime={latestPost.fields.readingtime}
+        readingTime={latestPost.fields.timeToRead.minutes}
         image={latestPost.frontmatter.hero_image}
         imageAlt={latestPost.frontmatter.hero_image_alt}
         link={`/${latestPost.fields.contentType}/${latestPost.frontmatter.slug}`}

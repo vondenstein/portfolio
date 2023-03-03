@@ -16,7 +16,7 @@ const BlogPage: React.FC<PageProps> = ({ data }) => {
           title={node.frontmatter.title}
           description={node.excerpt}
           date={node.frontmatter.date}
-          readingTime={node.fields.readingtime}
+          readingTime={node.fields.timeToRead.minutes}
           image={node.frontmatter.hero_image}
           imageAlt={node.frontmatter.hero_image_alt}
           link={`/${node.fields.contentType}/${node.frontmatter.slug}`}

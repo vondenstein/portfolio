@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
 
 import * as styles from "./PostCard.module.css"
+import ContentMetadata from "../ContentMetadata"
 
 type PostCardProps = {
   id: string
@@ -43,10 +44,7 @@ const PostCard = ({
           <div className={styles.text}>
             <h2 className={styles.title}>{title}</h2>
             {description && <p className={styles.excerpt}>{description}</p>}
-            <p className={styles.metadata}>
-              {date}
-              {readingTime && ` · ${Math.round(readingTime)} minute read`}
-            </p>
+            <ContentMetadata date={date} readingTime={readingTime} dark />
           </div>
         </div>
       </Link>
