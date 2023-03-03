@@ -54,6 +54,7 @@ const IndexPage: React.FC<PageProps> = () => {
         parent={latestPost.parent}
         fields={latestPost.fields}
       />
+      <h2 style={{ marginTop: "50px", marginBottom: "60px" }}>Recent Photos</h2>
       <div style={{ height: "100px" }} />
       <Block>
         <h2>Software Projects</h2>

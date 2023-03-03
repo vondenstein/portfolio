@@ -10,7 +10,7 @@ const PostCard = ({ id, excerpt, frontmatter, fields }: Queries.Mdx) => {
   return (
     <article key={id} className={styles.article} title={frontmatter?.title!}>
       <Link
-        to={`/blog/posts/${frontmatter?.slug}`}
+        to={`/${fields?.contentType}/${frontmatter?.slug}`}
         className={styles.link}
         title={frontmatter?.title!}
       >

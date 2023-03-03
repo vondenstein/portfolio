@@ -29,7 +29,10 @@ export default BlogPage
 
 export const query = graphql`
   query {
-    allMdx(sort: { frontmatter: { date: DESC } }) {
+    allMdx(
+      sort: { frontmatter: { date: DESC } }
+      filter: { fields: { contentType: { eq: "blog" } } }
+    ) {
       nodes {
         frontmatter {
           date(formatString: "MMMM Do, YYYY")
@@ -49,6 +52,7 @@ export const query = graphql`
           timeToRead {
             minutes
           }
+          contentType
         }
         id
         excerpt

@@ -3,10 +3,10 @@ import type { HeadFC } from "gatsby"
 import { graphql, PageProps, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import * as styles from "../../../styles/PostsPage.module.css"
-import Layout from "../../../components/Layout"
-import { useSiteMetadata } from "../../../hooks/use-site-metadata"
-import SEO from "../../../components/SEO"
+import * as styles from "../styles/PostTemplate.module.css"
+import Layout from "../components/Layout"
+import { useSiteMetadata } from "../hooks/use-site-metadata"
+import SEO from "../components/SEO"
 
 const BlogPost = ({ data, children }: PageProps) => {
   const heroImage = getImage(data.mdx.frontmatter.hero_image)
@@ -43,7 +43,7 @@ const BlogPost = ({ data, children }: PageProps) => {
 export default BlogPost
 
 export const query = graphql`
-  query BlogPost($id: String) {
+  query ($id: String) {
     mdx(id: { eq: $id }) {
       frontmatter {
         title

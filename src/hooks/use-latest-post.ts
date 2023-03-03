@@ -24,6 +24,7 @@ export const useLatestPost = () => {
               timeToRead {
                 minutes
               }
+              contentType
             }
             id
             excerpt
