@@ -67,8 +67,6 @@ exports.createPages = async ({
 
   const mdxPages = mdxPageQuery.data?.allMdx.nodes
   mdxPages.forEach(node => {
-    console.log(`${templates[node.fields.contentType]}`)
-
     createPage({
       path: `/${node.fields.contentType}/${node.frontmatter.slug}`,
       component: `${templates[node.fields.contentType]}?__contentFilePath=${
