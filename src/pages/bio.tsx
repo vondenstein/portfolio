@@ -80,10 +80,7 @@ const BioPage: React.FC<PageProps> = () => {
         When I'm waiting for builds to compile, I like to pursue a few other
         hobbies - one of my favorites being photography. If you'd like to check
         out my photos, you can find them{" "}
-        <a
-          href="https://instagram.com/vondensteins"
-          title="@vondensteins on Instagram"
-        >
+        <a href="/photos" title="Photos Page">
           here
         </a>
         .
