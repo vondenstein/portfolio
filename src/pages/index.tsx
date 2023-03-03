@@ -47,12 +47,14 @@ const IndexPage: React.FC<PageProps> = () => {
       <h2 style={{ marginBottom: "60px" }}>Latest Post</h2>
       <PostCard
         id={latestPost.id}
-        frontmatter={latestPost.frontmatter}
-        excerpt={latestPost.excerpt}
-        internal={latestPost.internal}
-        children={latestPost.children}
-        parent={latestPost.parent}
-        fields={latestPost.fields}
+        title={latestPost.frontmatter.title}
+        description={latestPost.excerpt}
+        date={latestPost.frontmatter.date}
+        readingTime={latestPost.fields.readingtime}
+        image={latestPost.frontmatter.hero_image}
+        imageAlt={latestPost.frontmatter.hero_image_alt}
+        link={`/${latestPost.fields.contentType}/${latestPost.frontmatter.slug}`}
+        linkTitle={latestPost.frontmatter.title}
       />
       <h2 style={{ marginTop: "50px", marginBottom: "60px" }}>Recent Photos</h2>
       <div style={{ height: "100px" }} />

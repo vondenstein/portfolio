@@ -13,12 +13,14 @@ const BlogPage: React.FC<PageProps> = ({ data }) => {
       {data.allMdx.nodes.map(node => (
         <PostCard
           id={node.id}
-          frontmatter={node.frontmatter}
-          excerpt={node.excerpt}
-          internal={node.internal}
-          children={node.children}
-          parent={node.parent}
-          fields={node.fields}
+          title={node.frontmatter.title}
+          description={node.excerpt}
+          date={node.frontmatter.date}
+          readingTime={node.fields.readingtime}
+          image={node.frontmatter.hero_image}
+          imageAlt={node.frontmatter.hero_image_alt}
+          link={`/${node.fields.contentType}/${node.frontmatter.slug}`}
+          linkTitle={node.frontmatter.title}
         />
       ))}
     </Layout>

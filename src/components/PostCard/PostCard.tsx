@@ -1,33 +1,51 @@
 import React from "react"
 import { Link } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
 
 import * as styles from "./PostCard.module.css"
 
-const PostCard = ({ id, excerpt, frontmatter, fields }: Queries.Mdx) => {
-  const image = getImage(frontmatter?.hero_image!)
+type PostCardProps = {
+  id: string
+  title: string
+  description?: string
+  date: string
+  readingTime?: number
+  image: ImageDataLike
+  imageAlt?: string
+  link: string
+  linkTitle?: string
+}
+
+const PostCard = ({
+  id,
+  title,
+  description,
+  date,
+  readingTime,
+  image,
+  imageAlt,
+  link,
+  linkTitle,
+}: PostCardProps) => {
+  const imageData = getImage(image)
 
   return (
-    <article key={id} className={styles.article} title={frontmatter?.title!}>
-      <Link
-        to={`/${fields?.contentType}/${frontmatter?.slug}`}
-        className={styles.link}
-        title={frontmatter?.title!}
-      >
+    <article key={id} className={styles.article} title={title}>
+      <Link to={link} className={styles.link} title={linkTitle}>
         <div className={styles.container}>
           <div>
             <GatsbyImage
-              image={image!}
-              alt={frontmatter?.hero_image_alt!}
+              image={imageData!}
+              alt={imageAlt!}
               className={styles.image}
             />
           </div>
           <div className={styles.text}>
-            <h2 className={styles.title}>{frontmatter?.title}</h2>
-            <p className={styles.excerpt}>{excerpt}</p>
+            <h2 className={styles.title}>{title}</h2>
+            {description && <p className={styles.excerpt}>{description}</p>}
             <p className={styles.metadata}>
-              {frontmatter?.date} · {Math.round(fields?.timeToRead?.minutes!)}{" "}
-              minute read
+              {date}
+              {readingTime && ` · ${Math.round(readingTime)} minute read`}
             </p>
           </div>
         </div>
