@@ -50,3 +50,9 @@
   width: 20px;
   background: #fdf9f2;
 }
+
+@media (max-height: 650px) {
+  .links {
+    margin-top: 3rem;
+  }
+}
