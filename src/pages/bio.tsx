@@ -48,7 +48,7 @@ const BioPage: React.FC<PageProps> = () => {
         of internal tools to support a cutting-edge data insights platform,
         though we do maintain some customer-facing services. Our tools and
         services are used across the organization to increase developer
-        efficiency, reduce platform-breaking errors in production, and relibably
+        efficiency, reduce platform-breaking errors in production, and reliably
         deliver customer data.
       </p>
       <p>
