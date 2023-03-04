@@ -3,7 +3,7 @@
   max-height: 480px;
 }
 
-.content {
+.content > p {
   width: 32rem;
   margin: 0 auto;
 }

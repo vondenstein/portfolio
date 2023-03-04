@@ -3,7 +3,7 @@ import type { HeadFC } from "gatsby"
 import { graphql, PageProps, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import * as styles from "../styles/PhotosetTemplate.module.css"
+import * as styles from "../styles/Photoset.module.css"
 import Layout from "../components/Layout"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import SEO from "../components/SEO"

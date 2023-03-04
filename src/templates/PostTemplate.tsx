@@ -11,7 +11,6 @@ import ContentHeading from "../components/ContentHeading"
 
 const BlogPost = ({ data, children }: PageProps) => {
   const heroImage = getImage(data.mdx.frontmatter.hero_image)
-  const { author } = useSiteMetadata()
 
   return (
     <Layout>
