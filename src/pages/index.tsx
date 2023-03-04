@@ -8,10 +8,12 @@ import { useGitHubProfile } from "../hooks/use-github-profile"
 import Button from "../components/Button"
 import Block from "../components/Block"
 import SEO from "../components/SEO"
+import { useRecentPhotos } from "../hooks/use-recent-photos"
 
 const IndexPage: React.FC<PageProps> = () => {
   const latestPost = useLatestPost()
   const githubProfile = useGitHubProfile()
+  const recentPhotos = useRecentPhotos()
 
   return (
     <Layout>
@@ -57,6 +59,17 @@ const IndexPage: React.FC<PageProps> = () => {
         linkTitle={latestPost.frontmatter.title}
       />
       <h2 style={{ marginTop: "50px", marginBottom: "60px" }}>Recent Photos</h2>
+      {recentPhotos.map(photo => (
+        <PostCard
+          id={photo.id}
+          title={photo.frontmatter.title}
+          date={photo.frontmatter.date}
+          image={photo.frontmatter.hero_image}
+          imageAlt={photo.frontmatter.hero_image_alt}
+          link={`/${photo.fields.contentType}/${photo.frontmatter.slug}`}
+          linkTitle={photo.frontmatter.title}
+        />
+      ))}
       <div style={{ height: "100px" }} />
       <Block>
         <h2>Software Projects</h2>
