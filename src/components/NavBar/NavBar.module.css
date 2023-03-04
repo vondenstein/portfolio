@@ -114,8 +114,8 @@
   }
 }
 
-@media (max-width: 520px) {
+/* @media (max-width: 520px) {
   .container {
-    padding: 2.2rem 1rem 0;
+    margin: 0 2rem;
   }
-}
+} */
