@@ -22,8 +22,6 @@ const IndexPage: React.FC<PageProps> = () => {
       <div
         style={{
           textAlign: "center",
-          marginBottom: "40vh",
-          marginTop: "10vh",
           maxWidth: "500px",
           margin: "10vh auto 40vh",
         }}
