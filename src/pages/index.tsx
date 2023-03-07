@@ -15,7 +15,7 @@ import Section from "../components/Section"
 const IndexPage: React.FC<PageProps> = () => {
   const latestPost = useLatestPost()
   const githubProfile = useGitHubProfile()
-  const recentPhotos = useRecentPhotos()
+  const recentPhotos: Queries.RecentPhotosQuery = useRecentPhotos()
 
   return (
     <Layout>
@@ -61,16 +61,16 @@ const IndexPage: React.FC<PageProps> = () => {
       </Section>
       <Section title="Recent Photos">
         <CardGrid>
-          {recentPhotos.map(photo => (
+          {recentPhotos.allMdx.nodes.map(node => (
             <PostCard
               direction="vertical"
-              key={photo.id}
-              title={photo.frontmatter.title}
-              date={photo.frontmatter.date}
-              image={photo.frontmatter.hero_image}
-              imageAlt={photo.frontmatter.hero_image_alt}
-              link={`/${photo.fields.contentType}/${photo.frontmatter.slug}`}
-              linkTitle={photo.frontmatter.title}
+              id={node.id}
+              title={node.frontmatter?.title!}
+              date={node.frontmatter?.date!}
+              image={node.frontmatter?.hero_image?.childImageSharp!}
+              imageAlt={node.frontmatter?.hero_image_alt!}
+              link={`/${node.fields?.contentType}/${node.frontmatter?.slug}`}
+              linkTitle={node.frontmatter?.title!}
             />
           ))}
         </CardGrid>

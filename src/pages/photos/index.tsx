@@ -12,7 +12,7 @@ import { useSiteMetadata } from "../../hooks/use-site-metadata"
 import PostCard from "../../components/PostCard"
 import Section from "../../components/Section"
 
-const PhotosPage: React.FC<PageProps> = ({ data }) => {
+const PhotosPage: React.FC<PageProps<Queries.PhotosetQuery>> = ({ data }) => {
   const { author } = useSiteMetadata()
 
   return (
@@ -25,12 +25,12 @@ const PhotosPage: React.FC<PageProps> = ({ data }) => {
         {data.allMdx.nodes.map(node => (
           <PostCard
             id={node.id}
-            title={node.frontmatter.title}
-            date={node.frontmatter.date}
-            image={node.frontmatter.hero_image}
-            imageAlt={node.frontmatter.hero_image_alt}
-            link={`/${node.fields.contentType}/${node.frontmatter.slug}`}
-            linkTitle={node.frontmatter.title}
+            title={node.frontmatter?.title!}
+            date={node.frontmatter?.date!}
+            image={node.frontmatter?.hero_image?.childImageSharp!}
+            imageAlt={node.frontmatter?.hero_image_alt!}
+            link={`/${node.fields?.contentType}/${node.frontmatter?.slug}`}
+            linkTitle={node.frontmatter?.title!}
           />
         ))}
       </Section>
@@ -41,7 +41,7 @@ const PhotosPage: React.FC<PageProps> = ({ data }) => {
 export default PhotosPage
 
 export const query = graphql`
-  query {
+  query Photoset {
     allMdx(
       sort: { frontmatter: { date: DESC } }
       filter: { fields: { contentType: { eq: "photos" } } }
@@ -78,7 +78,7 @@ export const Head: HeadFC = () => {
   return (
     <SEO
       title="Photos"
-      description="Hi, I'm Stephen. Software engineer, tinkerer, and occasional photographer."
+      description="A collection of photos taken by Stephen Vondenstein over the years that he wanted to share."
       imgType="page"
       imgTitle="Photos"
     />

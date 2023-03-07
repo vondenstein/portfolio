@@ -1,27 +1,27 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../../components/Layout"
 import PostCard from "../../components/PostCard"
 import SEO from "../../components/SEO"
 import Section from "../../components/Section"
 
-const BlogPage: React.FC<PageProps> = ({ data }) => {
+const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({ data }) => {
   return (
     <Layout>
       <Section title="Posts" first>
         {data.allMdx.nodes.map(node => (
           <PostCard
             id={node.id}
-            title={node.frontmatter.title}
+            title={node.frontmatter?.title!}
             description={node.excerpt}
-            date={node.frontmatter.date}
-            readingTime={node.fields.timeToRead.minutes}
-            image={node.frontmatter.hero_image}
-            imageAlt={node.frontmatter.hero_image_alt}
-            link={`/${node.fields.contentType}/${node.frontmatter.slug}`}
-            linkTitle={node.frontmatter.title}
+            date={node.frontmatter?.date!}
+            readingTime={node.fields?.timeToRead?.minutes}
+            image={node.frontmatter?.hero_image?.childImageSharp!}
+            imageAlt={node.frontmatter?.hero_image_alt!}
+            link={`/${node.fields?.contentType}/${node.frontmatter?.slug}`}
+            linkTitle={node.frontmatter?.title!}
           />
         ))}
       </Section>
@@ -32,7 +32,7 @@ const BlogPage: React.FC<PageProps> = ({ data }) => {
 export default BlogPage
 
 export const query = graphql`
-  query {
+  query BlogPage {
     allMdx(
       sort: { frontmatter: { date: DESC } }
       filter: { fields: { contentType: { eq: "blog" } } }

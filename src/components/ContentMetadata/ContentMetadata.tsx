@@ -8,7 +8,7 @@ type ContentMetadataProps = {
   showAuthor?: boolean
   dark?: boolean
   date: string
-  readingTime?: number
+  readingTime?: number | null
 }
 
 const ContentMetadata = ({

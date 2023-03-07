@@ -8,9 +8,9 @@ import ContentMetadata from "../ContentMetadata"
 type PostCardProps = {
   id: string
   title: string
-  description?: string
+  description?: string | null
   date: string
-  readingTime?: number
+  readingTime?: number | null
   image: ImageDataLike
   imageAlt?: string
   link: string

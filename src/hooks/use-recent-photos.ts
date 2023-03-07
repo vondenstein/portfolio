@@ -3,11 +3,11 @@ import { useStaticQuery, graphql } from "gatsby"
 export const useRecentPhotos = () => {
   const data = useStaticQuery(
     graphql`
-      {
+      query RecentPhotos {
         allMdx(
           filter: { fields: { contentType: { eq: "photos" } } }
           sort: { frontmatter: { date: DESC } }
-          limit: 3
+          limit: 2
         ) {
           nodes {
             frontmatter {
@@ -33,5 +33,5 @@ export const useRecentPhotos = () => {
       }
     `
   )
-  return data.allMdx.nodes
+  return data
 }

@@ -37,39 +37,40 @@ exports.createPages = async ({
   /***
    * Create pages for mdx nodes based on contentType
    ***/
-  const mdxPageQuery = await graphql(`
-    query MDXPageQuery {
-      allMdx {
-        nodes {
-          id
-          frontmatter {
-            slug
-          }
-          internal {
-            contentFilePath
-          }
-          fields {
-            contentType
+  const mdxPageQuery: { data?: Queries.MDXPagesQuery; errors?: any } =
+    await graphql(`
+      query MDXPages {
+        allMdx {
+          nodes {
+            id
+            frontmatter {
+              slug
+            }
+            internal {
+              contentFilePath
+            }
+            fields {
+              contentType
+            }
           }
         }
       }
-    }
-  `)
+    `)
 
   if (mdxPageQuery.errors) {
     reporter.panicOnBuild("Error loading MDX content", mdxPageQuery.errors)
   }
 
-  const templates = {
+  const templates: { [id: string]: string } = {
     blog: postTemplate,
     photos: photosetTemplate,
   }
 
   const mdxPages = mdxPageQuery.data?.allMdx.nodes
-  mdxPages.forEach(node => {
+  mdxPages!.forEach(node => {
     createPage({
-      path: `/${node.fields.contentType}/${node.frontmatter.slug}`,
-      component: `${templates[node.fields.contentType]}?__contentFilePath=${
+      path: `/${node.fields?.contentType}/${node.frontmatter?.slug}`,
+      component: `${templates[node.fields!.contentType!]}?__contentFilePath=${
         node.internal.contentFilePath
       }`,
       context: { id: node.id },
