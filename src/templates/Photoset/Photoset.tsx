@@ -3,32 +3,21 @@ import type { HeadFC } from "gatsby"
 import { graphql, PageProps, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import * as styles from "../../../styles/PostsPage.module.css"
-import Layout from "../../../components/Layout"
-import { useSiteMetadata } from "../../../hooks/use-site-metadata"
-import SEO from "../../../components/SEO"
+import * as styles from "./Photoset.module.css"
+import Layout from "../../components/Layout"
+import { useSiteMetadata } from "../../hooks/use-site-metadata"
+import SEO from "../../components/SEO"
+import ContentHeading from "../../components/ContentHeading"
 
-const BlogPost = ({ data, children }: PageProps) => {
+const Photoset = ({ data, children }: PageProps) => {
   const heroImage = getImage(data.mdx.frontmatter.hero_image)
-  const { author } = useSiteMetadata()
 
   return (
     <Layout>
-      <div className={styles.header}>
-        <h1 className={styles.title}>{data.mdx.frontmatter.title}</h1>
-        <p className={styles.subtitle}>
-          By{" "}
-          <Link
-            to="/bio"
-            className={styles.authorLink}
-            title={`${author.name}'s Bio`}
-          >
-            {author.name}
-          </Link>
-          , {data.mdx.frontmatter.date} ·{" "}
-          {Math.round(data.mdx.fields.timeToRead.minutes)} minute read
-        </p>
-      </div>
+      <ContentHeading
+        title={data.mdx.frontmatter.title}
+        date={data.mdx.frontmatter.date}
+      />
       <GatsbyImage
         loading="eager"
         image={heroImage!}
@@ -40,10 +29,10 @@ const BlogPost = ({ data, children }: PageProps) => {
   )
 }
 
-export default BlogPost
+export default Photoset
 
 export const query = graphql`
-  query BlogPost($id: String) {
+  query ($id: String) {
     mdx(id: { eq: $id }) {
       frontmatter {
         title

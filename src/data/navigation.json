@@ -1,11 +1,15 @@
 [
   {
+    "url": "/bio",
+    "title": "Bio"
+  },
+  {
     "url": "/code",
     "title": "{Code}"
   },
   {
-    "url": "/bio",
-    "title": "Bio"
+    "url": "/photos",
+    "title": "Photos"
   },
   {
     "url": "/blog",

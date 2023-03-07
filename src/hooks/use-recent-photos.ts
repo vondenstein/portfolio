@@ -1,13 +1,13 @@
 import { useStaticQuery, graphql } from "gatsby"
 
-export const useLatestPost = () => {
+export const useRecentPhotos = () => {
   const data = useStaticQuery(
     graphql`
-      {
+      query RecentPhotos {
         allMdx(
-          filter: { fields: { contentType: { eq: "blog" } } }
+          filter: { fields: { contentType: { eq: "photos" } } }
           sort: { frontmatter: { date: DESC } }
-          limit: 1
+          limit: 2
         ) {
           nodes {
             frontmatter {
@@ -25,17 +25,13 @@ export const useLatestPost = () => {
               }
             }
             fields {
-              timeToRead {
-                minutes
-              }
               contentType
             }
             id
-            excerpt
           }
         }
       }
     `
   )
-  return data.allMdx.nodes[0]
+  return data
 }

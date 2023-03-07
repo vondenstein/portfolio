@@ -3,21 +3,30 @@ import type { HeadFC, PageProps } from "gatsby"
 import { graphql } from "gatsby"
 
 import Layout from "../../components/Layout"
-import PostCard from "../../components/PostCard"
+import { StaticImage } from "gatsby-plugin-image"
+import Block from "../../components/Block"
+
+import * as styles from "../styles/BioPage.module.css"
 import SEO from "../../components/SEO"
+import { useSiteMetadata } from "../../hooks/use-site-metadata"
+import PostCard from "../../components/PostCard"
 import Section from "../../components/Section"
 
-const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({ data }) => {
+const PhotosPage: React.FC<PageProps<Queries.PhotosetQuery>> = ({ data }) => {
+  const { author } = useSiteMetadata()
+
   return (
     <Layout>
-      <Section title="Posts" first>
+      <Section
+        title="Photos"
+        subtitle="Documenting my adventures and favorite moments."
+        first
+      >
         {data.allMdx.nodes.map(node => (
           <PostCard
             id={node.id}
             title={node.frontmatter?.title!}
-            description={node.excerpt}
             date={node.frontmatter?.date!}
-            readingTime={node.fields?.timeToRead?.minutes}
             image={node.frontmatter?.hero_image?.childImageSharp!}
             imageAlt={node.frontmatter?.hero_image_alt!}
             link={`/${node.fields?.contentType}/${node.frontmatter?.slug}`}
@@ -29,13 +38,13 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({ data }) => {
   )
 }
 
-export default BlogPage
+export default PhotosPage
 
 export const query = graphql`
-  query BlogPage {
+  query Photoset {
     allMdx(
       sort: { frontmatter: { date: DESC } }
-      filter: { fields: { contentType: { eq: "blog" } } }
+      filter: { fields: { contentType: { eq: "photos" } } }
     ) {
       nodes {
         frontmatter {
@@ -65,9 +74,13 @@ export const query = graphql`
   }
 `
 
-export const Head: HeadFC = () => (
-  <SEO
-    title="Posts"
-    description="A collection of posts about software engineering, electronics and photography with the occasional post about life and travels."
-  />
-)
+export const Head: HeadFC = () => {
+  return (
+    <SEO
+      title="Photos"
+      description="A collection of photos taken by Stephen Vondenstein over the years that he wanted to share."
+      imgType="page"
+      imgTitle="Photos"
+    />
+  )
+}
