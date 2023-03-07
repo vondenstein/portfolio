@@ -3,11 +3,12 @@ import type { HeadFC } from "gatsby"
 import { graphql, PageProps, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import * as styles from "../styles/PostTemplate.module.css"
-import Layout from "../components/Layout"
-import { useSiteMetadata } from "../hooks/use-site-metadata"
-import SEO from "../components/SEO"
-import ContentHeading from "../components/ContentHeading"
+import Layout from "../../components/Layout"
+import ContentHeading from "../../components/ContentHeading"
+import { useSiteMetadata } from "../../hooks/use-site-metadata"
+import SEO from "../../components/SEO"
+
+import * as styles from "./BlogPost.module.css"
 
 const BlogPost = ({ data, children }: PageProps) => {
   const heroImage = getImage(data.mdx.frontmatter.hero_image)

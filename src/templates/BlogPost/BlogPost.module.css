@@ -1,9 +1,9 @@
 .heroImage {
-  margin-bottom: 7rem;
+  margin-bottom: 6rem;
   max-height: 480px;
 }
 
-.content > p {
+.content {
   width: 32rem;
   margin: 0 auto;
 }

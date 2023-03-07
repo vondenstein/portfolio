@@ -3,11 +3,11 @@ import type { HeadFC } from "gatsby"
 import { graphql, PageProps, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import * as styles from "../styles/Photoset.module.css"
-import Layout from "../components/Layout"
-import { useSiteMetadata } from "../hooks/use-site-metadata"
-import SEO from "../components/SEO"
-import ContentHeading from "../components/ContentHeading"
+import * as styles from "./Photoset.module.css"
+import Layout from "../../components/Layout"
+import { useSiteMetadata } from "../../hooks/use-site-metadata"
+import SEO from "../../components/SEO"
+import ContentHeading from "../../components/ContentHeading"
 
 const Photoset = ({ data, children }: PageProps) => {
   const heroImage = getImage(data.mdx.frontmatter.hero_image)

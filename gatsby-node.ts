@@ -3,8 +3,8 @@ const readingTime = require(`reading-time`)
 const simpleGit = require(`simple-git`)
 const path = require(`path`)
 
-const postTemplate = path.resolve(`./src/templates/PostTemplate.tsx`)
-const photosetTemplate = path.resolve(`./src/templates/PhotosetTemplate.tsx`)
+const postTemplate = path.resolve(`./src/templates/BlogPost/BlogPost.tsx`)
+const photosetTemplate = path.resolve(`./src/templates/Photoset/Photoset.tsx`)
 
 exports.onCreateNode = ({ node, actions, getNode }: CreateNodeArgs) => {
   const { createNodeField } = actions
