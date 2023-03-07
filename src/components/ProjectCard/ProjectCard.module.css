@@ -81,10 +81,6 @@
   .left {
     margin: 1.7rem 2rem;
   }
-
-  .card {
-    margin: 0 auto 1.5rem;
-  }
 }
 
 @media (max-width: 520px) {

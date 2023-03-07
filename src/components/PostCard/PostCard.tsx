@@ -33,7 +33,7 @@ const PostCard = ({
   const imageData = getImage(image)
 
   return (
-    <article key={id} className={styles.article} title={title}>
+    <article key={id} title={title}>
       <Link to={link} className={styles.link} title={linkTitle}>
         <div
           className={
