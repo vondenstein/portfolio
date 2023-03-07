@@ -9,6 +9,8 @@ import Button from "../components/Button"
 import Block from "../components/Block"
 import SEO from "../components/SEO"
 import { useRecentPhotos } from "../hooks/use-recent-photos"
+import CardGrid from "../components/CardGrid"
+import Section from "../components/Section"
 
 const IndexPage: React.FC<PageProps> = () => {
   const latestPost = useLatestPost()
@@ -46,31 +48,35 @@ const IndexPage: React.FC<PageProps> = () => {
           </a>
         </p>
       </div>
-      <h2 style={{ marginBottom: "60px" }}>Latest Post</h2>
-      <PostCard
-        id={latestPost.id}
-        title={latestPost.frontmatter.title}
-        description={latestPost.excerpt}
-        date={latestPost.frontmatter.date}
-        readingTime={latestPost.fields.timeToRead.minutes}
-        image={latestPost.frontmatter.hero_image}
-        imageAlt={latestPost.frontmatter.hero_image_alt}
-        link={`/${latestPost.fields.contentType}/${latestPost.frontmatter.slug}`}
-        linkTitle={latestPost.frontmatter.title}
-      />
-      <h2 style={{ marginTop: "50px", marginBottom: "60px" }}>Recent Photos</h2>
-      {recentPhotos.map(photo => (
+      <Section title="Latest Post">
         <PostCard
-          id={photo.id}
-          title={photo.frontmatter.title}
-          date={photo.frontmatter.date}
-          image={photo.frontmatter.hero_image}
-          imageAlt={photo.frontmatter.hero_image_alt}
-          link={`/${photo.fields.contentType}/${photo.frontmatter.slug}`}
-          linkTitle={photo.frontmatter.title}
+          id={latestPost.id}
+          title={latestPost.frontmatter.title}
+          description={latestPost.excerpt}
+          date={latestPost.frontmatter.date}
+          readingTime={latestPost.fields.timeToRead.minutes}
+          image={latestPost.frontmatter.hero_image}
+          imageAlt={latestPost.frontmatter.hero_image_alt}
+          link={`/${latestPost.fields.contentType}/${latestPost.frontmatter.slug}`}
+          linkTitle={latestPost.frontmatter.title}
         />
-      ))}
-      <div style={{ height: "100px" }} />
+      </Section>
+      <Section title="Recent Photos">
+        <CardGrid>
+          {recentPhotos.map(photo => (
+            <PostCard
+              direction="vertical"
+              key={photo.id}
+              title={photo.frontmatter.title}
+              date={photo.frontmatter.date}
+              image={photo.frontmatter.hero_image}
+              imageAlt={photo.frontmatter.hero_image_alt}
+              link={`/${photo.fields.contentType}/${photo.frontmatter.slug}`}
+              linkTitle={photo.frontmatter.title}
+            />
+          ))}
+        </CardGrid>
+      </Section>
       <Block>
         <h2>Software Projects</h2>
         <p style={{ maxWidth: "500px", margin: "0 auto 25px" }}>

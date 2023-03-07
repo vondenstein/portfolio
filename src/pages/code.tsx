@@ -6,33 +6,37 @@ import ProjectCard from "../components/ProjectCard"
 import { useProjects } from "../hooks/use-projects"
 import GitHubCard from "../components/GitHubCard"
 import SEO from "../components/SEO"
+import Section from "../components/Section"
 
 const CodePage: React.FC<PageProps> = () => {
   const projects = useProjects()
 
   return (
     <Layout>
-      <h1>Software Projects</h1>
-      <p>
-        Here are a collection of projects I've worked on ~ for fun or to learn ~
-        that I wanted to share.
-      </p>
-      {projects.edges.map(({ node }: Queries.ProjectsJsonEdge) => (
-        <ProjectCard
-          key={node.id}
-          id={node.id}
-          children={node.children}
-          internal={node.internal}
-          parent={node.parent}
-          title={node.title}
-          description={node.description}
-          icon={node.icon}
-          color={node.color}
-          links={node.links}
-        />
-      ))}
-      <h2>GitHub</h2>
-      <GitHubCard />
+      <Section
+        title="Software Projects"
+        subtitle="Here are a collection of projects I've worked on ~ for fun or to learn ~
+        that I wanted to share."
+        first
+      >
+        {projects.edges.map(({ node }: Queries.ProjectsJsonEdge) => (
+          <ProjectCard
+            key={node.id}
+            id={node.id}
+            children={node.children}
+            internal={node.internal}
+            parent={node.parent}
+            title={node.title}
+            description={node.description}
+            icon={node.icon}
+            color={node.color}
+            links={node.links}
+          />
+        ))}
+      </Section>
+      <Section title="Github">
+        <GitHubCard />
+      </Section>
     </Layout>
   )
 }

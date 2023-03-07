@@ -5,24 +5,26 @@ import { graphql, Link } from "gatsby"
 import Layout from "../../components/Layout"
 import PostCard from "../../components/PostCard"
 import SEO from "../../components/SEO"
+import Section from "../../components/Section"
 
 const BlogPage: React.FC<PageProps> = ({ data }) => {
   return (
     <Layout>
-      <h1>Posts</h1>
-      {data.allMdx.nodes.map(node => (
-        <PostCard
-          id={node.id}
-          title={node.frontmatter.title}
-          description={node.excerpt}
-          date={node.frontmatter.date}
-          readingTime={node.fields.timeToRead.minutes}
-          image={node.frontmatter.hero_image}
-          imageAlt={node.frontmatter.hero_image_alt}
-          link={`/${node.fields.contentType}/${node.frontmatter.slug}`}
-          linkTitle={node.frontmatter.title}
-        />
-      ))}
+      <Section title="Posts" first>
+        {data.allMdx.nodes.map(node => (
+          <PostCard
+            id={node.id}
+            title={node.frontmatter.title}
+            description={node.excerpt}
+            date={node.frontmatter.date}
+            readingTime={node.fields.timeToRead.minutes}
+            image={node.frontmatter.hero_image}
+            imageAlt={node.frontmatter.hero_image_alt}
+            link={`/${node.fields.contentType}/${node.frontmatter.slug}`}
+            linkTitle={node.frontmatter.title}
+          />
+        ))}
+      </Section>
     </Layout>
   )
 }

@@ -10,25 +10,30 @@ import * as styles from "../styles/BioPage.module.css"
 import SEO from "../../components/SEO"
 import { useSiteMetadata } from "../../hooks/use-site-metadata"
 import PostCard from "../../components/PostCard"
+import Section from "../../components/Section"
 
 const PhotosPage: React.FC<PageProps> = ({ data }) => {
   const { author } = useSiteMetadata()
 
   return (
     <Layout>
-      <h1>Photos</h1>
-      <p>Documenting my adventures and favorite moments.</p>
-      {data.allMdx.nodes.map(node => (
-        <PostCard
-          id={node.id}
-          title={node.frontmatter.title}
-          date={node.frontmatter.date}
-          image={node.frontmatter.hero_image}
-          imageAlt={node.frontmatter.hero_image_alt}
-          link={`/${node.fields.contentType}/${node.frontmatter.slug}`}
-          linkTitle={node.frontmatter.title}
-        />
-      ))}
+      <Section
+        title="Photos"
+        subtitle="Documenting my adventures and favorite moments."
+        first
+      >
+        {data.allMdx.nodes.map(node => (
+          <PostCard
+            id={node.id}
+            title={node.frontmatter.title}
+            date={node.frontmatter.date}
+            image={node.frontmatter.hero_image}
+            imageAlt={node.frontmatter.hero_image_alt}
+            link={`/${node.fields.contentType}/${node.frontmatter.slug}`}
+            linkTitle={node.frontmatter.title}
+          />
+        ))}
+      </Section>
     </Layout>
   )
 }

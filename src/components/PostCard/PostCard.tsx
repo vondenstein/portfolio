@@ -15,6 +15,7 @@ type PostCardProps = {
   imageAlt?: string
   link: string
   linkTitle?: string
+  direction?: "horizontal" | "vertical"
 }
 
 const PostCard = ({
@@ -27,13 +28,20 @@ const PostCard = ({
   imageAlt,
   link,
   linkTitle,
+  direction = "horizontal",
 }: PostCardProps) => {
   const imageData = getImage(image)
 
   return (
     <article key={id} className={styles.article} title={title}>
       <Link to={link} className={styles.link} title={linkTitle}>
-        <div className={styles.container}>
+        <div
+          className={
+            direction === "horizontal"
+              ? styles.horizontalContainer
+              : styles.verticalContainer
+          }
+        >
           <div>
             <GatsbyImage
               image={imageData!}
@@ -41,7 +49,13 @@ const PostCard = ({
               className={styles.image}
             />
           </div>
-          <div className={styles.text}>
+          <div
+            className={
+              direction === "horizontal"
+                ? styles.horizontalText
+                : styles.verticalText
+            }
+          >
             <h2 className={styles.title}>{title}</h2>
             {description && <p className={styles.excerpt}>{description}</p>}
             <ContentMetadata date={date} readingTime={readingTime} dark />
