@@ -44,8 +44,9 @@
   left: 0;
   right: 0;
   bottom: -5px;
-  height: 1px;
-  width: 20px;
+  height: 2px;
+  width: 25px;
+  border-radius: 3px;
   background: #fdf9f2;
 }
 
@@ -92,6 +93,10 @@
     max-width: 768px;
     margin: 0 auto;
   }
+
+  .link:not(:last-child) {
+    margin-right: 40px;
+  }
 }
 
 @media (max-width: 848px) {
@@ -101,26 +106,17 @@
 }
 
 @media (max-width: 768px) {
-  .container {
-    max-width: 480px;
-    margin: 0 auto;
-  }
-
-  .link:not(:last-child) {
-    margin-right: 30px;
-  }
-}
-
-@media (max-width: 520px) {
-  .container {
-    padding: 2.2rem 1rem 0;
-  }
-
   .link {
     display: none;
   }
 
   .menuButton {
     display: block;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    margin: 0 1rem;
   }
 }

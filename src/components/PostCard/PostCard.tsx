@@ -1,34 +1,64 @@
 import React from "react"
 import { Link } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
 
 import * as styles from "./PostCard.module.css"
+import ContentMetadata from "../ContentMetadata"
 
-const PostCard = ({ id, excerpt, frontmatter, fields }: Queries.Mdx) => {
-  const image = getImage(frontmatter?.hero_image!)
+type PostCardProps = {
+  id: string
+  title: string
+  description?: string | null
+  date: string
+  readingTime?: number | null
+  image: ImageDataLike
+  imageAlt?: string
+  link: string
+  linkTitle?: string
+  direction?: "horizontal" | "vertical"
+}
+
+const PostCard = ({
+  id,
+  title,
+  description,
+  date,
+  readingTime,
+  image,
+  imageAlt,
+  link,
+  linkTitle,
+  direction = "horizontal",
+}: PostCardProps) => {
+  const imageData = getImage(image)
 
   return (
-    <article key={id} className={styles.article} title={frontmatter?.title!}>
-      <Link
-        to={`/blog/posts/${frontmatter?.slug}`}
-        className={styles.link}
-        title={frontmatter?.title!}
-      >
-        <div className={styles.container}>
+    <article key={id} title={title}>
+      <Link to={link} className={styles.link} title={linkTitle}>
+        <div
+          className={
+            direction === "horizontal"
+              ? styles.horizontalContainer
+              : styles.verticalContainer
+          }
+        >
           <div>
             <GatsbyImage
-              image={image!}
-              alt={frontmatter?.hero_image_alt!}
+              image={imageData!}
+              alt={imageAlt!}
               className={styles.image}
             />
           </div>
-          <div className={styles.text}>
-            <h2 className={styles.title}>{frontmatter?.title}</h2>
-            <p className={styles.excerpt}>{excerpt}</p>
-            <p className={styles.metadata}>
-              {frontmatter?.date} · {Math.round(fields?.timeToRead?.minutes!)}{" "}
-              minute read
-            </p>
+          <div
+            className={
+              direction === "horizontal"
+                ? styles.horizontalText
+                : styles.verticalText
+            }
+          >
+            <h2 className={styles.title}>{title}</h2>
+            {description && <p className={styles.excerpt}>{description}</p>}
+            <ContentMetadata date={date} readingTime={readingTime} dark />
           </div>
         </div>
       </Link>

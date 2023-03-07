@@ -1,26 +1,30 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../../components/Layout"
 import PostCard from "../../components/PostCard"
 import SEO from "../../components/SEO"
+import Section from "../../components/Section"
 
-const BlogPage: React.FC<PageProps> = ({ data }) => {
+const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({ data }) => {
   return (
     <Layout>
-      <h1>Posts</h1>
-      {data.allMdx.nodes.map(node => (
-        <PostCard
-          id={node.id}
-          frontmatter={node.frontmatter}
-          excerpt={node.excerpt}
-          internal={node.internal}
-          children={node.children}
-          parent={node.parent}
-          fields={node.fields}
-        />
-      ))}
+      <Section title="Posts" first>
+        {data.allMdx.nodes.map(node => (
+          <PostCard
+            id={node.id}
+            title={node.frontmatter?.title!}
+            description={node.excerpt}
+            date={node.frontmatter?.date!}
+            readingTime={node.fields?.timeToRead?.minutes}
+            image={node.frontmatter?.hero_image?.childImageSharp!}
+            imageAlt={node.frontmatter?.hero_image_alt!}
+            link={`/${node.fields?.contentType}/${node.frontmatter?.slug}`}
+            linkTitle={node.frontmatter?.title!}
+          />
+        ))}
+      </Section>
     </Layout>
   )
 }
@@ -28,8 +32,11 @@ const BlogPage: React.FC<PageProps> = ({ data }) => {
 export default BlogPage
 
 export const query = graphql`
-  query {
-    allMdx(sort: { frontmatter: { date: DESC } }) {
+  query BlogPage {
+    allMdx(
+      sort: { frontmatter: { date: DESC } }
+      filter: { fields: { contentType: { eq: "blog" } } }
+    ) {
       nodes {
         frontmatter {
           date(formatString: "MMMM Do, YYYY")
@@ -49,6 +56,7 @@ export const query = graphql`
           timeToRead {
             minutes
           }
+          contentType
         }
         id
         excerpt

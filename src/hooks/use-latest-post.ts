@@ -4,7 +4,11 @@ export const useLatestPost = () => {
   const data = useStaticQuery(
     graphql`
       {
-        allMdx(sort: { frontmatter: { date: DESC } }, limit: 1) {
+        allMdx(
+          filter: { fields: { contentType: { eq: "blog" } } }
+          sort: { frontmatter: { date: DESC } }
+          limit: 1
+        ) {
           nodes {
             frontmatter {
               date(formatString: "MMMM Do, YYYY")
@@ -24,6 +28,7 @@ export const useLatestPost = () => {
               timeToRead {
                 minutes
               }
+              contentType
             }
             id
             excerpt

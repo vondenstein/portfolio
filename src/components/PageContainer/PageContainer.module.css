@@ -1,6 +1,6 @@
 .open {
   background-color: #111111;
-  transform: translate(0, 19.5rem);
+  transform: translate(0, 24rem);
   transition: transform 0.7s cubic-bezier(0.55, 0.15, 0.25, 1),
     border-radius 0.7s cubic-bezier(0.2, 0, 0, 1);
   border-top-left-radius: 30px;
@@ -13,4 +13,10 @@
     border-radius 0.7s cubic-bezier(1, 1, 0.67, 1);
   z-index: 2;
   position: relative;
+}
+
+@media (max-height: 650px) {
+  .open {
+    transform: translate(0, 18rem);
+  }
 }

@@ -8,18 +8,20 @@ import { useGitHubProfile } from "../hooks/use-github-profile"
 import Button from "../components/Button"
 import Block from "../components/Block"
 import SEO from "../components/SEO"
+import { useRecentPhotos } from "../hooks/use-recent-photos"
+import CardGrid from "../components/CardGrid"
+import Section from "../components/Section"
 
 const IndexPage: React.FC<PageProps> = () => {
   const latestPost = useLatestPost()
   const githubProfile = useGitHubProfile()
+  const recentPhotos: Queries.RecentPhotosQuery = useRecentPhotos()
 
   return (
     <Layout>
       <div
         style={{
           textAlign: "center",
-          marginBottom: "40vh",
-          marginTop: "10vh",
           maxWidth: "500px",
           margin: "10vh auto 40vh",
         }}
@@ -44,17 +46,35 @@ const IndexPage: React.FC<PageProps> = () => {
           </a>
         </p>
       </div>
-      <h2 style={{ marginBottom: "60px" }}>Latest Post</h2>
-      <PostCard
-        id={latestPost.id}
-        frontmatter={latestPost.frontmatter}
-        excerpt={latestPost.excerpt}
-        internal={latestPost.internal}
-        children={latestPost.children}
-        parent={latestPost.parent}
-        fields={latestPost.fields}
-      />
-      <div style={{ height: "100px" }} />
+      <Section title="Latest Post">
+        <PostCard
+          id={latestPost.id}
+          title={latestPost.frontmatter.title}
+          description={latestPost.excerpt}
+          date={latestPost.frontmatter.date}
+          readingTime={latestPost.fields.timeToRead.minutes}
+          image={latestPost.frontmatter.hero_image}
+          imageAlt={latestPost.frontmatter.hero_image_alt}
+          link={`/${latestPost.fields.contentType}/${latestPost.frontmatter.slug}`}
+          linkTitle={latestPost.frontmatter.title}
+        />
+      </Section>
+      <Section title="Recent Photos">
+        <CardGrid>
+          {recentPhotos.allMdx.nodes.map(node => (
+            <PostCard
+              direction="vertical"
+              id={node.id}
+              title={node.frontmatter?.title!}
+              date={node.frontmatter?.date!}
+              image={node.frontmatter?.hero_image?.childImageSharp!}
+              imageAlt={node.frontmatter?.hero_image_alt!}
+              link={`/${node.fields?.contentType}/${node.frontmatter?.slug}`}
+              linkTitle={node.frontmatter?.title!}
+            />
+          ))}
+        </CardGrid>
+      </Section>
       <Block>
         <h2>Software Projects</h2>
         <p style={{ maxWidth: "500px", margin: "0 auto 25px" }}>
