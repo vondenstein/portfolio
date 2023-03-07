@@ -1,6 +1,10 @@
 .heroImage {
-  margin-bottom: 6rem;
   max-height: 480px;
+}
+
+.heroImage,
+.heroImage * {
+  border-radius: 10px;
 }
 
 .content > p {
@@ -14,6 +18,11 @@
   opacity: 0.6;
 }
 
+.content figure > span,
+.content figure > span * {
+  border-radius: 5px;
+}
+
 @media (max-width: 1024px) {
   .content {
     width: 24rem;
@@ -23,10 +32,6 @@
 @media (max-width: 768px) {
   .content {
     max-width: 480px;
-  }
-
-  .heroImage {
-    margin-bottom: 3rem;
   }
 }
 

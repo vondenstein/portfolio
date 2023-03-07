@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 4rem;
+  gap: 5rem;
 }
 
 @media (max-width: 1280px) {
@@ -37,6 +37,10 @@
     max-width: 480px;
     margin: 0 auto;
   }
+
+  .main {
+    gap: 3rem;
+  }
 }
 
 @media (max-width: 520px) {
@@ -46,5 +50,6 @@
 
   .main {
     padding: 2rem 0 1rem;
+    gap: 2rem;
   }
 }

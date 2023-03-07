@@ -114,8 +114,8 @@
   }
 }
 
-/* @media (max-width: 520px) {
+@media (max-width: 520px) {
   .container {
-    margin: 0 2rem;
+    margin: 0 1rem;
   }
-} */
+}

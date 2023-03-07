@@ -9,3 +9,9 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 520px) {
+  .cardGrid {
+    gap: 1.5rem;
+  }
+}
