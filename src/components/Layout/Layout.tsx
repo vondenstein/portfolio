@@ -16,7 +16,7 @@ const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
   }
 
   useEffect(() => {
-    const media = window.matchMedia("(max-width: 520px)")
+    const media = window.matchMedia("(max-width: 768px)")
     media.addEventListener("change", handleResize)
 
     return () => {
