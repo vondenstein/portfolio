@@ -108,9 +108,9 @@ exports.onCreatePage = async ({ page, actions }: CreatePageArgs) => {
    * monthly for blog posts, daily for blog index
    ***/
   var changeFreq = "weekly"
-  if (page.path.includes("/blog/posts/")) {
+  if (page.path.includes("/blog/") || page.path.includes("/photos/")) {
     changeFreq = "monthly"
-  } else if (page.path === "/blog") {
+  } else if (page.path === "/blog" || page.path === "/photos") {
     changeFreq = "daily"
   }
 
