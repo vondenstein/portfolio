@@ -6,6 +6,7 @@ import { useNavigationLinks } from "../../hooks/use-navigation-links"
 import MenuContext from "../MenuContext"
 
 import Logo from "../Logo"
+import MenuButton from "../MenuButton"
 
 const NavBar = () => {
   const navLinks = useNavigationLinks()
@@ -37,11 +38,7 @@ const NavBar = () => {
         <Logo />
       </Link>
       <div className={styles.right}>
-        <div className={styles.menuButton} onClick={toggleNav}>
-          <span className={styles.bar} />
-          <span className={styles.bar} />
-          <span className={styles.bar} />
-        </div>
+        <MenuButton onClick={toggleNav} />
         {navLinks.edges.map(({ node }: Queries.NavigationJsonEdge) => {
           return (
             <Link
