@@ -6,6 +6,10 @@
   border-radius: 20px;
   overflow: hidden;
   margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 1;
 }
 
 .left {
@@ -13,6 +17,15 @@
   z-index: 1;
   max-width: 17.5rem;
   margin: 3.3rem 3.5rem;
+  flex-shrink: 0;
+}
+
+.right {
+  margin-right: 0rem;
+}
+
+.image {
+  height: 386px;
 }
 
 .heading {
@@ -78,6 +91,10 @@
 }
 
 @media (max-width: 768px) {
+  .right {
+    display: none;
+  }
+
   .left {
     margin: 1.7rem 2rem;
   }

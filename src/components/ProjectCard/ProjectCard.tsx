@@ -1,3 +1,4 @@
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
 
 import * as styles from "./ProjectCard.module.css"
@@ -8,7 +9,10 @@ const ProjectCard: React.FC<Queries.ProjectsJson> = ({
   icon,
   color,
   links,
+  image,
 }) => {
+  const projectImage = getImage(image?.childImageSharp?.gatsbyImageData!)
+
   return (
     <div className={styles.card} style={{ background: color ?? "#fdf9f2" }}>
       <div className={styles.left}>
@@ -35,7 +39,13 @@ const ProjectCard: React.FC<Queries.ProjectsJson> = ({
           ))}
         </div>
       </div>
-      <div></div>
+      <div className={styles.right}>
+        <GatsbyImage
+          className={styles.image}
+          image={projectImage!}
+          alt={title!}
+        />
+      </div>
     </div>
   )
 }

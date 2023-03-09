@@ -32,6 +32,7 @@ const CodePage: React.FC<PageProps> = () => {
             icon={node.icon}
             color={node.color}
             links={node.links}
+            image={node.image}
           />
         ))}
       </Section>

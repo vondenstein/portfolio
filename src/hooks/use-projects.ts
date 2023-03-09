@@ -12,6 +12,11 @@ export const useProjects = () => {
               description
               color
               icon
+              image {
+                childImageSharp {
+                  gatsbyImageData(height: 386)
+                }
+              }
               links {
                 type
                 text

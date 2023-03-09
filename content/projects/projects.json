@@ -4,6 +4,7 @@
     "description": "A stylish, performant portfolio site that makes use of Forestry, the GitHub GraphQL API, an MDX-based blog, and other Gatsby plugins/features to create a full-featured personal portfolio.",
     "color": "#a4d3e0",
     "icon": "gatsby",
+    "image": "./portfolio.png",
     "links": [
       {
         "type": "internal",
@@ -24,6 +25,7 @@
     "description": "A fun sentiment analysis and market visualization tool that provides meaningful market insights from user comments and posts in the popular Reddit community, r/WallStreetBets.",
     "color": "#445979",
     "icon": "nextdotjs",
+    "image": "./portfolio.png",
     "links": [
       {
         "type": "external",
@@ -38,6 +40,7 @@
     "description": "Identifies salt deposits by analyzing subsurface images using TensorFlow. With optimizations to process depth data and improve masks, this implementation achieved an accuracy of 83%.",
     "color": "#fc8f54",
     "icon": "tensorflow",
+    "image": "./portfolio.png",
     "links": [
       {
         "type": "external",
