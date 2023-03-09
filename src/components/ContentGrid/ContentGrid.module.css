@@ -1,17 +1,17 @@
-.cardGrid {
+.contentGrid {
   display: flex;
   flex-direction: row;
   gap: 2rem;
 }
 
 @media (max-width: 768px) {
-  .cardGrid {
+  .contentGrid {
     flex-direction: column;
   }
 }
 
 @media (max-width: 520px) {
-  .cardGrid {
+  .contentGrid {
     gap: 1.5rem;
   }
 }

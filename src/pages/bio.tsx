@@ -1,13 +1,13 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
 import { Link } from "gatsby"
-
-import Layout from "../components/Layout"
 import { StaticImage } from "gatsby-plugin-image"
-import Block from "../components/Block"
 
 import * as styles from "../styles/BioPage.module.css"
+import Layout from "../components/Layout"
+import Block from "../components/Block"
 import SEO from "../components/SEO"
+
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 
 const BioPage: React.FC<PageProps> = () => {

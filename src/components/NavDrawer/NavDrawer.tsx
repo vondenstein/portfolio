@@ -1,15 +1,19 @@
 import React, { useContext } from "react"
 import { useNavigationLinks } from "../../hooks/use-navigation-links"
-import { Link, navigate } from "gatsby"
+import { navigate } from "gatsby"
 
 import * as styles from "./NavDrawer.module.css"
 import MenuContext from "../MenuContext"
+import NavLink from "../NavLink"
 
-const NavDrawer = () => {
+const NavDrawer: React.FC = () => {
   const navLinks = useNavigationLinks()
   const { isOpen, setOpen } = useContext(MenuContext)
 
-  const handleNav = (e, path) => {
+  const handleNav = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    path: string
+  ) => {
     e.preventDefault()
     setOpen(isOpen => !isOpen)
 
@@ -23,20 +27,11 @@ const NavDrawer = () => {
       <div className={styles.links}>
         {navLinks.edges.map(({ node }: Queries.NavigationJsonEdge) => {
           return (
-            <Link
-              onClick={e => handleNav(e, node.url)}
-              className={styles.link}
-              key={node.url ?? ""}
+            <NavLink
               to={node.url ?? ""}
-              getProps={({ isPartiallyCurrent, isCurrent }) =>
-                isPartiallyCurrent && isCurrent
-                  ? { ["data-active"]: "true" }
-                  : null
-              }
               title={node.title!}
-            >
-              {node.title}
-            </Link>
+              onClick={e => handleNav(e, node.url!)}
+            />
           )
         })}
       </div>

@@ -1,6 +1,6 @@
 import * as React from "react"
 import type { HeadFC } from "gatsby"
-import { graphql, PageProps, Link } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../../components/Layout"
@@ -10,21 +10,25 @@ import SEO from "../../components/SEO"
 
 import * as styles from "./BlogPost.module.css"
 
-const BlogPost = ({ data, children }: PageProps) => {
-  const heroImage = getImage(data.mdx.frontmatter.hero_image)
+const BlogPost: React.FC<PageProps<Queries.BlogPostQuery>> = ({
+  data,
+  children,
+}) => {
+  const { frontmatter, fields } = data.mdx!
+  const heroImage = getImage(frontmatter?.hero_image?.childImageSharp!)
 
   return (
     <Layout>
       <ContentHeading
-        title={data.mdx.frontmatter.title}
+        title={frontmatter?.title!}
         showAuthor
-        date={data.mdx.frontmatter.date}
-        readingTime={data.mdx.fields.timeToRead.minutes}
+        date={frontmatter?.date!}
+        readingTime={fields?.timeToRead?.minutes!}
       />
       <GatsbyImage
         loading="eager"
         image={heroImage!}
-        alt={data.mdx.frontmatter.hero_image_alt}
+        alt={frontmatter?.hero_image_alt!}
         className={styles.heroImage}
       />
       <div className={styles.content}>{children}</div>
@@ -35,7 +39,7 @@ const BlogPost = ({ data, children }: PageProps) => {
 export default BlogPost
 
 export const query = graphql`
-  query ($id: String) {
+  query BlogPost($id: String) {
     mdx(id: { eq: $id }) {
       frontmatter {
         title
@@ -60,15 +64,16 @@ export const query = graphql`
   }
 `
 
-export const Head: HeadFC = ({ data }) => {
+export const Head: HeadFC<Queries.BlogPostQuery> = ({ data }) => {
+  const { frontmatter, excerpt } = data.mdx!
   const { siteUrl } = useSiteMetadata()
 
   return (
     <SEO
-      title={data.mdx.frontmatter.title}
-      description={data.mdx.excerpt}
+      title={frontmatter?.title!}
+      description={excerpt!}
       imgType="post"
-      image={`${siteUrl}${data.mdx.frontmatter.hero_image.childImageSharp.gatsbyImageData.images.fallback.src}`}
+      image={`${siteUrl}${frontmatter?.hero_image?.childImageSharp?.gatsbyImageData.images.fallback?.src}`}
     />
   )
 }

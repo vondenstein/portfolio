@@ -1,6 +1,6 @@
 import * as React from "react"
 import type { HeadFC } from "gatsby"
-import { graphql, PageProps, Link } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import * as styles from "./Photoset.module.css"
@@ -9,19 +9,20 @@ import { useSiteMetadata } from "../../hooks/use-site-metadata"
 import SEO from "../../components/SEO"
 import ContentHeading from "../../components/ContentHeading"
 
-const Photoset = ({ data, children }: PageProps) => {
-  const heroImage = getImage(data.mdx.frontmatter.hero_image)
+const Photoset: React.FC<PageProps<Queries.PhotosetQuery>> = ({
+  data,
+  children,
+}) => {
+  const { frontmatter, fields } = data.mdx!
+  const heroImage = getImage(frontmatter?.hero_image?.childImageSharp!)
 
   return (
     <Layout>
-      <ContentHeading
-        title={data.mdx.frontmatter.title}
-        date={data.mdx.frontmatter.date}
-      />
+      <ContentHeading title={frontmatter?.title!} date={frontmatter?.date!} />
       <GatsbyImage
         loading="eager"
         image={heroImage!}
-        alt={data.mdx.frontmatter.hero_image_alt}
+        alt={frontmatter?.hero_image_alt!}
         className={styles.heroImage}
       />
       <div className={styles.content}>{children}</div>
@@ -32,7 +33,7 @@ const Photoset = ({ data, children }: PageProps) => {
 export default Photoset
 
 export const query = graphql`
-  query ($id: String) {
+  query Photoset($id: String) {
     mdx(id: { eq: $id }) {
       frontmatter {
         title
@@ -57,15 +58,16 @@ export const query = graphql`
   }
 `
 
-export const Head: HeadFC = ({ data }) => {
+export const Head: HeadFC<Queries.PhotosetQuery> = ({ data }) => {
+  const { frontmatter, excerpt } = data.mdx!
   const { siteUrl } = useSiteMetadata()
 
   return (
     <SEO
-      title={data.mdx.frontmatter.title}
-      description={data.mdx.excerpt}
+      title={frontmatter?.title!}
+      description={excerpt!}
       imgType="post"
-      image={`${siteUrl}${data.mdx.frontmatter.hero_image.childImageSharp.gatsbyImageData.images.fallback.src}`}
+      image={`${siteUrl}${frontmatter?.hero_image?.childImageSharp?.gatsbyImageData.images.fallback?.src}`}
     />
   )
 }

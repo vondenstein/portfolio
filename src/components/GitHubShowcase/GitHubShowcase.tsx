@@ -3,15 +3,15 @@ import { useGitHubRepos } from "../../hooks/use-github-repositories"
 import Block from "../Block"
 import Button from "../Button"
 
-import * as styles from "./GitHubCard.module.css"
+import * as styles from "./GitHubShowcase.module.css"
 
-const GitHubCard = ({}) => {
+const GitHubShowcase: React.FC = () => {
   const repositories = useGitHubRepos()
 
   return (
     <div>
       <div className={styles.cardContainer}>
-        {repositories.map(({ node }: Queries.GitHub_PinnableItemEdge) => {
+        {repositories.map(({ node }: { node: Queries.GitHub_Repository }) => {
           return (
             <a
               href={node?.url}
@@ -20,7 +20,7 @@ const GitHubCard = ({}) => {
             >
               <div
                 style={{
-                  backgroundColor: `${node?.primaryLanguage.color}`,
+                  backgroundColor: `${node?.primaryLanguage?.color}`,
                 }}
                 className={styles.contentContainer}
               >
@@ -68,4 +68,4 @@ const GitHubCard = ({}) => {
   )
 }
 
-export default GitHubCard
+export default GitHubShowcase
