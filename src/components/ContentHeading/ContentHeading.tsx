@@ -11,13 +11,13 @@ type ContentHeadingProps = {
   dark?: boolean
 }
 
-const ContentHeading = ({
+const ContentHeading: React.FC<ContentHeadingProps> = ({
   title,
   showAuthor,
   dark,
   date,
   readingTime,
-}: ContentHeadingProps) => {
+}) => {
   return (
     <div className={styles.heading}>
       <h1 className={styles.title}>{title}</h1>

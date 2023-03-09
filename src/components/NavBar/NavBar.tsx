@@ -8,7 +8,7 @@ import MenuContext from "../MenuContext"
 import Logo from "../Logo"
 import MenuButton from "../MenuButton"
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
   const navLinks = useNavigationLinks()
   const { isOpen, setOpen } = useContext(MenuContext)
 
@@ -18,7 +18,10 @@ const NavBar = () => {
 
   /* This is pretty bad. TODO: remove duplicate code
   maybe pass these functions down from layout? */
-  const handleNav = (e, path) => {
+  const handleNav = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    path: string
+  ) => {
     e.preventDefault()
     setOpen(isOpen => !isOpen)
 
@@ -45,11 +48,7 @@ const NavBar = () => {
               className={styles.link}
               key={node.url ?? ""}
               to={node.url ?? ""}
-              getProps={({ isPartiallyCurrent, isCurrent }) =>
-                isPartiallyCurrent && isCurrent
-                  ? { ["data-active"]: "true" }
-                  : null
-              }
+              activeClassName={styles.activeLink}
               title={node.title!}
             >
               {node.title}

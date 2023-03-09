@@ -3,18 +3,11 @@ import type { HeadFC, PageProps } from "gatsby"
 import { graphql } from "gatsby"
 
 import Layout from "../../components/Layout"
-import { StaticImage } from "gatsby-plugin-image"
-import Block from "../../components/Block"
-
-import * as styles from "../styles/BioPage.module.css"
-import SEO from "../../components/SEO"
-import { useSiteMetadata } from "../../hooks/use-site-metadata"
-import PostCard from "../../components/PostCard"
 import Section from "../../components/Section"
+import PostCard from "../../components/PostCard"
+import SEO from "../../components/SEO"
 
-const PhotosPage: React.FC<PageProps<Queries.PhotosetQuery>> = ({ data }) => {
-  const { author } = useSiteMetadata()
-
+const PhotosPage: React.FC<PageProps<Queries.PhotosetsQuery>> = ({ data }) => {
   return (
     <Layout>
       <Section
@@ -41,7 +34,7 @@ const PhotosPage: React.FC<PageProps<Queries.PhotosetQuery>> = ({ data }) => {
 export default PhotosPage
 
 export const query = graphql`
-  query Photoset {
+  query Photosets {
     allMdx(
       sort: { frontmatter: { date: DESC } }
       filter: { fields: { contentType: { eq: "photos" } } }

@@ -11,12 +11,12 @@ type ContentMetadataProps = {
   readingTime?: number | null
 }
 
-const ContentMetadata = ({
+const ContentMetadata: React.FC<ContentMetadataProps> = ({
   showAuthor,
   dark,
   date,
   readingTime,
-}: ContentMetadataProps) => {
+}) => {
   const { author } = useSiteMetadata()
 
   return (

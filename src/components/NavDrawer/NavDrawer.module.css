@@ -39,7 +39,7 @@
   opacity: 0.6;
 }
 
-.link[data-active="true"]::after {
+.activeLink::after {
   content: "";
   position: absolute;
   margin: 0 auto;

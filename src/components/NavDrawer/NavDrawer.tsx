@@ -5,11 +5,14 @@ import { Link, navigate } from "gatsby"
 import * as styles from "./NavDrawer.module.css"
 import MenuContext from "../MenuContext"
 
-const NavDrawer = () => {
+const NavDrawer: React.FC = () => {
   const navLinks = useNavigationLinks()
   const { isOpen, setOpen } = useContext(MenuContext)
 
-  const handleNav = (e, path) => {
+  const handleNav = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    path: string
+  ) => {
     e.preventDefault()
     setOpen(isOpen => !isOpen)
 
@@ -24,15 +27,11 @@ const NavDrawer = () => {
         {navLinks.edges.map(({ node }: Queries.NavigationJsonEdge) => {
           return (
             <Link
-              onClick={e => handleNav(e, node.url)}
+              onClick={e => handleNav(e, node.url!)}
               className={styles.link}
               key={node.url ?? ""}
               to={node.url ?? ""}
-              getProps={({ isPartiallyCurrent, isCurrent }) =>
-                isPartiallyCurrent && isCurrent
-                  ? { ["data-active"]: "true" }
-                  : null
-              }
+              activeClassName={styles.activeLink}
               title={node.title!}
             >
               {node.title}

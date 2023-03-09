@@ -18,7 +18,7 @@ type PostCardProps = {
   direction?: "horizontal" | "vertical"
 }
 
-const PostCard = ({
+const PostCard: React.FC<PostCardProps> = ({
   id,
   title,
   description,
@@ -29,7 +29,7 @@ const PostCard = ({
   link,
   linkTitle,
   direction = "horizontal",
-}: PostCardProps) => {
+}) => {
   const imageData = getImage(image)
 
   return (

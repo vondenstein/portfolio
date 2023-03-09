@@ -54,7 +54,7 @@
   margin-right: 60px;
 }
 
-.link[data-active="true"]::after {
+.activeLink::after {
   content: "";
   position: absolute;
   margin: 0 auto;

@@ -7,7 +7,7 @@ import { useSiteMetadata } from "../../hooks/use-site-metadata"
 
 import Logo from "../Logo"
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const navLinks = useNavigationLinks()
   const { author } = useSiteMetadata()
 
@@ -24,13 +24,9 @@ const Footer = () => {
       <div className={styles.right}>
         <Link
           className={styles.link}
-          key="/"
           to="/"
-          data-a11y="false"
           title="Home"
-          getProps={({ isPartiallyCurrent, isCurrent }) =>
-            isPartiallyCurrent && isCurrent ? { ["data-active"]: "true" } : null
-          }
+          activeClassName={styles.activeLink}
         >
           Home
         </Link>
@@ -40,12 +36,7 @@ const Footer = () => {
               className={styles.link}
               key={node.url ?? ""}
               to={node.url ?? ""}
-              data-a11y="false"
-              getProps={({ isPartiallyCurrent, isCurrent }) =>
-                isPartiallyCurrent && isCurrent
-                  ? { ["data-active"]: "true" }
-                  : null
-              }
+              activeClassName={styles.activeLink}
               title={node.title!}
             >
               {node.title}

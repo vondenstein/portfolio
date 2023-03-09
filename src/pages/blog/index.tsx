@@ -7,7 +7,7 @@ import PostCard from "../../components/PostCard"
 import SEO from "../../components/SEO"
 import Section from "../../components/Section"
 
-const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({ data }) => {
+const BlogPage: React.FC<PageProps<Queries.BlogPostsQuery>> = ({ data }) => {
   return (
     <Layout>
       <Section title="Posts" first>
@@ -32,7 +32,7 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({ data }) => {
 export default BlogPage
 
 export const query = graphql`
-  query BlogPage {
+  query BlogPosts {
     allMdx(
       sort: { frontmatter: { date: DESC } }
       filter: { fields: { contentType: { eq: "blog" } } }
