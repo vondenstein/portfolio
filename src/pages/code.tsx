@@ -4,7 +4,7 @@ import type { HeadFC, PageProps } from "gatsby"
 import Layout from "../components/Layout"
 import ProjectCard from "../components/ProjectCard"
 import { useProjects } from "../hooks/use-projects"
-import GitHubCard from "../components/GitHubCard"
+import GitHubShowcase from "../components/GitHubShowcase"
 import SEO from "../components/SEO"
 import Section from "../components/Section"
 
@@ -35,7 +35,7 @@ const CodePage: React.FC<PageProps> = () => {
         ))}
       </Section>
       <Section title="Github">
-        <GitHubCard />
+        <GitHubShowcase />
       </Section>
     </Layout>
   )

@@ -2,14 +2,14 @@ import * as React from "react"
 import { HeadFC, PageProps } from "gatsby"
 
 import Layout from "../components/Layout"
-import PostCard from "../components/PostCard"
+import ContentLink from "../components/ContentLink"
 import { useLatestPost } from "../hooks/use-latest-post"
 import { useGitHubProfile } from "../hooks/use-github-profile"
 import Button from "../components/Button"
 import Block from "../components/Block"
 import SEO from "../components/SEO"
 import { useRecentPhotos } from "../hooks/use-recent-photos"
-import CardGrid from "../components/CardGrid"
+import ContentGrid from "../components/ContentGrid"
 import Section from "../components/Section"
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -47,7 +47,7 @@ const IndexPage: React.FC<PageProps> = () => {
         </p>
       </div>
       <Section title="Latest Post">
-        <PostCard
+        <ContentLink
           id={latestPost.id}
           title={latestPost.frontmatter.title}
           description={latestPost.excerpt}
@@ -60,9 +60,9 @@ const IndexPage: React.FC<PageProps> = () => {
         />
       </Section>
       <Section title="Recent Photos">
-        <CardGrid>
+        <ContentGrid>
           {recentPhotos.allMdx.nodes.map(node => (
-            <PostCard
+            <ContentLink
               direction="vertical"
               id={node.id}
               title={node.frontmatter?.title!}
@@ -73,7 +73,7 @@ const IndexPage: React.FC<PageProps> = () => {
               linkTitle={node.frontmatter?.title!}
             />
           ))}
-        </CardGrid>
+        </ContentGrid>
       </Section>
       <Block>
         <h2>Software Projects</h2>

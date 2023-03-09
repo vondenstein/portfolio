@@ -3,9 +3,9 @@ import { useGitHubRepos } from "../../hooks/use-github-repositories"
 import Block from "../Block"
 import Button from "../Button"
 
-import * as styles from "./GitHubCard.module.css"
+import * as styles from "./GitHubShowcase.module.css"
 
-const GitHubCard: React.FC = () => {
+const GitHubShowcase: React.FC = () => {
   const repositories = useGitHubRepos()
 
   return (
@@ -68,4 +68,4 @@ const GitHubCard: React.FC = () => {
   )
 }
 
-export default GitHubCard
+export default GitHubShowcase

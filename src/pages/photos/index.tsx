@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../../components/Layout"
 import Section from "../../components/Section"
-import PostCard from "../../components/PostCard"
+import ContentLink from "../../components/ContentLink"
 import SEO from "../../components/SEO"
 
 const PhotosPage: React.FC<PageProps<Queries.PhotosetsQuery>> = ({ data }) => {
@@ -16,7 +16,7 @@ const PhotosPage: React.FC<PageProps<Queries.PhotosetsQuery>> = ({ data }) => {
         first
       >
         {data.allMdx.nodes.map(node => (
-          <PostCard
+          <ContentLink
             id={node.id}
             title={node.frontmatter?.title!}
             date={node.frontmatter?.date!}
