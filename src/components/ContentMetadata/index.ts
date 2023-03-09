@@ -1,4 +1,3 @@
-import ContentMetadata, { ContentMetadataProps } from "./ContentMetadata"
+import ContentMetadata from "./ContentMetadata"
 
 export default ContentMetadata
-export { ContentMetadataProps }

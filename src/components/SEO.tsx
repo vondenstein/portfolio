@@ -11,7 +11,7 @@ type SEOProps = {
   imgSubtitle?: string
 }
 
-const SEO = ({
+const SEO: React.FC<SEOProps> = ({
   title,
   description,
   children,
@@ -19,7 +19,7 @@ const SEO = ({
   image,
   imgTitle,
   imgSubtitle,
-}: SEOProps) => {
+}) => {
   const {
     title: siteTitle,
     description: siteDescription,

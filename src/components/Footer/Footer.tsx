@@ -6,8 +6,9 @@ import { useNavigationLinks } from "../../hooks/use-navigation-links"
 import { useSiteMetadata } from "../../hooks/use-site-metadata"
 
 import Logo from "../Logo"
+import NavLink from "../NavLink"
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const navLinks = useNavigationLinks()
   const { author } = useSiteMetadata()
 
@@ -22,35 +23,9 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.right}>
-        <Link
-          className={styles.link}
-          key="/"
-          to="/"
-          data-a11y="false"
-          title="Home"
-          getProps={({ isPartiallyCurrent, isCurrent }) =>
-            isPartiallyCurrent && isCurrent ? { ["data-active"]: "true" } : null
-          }
-        >
-          Home
-        </Link>
+        <NavLink to="/" title="Home" />
         {navLinks.edges.map(({ node }: Queries.NavigationJsonEdge) => {
-          return (
-            <Link
-              className={styles.link}
-              key={node.url ?? ""}
-              to={node.url ?? ""}
-              data-a11y="false"
-              getProps={({ isPartiallyCurrent, isCurrent }) =>
-                isPartiallyCurrent && isCurrent
-                  ? { ["data-active"]: "true" }
-                  : null
-              }
-              title={node.title!}
-            >
-              {node.title}
-            </Link>
-          )
+          return <NavLink to={node.url ?? ""} title={node.title!} />
         })}
       </div>
     </footer>

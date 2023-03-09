@@ -2,13 +2,13 @@ import React from "react"
 
 import * as styles from "./ProjectCard.module.css"
 
-const ProjectCard = ({
+const ProjectCard: React.FC<Queries.ProjectsJson> = ({
   title,
   description,
   icon,
   color,
   links,
-}: Queries.ProjectsJson) => {
+}) => {
   return (
     <div className={styles.card} style={{ background: color ?? "#fdf9f2" }}>
       <div className={styles.left}>

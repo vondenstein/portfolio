@@ -1,11 +1,12 @@
 import React, { useEffect, useContext } from "react"
 
-import * as styles from "./Layout.module.css"
-import NavBar from "../NavBar"
 import "../../styles/global.css"
-import Footer from "../Footer"
-import PageContainer from "../PageContainer"
+import * as styles from "./Layout.module.css"
+
 import NavDrawer from "../NavDrawer"
+import PageContainer from "../PageContainer"
+import NavBar from "../NavBar"
+import Footer from "../Footer"
 import MenuContext from "../MenuContext"
 
 const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
