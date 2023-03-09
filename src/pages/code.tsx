@@ -2,11 +2,12 @@ import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
 
 import Layout from "../components/Layout"
+import Section from "../components/Section"
 import ProjectCard from "../components/ProjectCard"
-import { useProjects } from "../hooks/use-projects"
 import GitHubShowcase from "../components/GitHubShowcase"
 import SEO from "../components/SEO"
-import Section from "../components/Section"
+
+import { useProjects } from "../hooks/use-projects"
 
 const CodePage: React.FC<PageProps> = () => {
   const projects = useProjects()

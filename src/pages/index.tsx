@@ -2,15 +2,16 @@ import * as React from "react"
 import { HeadFC, PageProps } from "gatsby"
 
 import Layout from "../components/Layout"
+import Section from "../components/Section"
 import ContentLink from "../components/ContentLink"
+import ContentGrid from "../components/ContentGrid"
+import Block from "../components/Block"
+import Button from "../components/Button"
+import SEO from "../components/SEO"
+
 import { useLatestPost } from "../hooks/use-latest-post"
 import { useGitHubProfile } from "../hooks/use-github-profile"
-import Button from "../components/Button"
-import Block from "../components/Block"
-import SEO from "../components/SEO"
 import { useRecentPhotos } from "../hooks/use-recent-photos"
-import ContentGrid from "../components/ContentGrid"
-import Section from "../components/Section"
 
 const IndexPage: React.FC<PageProps> = () => {
   const latestPost = useLatestPost()

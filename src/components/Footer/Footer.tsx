@@ -6,6 +6,7 @@ import { useNavigationLinks } from "../../hooks/use-navigation-links"
 import { useSiteMetadata } from "../../hooks/use-site-metadata"
 
 import Logo from "../Logo"
+import NavLink from "../NavLink"
 
 const Footer: React.FC = () => {
   const navLinks = useNavigationLinks()
@@ -22,26 +23,9 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className={styles.right}>
-        <Link
-          className={styles.link}
-          to="/"
-          title="Home"
-          activeClassName={styles.activeLink}
-        >
-          Home
-        </Link>
+        <NavLink to="/" title="Home" />
         {navLinks.edges.map(({ node }: Queries.NavigationJsonEdge) => {
-          return (
-            <Link
-              className={styles.link}
-              key={node.url ?? ""}
-              to={node.url ?? ""}
-              activeClassName={styles.activeLink}
-              title={node.title!}
-            >
-              {node.title}
-            </Link>
-          )
+          return <NavLink to={node.url ?? ""} title={node.title!} />
         })}
       </div>
     </footer>

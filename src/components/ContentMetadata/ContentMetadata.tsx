@@ -41,5 +41,3 @@ const ContentMetadata: React.FC<ContentMetadataProps> = ({
 }
 
 export default ContentMetadata
-
-export { ContentMetadataProps }

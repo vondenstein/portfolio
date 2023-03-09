@@ -7,6 +7,7 @@ import MenuContext from "../MenuContext"
 
 import Logo from "../Logo"
 import MenuButton from "../MenuButton"
+import NavLink from "../NavLink"
 
 const NavBar: React.FC = () => {
   const navLinks = useNavigationLinks()
@@ -42,19 +43,11 @@ const NavBar: React.FC = () => {
       </Link>
       <div className={styles.right}>
         <MenuButton onClick={toggleNav} />
-        {navLinks.edges.map(({ node }: Queries.NavigationJsonEdge) => {
-          return (
-            <Link
-              className={styles.link}
-              key={node.url ?? ""}
-              to={node.url ?? ""}
-              activeClassName={styles.activeLink}
-              title={node.title!}
-            >
-              {node.title}
-            </Link>
-          )
-        })}
+        <div className={styles.links}>
+          {navLinks.edges.map(({ node }: Queries.NavigationJsonEdge) => {
+            return <NavLink to={node.url ?? ""} title={node.title!} />
+          })}
+        </div>
       </div>
     </nav>
   )

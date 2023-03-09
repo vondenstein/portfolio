@@ -17,37 +17,12 @@
   flex-direction: row;
 }
 
-.link {
-  position: relative;
-  font-weight: 600;
-  font-size: 0.85rem;
-  font-family: "SF Pro Display", "-apple-system", "BlinkMacSystemFont",
-    "San Francisco", "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto",
-    "Segoe UI", "Arial", sans-serif;
-  color: #fdf9f2;
-  text-decoration: none;
+.links {
+  display: flex;
 }
 
-.link:hover {
-  opacity: 0.6;
-  text-decoration: none;
-}
-
-.link:not(:last-child) {
-  margin-right: 60px;
-}
-
-.activeLink::after {
-  content: "";
-  position: absolute;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  bottom: -5px;
-  height: 2px;
-  width: 25px;
-  border-radius: 3px;
-  background: #fdf9f2;
+.links :not(:last-child) {
+  margin-right: 2.85rem;
 }
 
 .logoLink {
@@ -71,8 +46,8 @@
     margin: 0 auto;
   }
 
-  .link:not(:last-child) {
-    margin-right: 40px;
+  .links :not(:last-child) {
+    margin-right: 1.9rem;
   }
 }
 
@@ -83,7 +58,7 @@
 }
 
 @media (max-width: 768px) {
-  .link {
+  .links {
     display: none;
   }
 

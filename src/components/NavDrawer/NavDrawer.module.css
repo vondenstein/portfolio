@@ -19,41 +19,16 @@
 .links {
   display: flex;
   flex-direction: column;
-  margin-top: 6rem;
+  margin-top: 5.75rem;
   align-items: center;
 }
 
-.link {
+.links > a {
   margin-bottom: 2rem;
-  position: relative;
-  font-weight: 600;
-  font-size: 0.85rem;
-  font-family: "SF Pro Display", "-apple-system", "BlinkMacSystemFont",
-    "San Francisco", "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto",
-    "Segoe UI", "Arial", sans-serif;
-  color: #fdf9f2;
-  text-decoration: none;
-}
-
-.link:hover {
-  opacity: 0.6;
-}
-
-.activeLink::after {
-  content: "";
-  position: absolute;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  bottom: -5px;
-  height: 2px;
-  width: 25px;
-  border-radius: 3px;
-  background: #fdf9f2;
 }
 
 @media (max-height: 650px) {
   .links {
-    margin-top: 3rem;
+    margin-top: 2.75rem;
   }
 }

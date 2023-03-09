@@ -3,9 +3,9 @@ import type { HeadFC, PageProps } from "gatsby"
 import { graphql } from "gatsby"
 
 import Layout from "../../components/Layout"
+import Section from "../../components/Section"
 import ContentLink from "../../components/ContentLink"
 import SEO from "../../components/SEO"
-import Section from "../../components/Section"
 
 const BlogPage: React.FC<PageProps<Queries.BlogPostsQuery>> = ({ data }) => {
   return (

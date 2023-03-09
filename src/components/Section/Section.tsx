@@ -15,14 +15,10 @@ const Section: React.FC<React.PropsWithChildren & SectionProps> = ({
   children,
 }) => {
   return (
-    <div className={styles.section}>
+    <div>
       <div className={styles.heading}>
-        {first ? (
-          <h1 className={styles.title}>{title}</h1>
-        ) : (
-          <h2 className={styles.title}>{title}</h2>
-        )}
-        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+        {first ? <h1>{title}</h1> : <h2>{title}</h2>}
+        {subtitle && <p>{subtitle}</p>}
       </div>
       <div className={styles.content}>{children}</div>
     </div>

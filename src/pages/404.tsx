@@ -3,8 +3,8 @@ import { HeadFC, PageProps } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/Layout"
-import SEO from "../components/SEO"
 import Button from "../components/Button"
+import SEO from "../components/SEO"
 
 const NotFoundPage: React.FC<PageProps> = () => {
   return (

@@ -1,9 +1,10 @@
 import React, { useContext } from "react"
 import { useNavigationLinks } from "../../hooks/use-navigation-links"
-import { Link, navigate } from "gatsby"
+import { navigate } from "gatsby"
 
 import * as styles from "./NavDrawer.module.css"
 import MenuContext from "../MenuContext"
+import NavLink from "../NavLink"
 
 const NavDrawer: React.FC = () => {
   const navLinks = useNavigationLinks()
@@ -26,16 +27,11 @@ const NavDrawer: React.FC = () => {
       <div className={styles.links}>
         {navLinks.edges.map(({ node }: Queries.NavigationJsonEdge) => {
           return (
-            <Link
-              onClick={e => handleNav(e, node.url!)}
-              className={styles.link}
-              key={node.url ?? ""}
+            <NavLink
               to={node.url ?? ""}
-              activeClassName={styles.activeLink}
               title={node.title!}
-            >
-              {node.title}
-            </Link>
+              onClick={e => handleNav(e, node.url!)}
+            />
           )
         })}
       </div>
