@@ -78,7 +78,7 @@ GitHub profile data is made available on the `/code` page using [gatsby-source-g
 
 Feel free to review the code and reuse what you feel is appropriate. However, please respect that the files in the following directories are © Stephen Vondenstein. As they contain copyrighted photos and posts, you **may not** reuse anything therein without my written permission:
 
-- blog/
+- content/
 - src/images/
 
 All other directories and files are [MIT Licensed](LICENSE) (where applicable).
