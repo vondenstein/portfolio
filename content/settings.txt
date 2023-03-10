@@ -1,0 +1,17 @@
+Project images are created using screely:
+
+Large Image:
+    - Screenshot size: 2290 x 1302 (@2x = 1145 x 651)
+    - Output image size: 1483 x 900
+
+    Settings:
+    - Resize to height: 768
+    - Shadow "ON"
+    - Light/Dark mode to taste
+    - Window type "plain"
+    - Background color match the project color
+    - Padding
+        - vertical "50px"
+        - horizontal "66px"
+
+Small Image:

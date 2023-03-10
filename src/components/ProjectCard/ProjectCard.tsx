@@ -3,15 +3,28 @@ import React from "react"
 
 import * as styles from "./ProjectCard.module.css"
 
-const ProjectCard: React.FC<Queries.ProjectsJson> = ({
+type ProjectCardProps = {
+  title: string
+  description: string
+  icon: string
+  color: string
+  links?: readonly Queries.Maybe<Queries.ProjectsJsonLinks>[]
+  largeImage: Queries.File
+  smallImage: Queries.File
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   description,
   icon,
   color,
   links,
-  image,
+  largeImage,
+  smallImage,
 }) => {
-  const projectImage = getImage(image?.childImageSharp?.gatsbyImageData!)
+  const desktopImage = getImage(largeImage?.childImageSharp?.gatsbyImageData!)
+  const mobileImage = getImage(smallImage?.childImageSharp?.gatsbyImageData!)
+  const primaryLink = links?.[0]
 
   return (
     <div className={styles.card} style={{ background: color ?? "#fdf9f2" }}>
@@ -42,10 +55,18 @@ const ProjectCard: React.FC<Queries.ProjectsJson> = ({
       <div className={styles.right}>
         <GatsbyImage
           className={styles.image}
-          image={projectImage!}
+          image={desktopImage!}
           alt={title!}
+          imgStyle={{ objectPosition: "0 0" }}
         />
       </div>
+      <a
+        className={`${styles.link} ${styles.mobileLink}`}
+        href={primaryLink?.url ?? "/"}
+        title={primaryLink?.text!}
+      >
+        {primaryLink?.text}
+      </a>
     </div>
   )
 }
