@@ -94,10 +94,6 @@
     margin: 2.3rem 0rem 2.3rem 2.8rem;
   }
 
-  .title {
-    margin-bottom: 0.9rem;
-  }
-
   .description {
     height: 6.5rem;
     -webkit-line-clamp: 5;
@@ -147,14 +143,14 @@
 
 @media (max-width: 520px) {
   .left {
-    margin: 1.2rem 1.5rem;
+    margin: 1.2rem 0 0;
   }
 
   .heading {
     margin-bottom: 1rem;
   }
 
-  .link {
-    margin-top: 0.5rem;
+  .mobileLink {
+    margin-top: 1rem;
   }
 }
