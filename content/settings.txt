@@ -15,3 +15,15 @@ Large Image:
         - horizontal "66px"
 
 Small Image:
+    - Screenshot size: 1600 x 1200 (@2x = 800 x 600)
+    - Output image size: 1024 x 800
+
+    Settings:
+    - Resize to height: 768
+    - Shadow "OFF"
+    - Light/Dark mode to taste
+    - Window type "plain"
+    - Background doesn't matter
+    - Padding
+        - vertical "0"
+        - horizontal "0"

@@ -5,8 +5,8 @@
     "color": "#a4d3e0",
     "icon": "gatsby",
     "image": {
-      "large": "./portfolio.png",
-      "small": "./portfolio.png"
+      "large": "./portfolio-large.png",
+      "small": "./portfolio-small.png"
     },
     "links": [
       {
@@ -23,8 +23,8 @@
     "color": "#445979",
     "icon": "nextdotjs",
     "image": {
-      "large": "./wsb.png",
-      "small": "./wsb.png"
+      "large": "./wsb-large.png",
+      "small": "./wsb-small.png"
     },
     "links": [
       {
@@ -41,8 +41,8 @@
     "color": "#fc8f54",
     "icon": "tensorflow",
     "image": {
-      "large": "./ionic.png",
-      "small": "./ionic.png"
+      "large": "./ionic-large.png",
+      "small": "./ionic-small.png"
     },
     "links": [
       {

@@ -1,4 +1,4 @@
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image"
 import React from "react"
 
 import * as styles from "./ProjectCard.module.css"
@@ -24,6 +24,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   const desktopImage = getImage(largeImage?.childImageSharp?.gatsbyImageData!)
   const mobileImage = getImage(smallImage?.childImageSharp?.gatsbyImageData!)
+  const projectImage = withArtDirection(desktopImage!, [
+    {
+      media: "(max-width: 1024px)",
+      image: mobileImage!,
+    },
+  ])
   const primaryLink = links?.[0]
 
   return (
@@ -55,9 +61,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className={styles.right}>
         <GatsbyImage
           className={styles.image}
-          image={desktopImage!}
+          image={projectImage!}
           alt={title!}
-          imgStyle={{ objectPosition: "0 0" }}
+          imgClassName={styles.img}
         />
       </div>
       <a
