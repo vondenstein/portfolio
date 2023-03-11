@@ -22,16 +22,13 @@ const CodePage: React.FC<PageProps> = () => {
       >
         {projects.edges.map(({ node }: Queries.ProjectsJsonEdge) => (
           <ProjectCard
-            key={node.id}
-            id={node.id}
-            children={node.children}
-            internal={node.internal}
-            parent={node.parent}
-            title={node.title}
-            description={node.description}
-            icon={node.icon}
-            color={node.color}
-            links={node.links}
+            title={node.title!}
+            description={node.description!}
+            icon={node.icon!}
+            color={node.color!}
+            links={node.links!}
+            largeImage={node.image?.large!}
+            smallImage={node.image?.small!}
           />
         ))}
       </Section>
