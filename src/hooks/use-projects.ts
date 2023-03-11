@@ -15,12 +15,12 @@ export const useProjects = () => {
               image {
                 large {
                   childImageSharp {
-                    gatsbyImageData(height: 386)
+                    gatsbyImageData(height: 386, placeholder: NONE)
                   }
                 }
                 small {
                   childImageSharp {
-                    gatsbyImageData(height: 386)
+                    gatsbyImageData(height: 386, placeholder: NONE)
                   }
                 }
               }
