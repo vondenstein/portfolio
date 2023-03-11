@@ -200,6 +200,13 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `photos`,
+        path: `${__dirname}/content/projects`,
+      },
+    },
+    {
       resolve: `gatsby-source-graphql`,
       options: {
         typeName: `GitHub`,

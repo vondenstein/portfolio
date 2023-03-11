@@ -1,14 +1,37 @@
+import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image"
 import React from "react"
 
 import * as styles from "./ProjectCard.module.css"
 
-const ProjectCard: React.FC<Queries.ProjectsJson> = ({
+type ProjectCardProps = {
+  title: string
+  description: string
+  icon: string
+  color: string
+  links?: readonly Queries.Maybe<Queries.ProjectsJsonLinks>[]
+  largeImage: Queries.File
+  smallImage: Queries.File
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   description,
   icon,
   color,
   links,
+  largeImage,
+  smallImage,
 }) => {
+  const desktopImage = getImage(largeImage?.childImageSharp?.gatsbyImageData!)
+  const mobileImage = getImage(smallImage?.childImageSharp?.gatsbyImageData!)
+  const projectImage = withArtDirection(desktopImage!, [
+    {
+      media: "(max-width: 1024px)",
+      image: mobileImage!,
+    },
+  ])
+  const primaryLink = links?.[0]
+
   return (
     <div className={styles.card} style={{ background: color ?? "#fdf9f2" }}>
       <div className={styles.left}>
@@ -35,7 +58,21 @@ const ProjectCard: React.FC<Queries.ProjectsJson> = ({
           ))}
         </div>
       </div>
-      <div></div>
+      <div className={styles.right}>
+        <GatsbyImage
+          className={styles.image}
+          image={projectImage!}
+          alt={title!}
+          imgClassName={styles.img}
+        />
+      </div>
+      <a
+        className={`${styles.link} ${styles.mobileLink}`}
+        href={primaryLink?.url ?? "/"}
+        title={primaryLink?.text!}
+      >
+        {primaryLink?.text}
+      </a>
     </div>
   )
 }
