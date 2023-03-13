@@ -42,6 +42,10 @@ Gatsby, React and Vercel have a lot of advanced features available to help devel
 
 [gatsby-plugin-mdx](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/) makes it easy to create a blog using MDX files as posts, and supports most remark plugins for additional features.
 
+### Photography Portfolio
+
+In addition to written posts, using [gatsby-remark-images](https://www.gatsbyjs.com/plugins/gatsby-remark-images/) makes it simple to showcase a photography portfolio with a blog-like presentation.
+
 ### Open Graph Data
 
 Sharing links are populated with rich open graph data built from page titles and descriptions, along with open graph images genereated on-demand using [@vercel/og](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation). Information about this site's deployment for open graph image generation can be found [here](https://github.com/vondenstein/og).
