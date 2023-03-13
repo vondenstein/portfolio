@@ -81,9 +81,9 @@ const BioPage: React.FC<PageProps> = () => {
         <p>
           When I'm waiting for builds to compile, I like to pursue a few other
           hobbies - one of my favorites being photography. If you'd like to
-          check out my photos, you can find them{" "}
+          check out my photos, head over to my{" "}
           <Link to="/photos" title="Photos Page">
-            here
+            photo log
           </Link>
           .
         </p>
