@@ -32,9 +32,9 @@ const GitHubShowcase: React.FC = () => {
                         <>Archive</>
                       ) : (
                         <>
-                          <object
-                            type="image/svg+xml"
-                            data={`icons/star.svg`}
+                          <img
+                            src={`/icons/star.svg`}
+                            alt="Star"
                             className={styles.icon}
                           />
                           {node?.stargazerCount}

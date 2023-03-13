@@ -42,6 +42,7 @@
 
 .icon {
   height: 25px;
+  width: 25px;
   margin-right: 12px;
   margin-bottom: -4px;
 }
@@ -73,12 +74,6 @@
   text-decoration: none;
 }
 
-.link object {
-  height: 16px;
-  margin-right: 12px;
-  margin-bottom: -2px;
-}
-
 .links {
   display: flex;
   flex-wrap: wrap;
@@ -86,6 +81,13 @@
 
 .link:not(:last-child) {
   margin-right: 1.4rem;
+}
+
+.linkIcon {
+  height: 16px;
+  width: 16px;
+  margin-right: 12px;
+  margin-bottom: -2px;
 }
 
 .mobileLink {

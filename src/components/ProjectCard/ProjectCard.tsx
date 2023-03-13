@@ -32,13 +32,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   ])
   const primaryLink = links?.[0]
 
+  function capitalize(s: string): string {
+    return s.charAt(0).toUpperCase() + s.slice(1)
+  }
+
   return (
     <div className={styles.card} style={{ background: color ?? "#fdf9f2" }}>
       <div className={styles.left}>
         <div className={styles.heading}>
-          <object
-            type="image/svg+xml"
-            data={`icons/${icon}.svg`}
+          <img
+            src={`/icons/${icon}.svg`}
+            alt={capitalize(icon) + " logo"}
             className={styles.icon}
           />
           {title}
@@ -52,7 +56,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               href={link?.url ?? "/"}
               title={link?.text!}
             >
-              <object type="image/svg+xml" data={`icons/${link?.icon}.svg`} />
+              <img
+                src={`/icons/${link?.icon}.svg`}
+                alt={capitalize(link?.icon!) + " icon"}
+                className={styles.linkIcon}
+              />
               {link?.text}
             </a>
           ))}
