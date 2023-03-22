@@ -1,6 +1,5 @@
 import { CreateNodeArgs, CreatePageArgs, CreatePagesArgs } from "gatsby"
 const readingTime = require(`reading-time`)
-const simpleGit = require(`simple-git`)
 const path = require(`path`)
 
 const postTemplate = path.resolve(`./src/templates/BlogPost/BlogPost.tsx`)
@@ -78,19 +77,8 @@ exports.createPages = async ({
   })
 }
 
-exports.onCreatePage = async ({ page, actions }: CreatePageArgs) => {
+exports.onCreatePage = ({ page, actions }: CreatePageArgs) => {
   const { createPage } = actions
-
-  /***
-   * Add last modified date for sitemap using component name
-   * unless it is an mdx blog post, in which case use contentFilePath
-   ***/
-  const filePath = page.component.split("?__contentFilePath=").pop()
-  const fileLog = await simpleGit().log({
-    file: filePath,
-    maxCount: 1,
-    strictDate: true,
-  })
 
   /***
    * Add priority for sitemap
@@ -120,7 +108,6 @@ exports.onCreatePage = async ({ page, actions }: CreatePageArgs) => {
       ...page.context,
       priority: priority,
       changeFreq: changeFreq,
-      lastMod: fileLog?.latest?.date,
     },
   })
 }

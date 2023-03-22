@@ -218,6 +218,12 @@ const config: GatsbyConfig = {
         fetchOptions: {},
       },
     },
+    {
+      resolve: `gatsby-plugin-git-lastmod`,
+      options: {
+        useFallback: false,
+      },
+    },
   ],
 }
 
