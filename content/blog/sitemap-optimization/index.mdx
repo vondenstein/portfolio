@@ -1,0 +1,21 @@
+---
+title: "XML Sitemap Optimization for Search Engine Crawlers"
+date: "2023-06-01"
+slug: "xml-sitemap-optimization-for-search-engine-crawlers"
+hero_image: "./hero.jpg"
+hero_image_alt: "A modern building with the sky in the background"
+---
+
+As I mentioned in [Building a Gatsby Site](/building-a-gatsby-site), part of my motivation for building this site was to learn how to properly optimize a modern site's performance and SEO. To this end, I put a lot of effort into optimizing the XML sitemap.
+
+For those not familiar, having a sitemap is an important part of Search Engine Optimization (SEO). Search engines like Google and Bing use automated crawlers to gather information about your site to add to their indexes.
+
+As part of the crawling process, the crawler will check your site for files that help it get the best picture of your site. These files include, but may not be limited to, the `robots.txt` file and the XML sitemap. The crawler uses the sitemap to discover pages within your site to crawl, and uses `robots.txt` to determine which of these pages it is allowed to crawl.
+
+In addition to a list of pages, the sitemap may also contain metadata about each page that can help search engines intelligently display pages of your site when relevant. Taking a look at the [Sitemaps XML format](https://www.sitemaps.org/protocol.html), we can see there are a few required tags: `<urlset>`, which is a container tag that encapsulates a set of pages, `<url>`, which is the parent tag for each page/URL, and `<loc>`, which is the public URL of the page. A sitemap can also provide a few optional tags to give the crawler more information about each page, including `<lastmod>`, `<changefreq>` and `<priority>`.
+
+According to Google and Bing, the most important field is the `lastmod` field.
+
+https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/
+
+https://github.com/steveukx/git-js
