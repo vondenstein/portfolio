@@ -108,10 +108,6 @@ The blog page displays links to every post that I write. I could conceivably wri
 Based on this system, my code for setting the `changefreq` value ended up looking something like this:
 
 ```js
-/***
- * Add changefreq for sitemap - weekly by default
- * monthly for blog posts, daily for blog index
- ***/
 var changeFreq = "weekly"
 if (page.path.includes("/blog/") || page.path.includes("/photos/")) {
   changeFreq = "monthly"
@@ -133,10 +129,6 @@ To further simplify, my scheme is: the `priority` of a page should be equal to `
 The code for this scheme should look something like this:
 
 ```js
-/***
-  * Add priority for sitemap
-  * 1.0 for homepage, all other priorities based on path depth
-  ***/
 var priority = 1.0
 if (page.path !== "/") {
   const re = new RegExp("/", "g")
@@ -147,14 +139,86 @@ if (page.path !== "/") {
 
 #### lastmod
 
-The `lastmod` value
+The `lastmod` value describes the date of the last modificatino of the page, in [W3C Datetime](https://www.w3.org/TR/NOTE-datetime) format. This must be the date that the page itself was modified, not when the sitemap is generated.
 
-### Creating a Gatsby Plugin
+Depending on how your site is set up, it may be simple to determine the proper `lastmod` date for your pages. For this site, my content pages are stored as markdown files in git. This introduces a unique challenge, because I wanted my `lastmod` values to be determined based on the date of the most recent git commit to a given page. I could've placed another field in the markdown frontmatter to contain this date, but I was worried I would forget to update it when making changes to a page. Google says that they will ignore the `lastmod` value if it is determined to be incorrect, so I decided to automate it.
 
-https://github.com/steveukx/git-js
+I decided to create a Gatsby plugin to accomplish this because the other plugins/methods had some glaring issues. There is a [Stack Overflow](https://stackoverflow.com/a/70297982) answer that uses [gatsby-transformer-gitinfo](https://www.gatsbyjs.com/plugins/gatsby-transformer-gitinfo/), which works okay, but it doesn't handle pages with the same name very well (which becomes an issue when you have multiple `index` pages in various directories).
+
+Due to this issue, and a few others, I created [gatsby-plugin-git-lastmod](https://www.gatsbyjs.com/plugins/gatsby-plugin-git-lastmod/), which adds a page's most recent git commit date to its page context - just like the examples given above for `priority` and `changefreq`. I won't go over the implementation details in this post, but feel free to review the [GitHub repository](https://github.com/vondenstein/gatsby-plugin-git-lastmod) for more information.
+
+If you are using a different method to determine your `lastmod` values, you can skip forward, but if you'd like to use my plugin, it's fairly simple to use. Simply add the plugin to your Gatsby configuration and you're good to go.
 
 ### Loading Metadata Into the Sitemap
 
+Now that we have all of the metadata required, it's time to feed it all into gatsby-plugin-sitemap. We will need to supply a `query` to get all of the metadata that we need from GraphQL, and a `serialize` function to instruct the plugin how to use the query data to construct the sitemap.
+
+You may notice that some of the guides require customizing the `resolveSiteUrl` and `resolvePages` options, but the beauty of adding the data to the page context is that we don't need to do this. We simply need a query to retrieve the site URL and page context, and a function to serialize the data, which means our gatsby-config.js should look something like this:
+
+```js
+module.exports = {
+  siteMetadata: {
+    // This needs to be set to get the correct page path
+    siteUrl: `https://www.example.com`,
+  },
+  plugins: [
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+          allSitePage {
+            nodes {
+              path
+              pageContext
+            }
+          }
+        }
+        `,
+        serialize: ({ path, pageContext }) => {
+          return {
+            url: path,
+            lastmod: pageContext?.lastMod,
+            priority: pageContext?.priority,
+            changefreq: pageContext?.changeFreq,
+          }
+        },
+      },
+    },
+    `gatsby-plugin-git-lastmod`,
+  ],
+}
+```
+
+The resulting sitemap should end up looking something like this:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://example.net/blog/</loc>
+    <lastmod>2023-03-22T01:00:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://example.net/</loc>
+    <lastmod>2023-03-22T01:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+```
+
+Remember that `changefreq` and `priority` aren't as imporant, and may not even be used by modern search engine crawlers - I mostly implemented those for fun. The key here is getting the `lastmod` value from either your CMS or from git.
+
+And that's it! You should now have a functional XML sitemap for your Gatsby site!
+
 ---
 
-I hope this helped you get your sitemap setup in Gatsby.
+Thanks for stopping by! I hope this post helped you get your sitemap configured with Gatsby. If you found an error in this post, please let me know. If you're having problems with the Gatsby plugin, don't hesitate to [open an issue on GitHub](https://github.com/vondenstein/gatsby-plugin-git-lastmod/issues).
