@@ -12,6 +12,21 @@
   margin: 0 auto;
 }
 
+/* Code Blocks */
+.content pre {
+  margin-bottom: 1.5rem;
+  border-radius: 5px;
+}
+
+/* Code Blocks and Inline Code */
+
+.content code[class*="language-"],
+.content pre[class*="language-"] {
+  /* font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; */
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
 @media (max-width: 1024px) {
   .content {
     width: 24rem;
@@ -27,5 +42,9 @@
 @media (max-width: 520px) {
   .content {
     width: auto;
+  }
+
+  .content pre {
+    max-width: calc(100vw - 4rem);
   }
 }
