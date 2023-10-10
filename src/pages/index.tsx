@@ -35,15 +35,15 @@ const IndexPage: React.FC<PageProps> = () => {
           go.
         </p>
         <p>
-          I'm currently building new products at{" "}
+          I'm currently building impactful systems at{" "}
           <a
-            href="https://spglobal.com"
+            href="https://www.lockheedmartin.com"
             style={{
               color: "#fdf9f2",
             }}
-            title="S&P Global website"
+            title="Lockheed Martin website"
           >
-            S&P Global
+            Lockheed Martin
           </a>
         </p>
       </div>
