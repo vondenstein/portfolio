@@ -48,9 +48,9 @@ const BioPage: React.FC<PageProps> = () => {
           >
             Lockheed Martin
           </a>{" "}
-          as a senior software engineer in Lockheed Martin's Space division. My
-          team builds and maintains a variety of mission-critical applications
-          that are used every day by billions of people across the world.
+          as a senior software engineer in the Space division. My team builds
+          and maintains a variety of mission-critical applications that are used
+          every day by billions of people across the world.
         </p>
         <p>
           Prior to working at Lockheed Martin, I was an associate software
