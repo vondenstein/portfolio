@@ -42,16 +42,28 @@ const BioPage: React.FC<PageProps> = () => {
         <h2>Work</h2>
         <p>
           I'm currently working at{" "}
+          <a
+            href="https://www.lockheedmartin.com"
+            title="Lockheed Martin Website"
+          >
+            Lockheed Martin
+          </a>{" "}
+          as a senior software engineer in the Space division. My team builds
+          and maintains a variety of mission-critical applications that are used
+          every day by billions of people across the world.
+        </p>
+        <p>
+          Prior to working at Lockheed Martin, I was an associate software
+          engineer at{" "}
           <a href="https://spglobal.com" title="S&P Global Website">
             S&P Global
-          </a>{" "}
-          as an associate software engineer in the engineering solutions
-          division. My team is primarily responsible for building and
-          maintaining an array of internal tools to support a cutting-edge data
-          insights platform, though we do maintain some customer-facing
-          services. Our tools and services are used across the organization to
-          increase developer efficiency, reduce platform-breaking errors in
-          production, and reliably deliver customer data.
+          </a>
+          , where I was primarily responsible for building and maintaining an
+          array of internal tools to support a cutting-edge data insights
+          platform, along with some customer-facing services. My team's tools
+          and services were used across the organization to increase developer
+          efficiency, reduce platform-breaking errors in production, and
+          reliably deliver customer data.
         </p>
         <p>
           Before S&P, I worked at Stephenson Stellar Corporation, where I was
@@ -80,7 +92,7 @@ const BioPage: React.FC<PageProps> = () => {
         <h2>Hobbies</h2>
         <p>
           When I'm waiting for builds to compile, I like to pursue a few other
-          hobbies - one of my favorites being photography. If you'd like to
+          hobbies - one of my favorites being film photography. If you'd like to
           check out my photos, head over to my{" "}
           <Link to="/photos" title="Photos Page">
             photo log
