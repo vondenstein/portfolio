@@ -18,24 +18,6 @@
     ]
   },
   {
-    "title": "Bookie",
-    "description": "A fun sentiment analysis and market visualization tool that provides meaningful market insights from user comments and posts in the popular Reddit community, r/WallStreetBets.",
-    "color": "#445979",
-    "icon": "nextdotjs",
-    "image": {
-      "large": "./images/wsb-large.png",
-      "small": "./images/wsb-small.png"
-    },
-    "links": [
-      {
-        "type": "external",
-        "text": "Visit Website",
-        "icon": "planet",
-        "url": "https://wallstreetbets.gg"
-      }
-    ]
-  },
-  {
     "title": "Ionic",
     "description": "Identifies salt deposits by analyzing subsurface images using TensorFlow. With optimizations to process depth data and improve masks, this implementation achieved an accuracy of 83%.",
     "color": "#fc8f54",
