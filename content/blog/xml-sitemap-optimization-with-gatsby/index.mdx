@@ -6,39 +6,68 @@ hero_image: "./hero.jpg"
 hero_image_alt: "A tan building with turquoise windows"
 ---
 
-As I mentioned in the [Hello, World](/blog/hello-world) post, part of my motivation for building this site is to share my experiences with the world. However, I was also keen on building a modern site with optimized performance and SEO. To this end, I put a lot of effort into optimizing the XML sitemap.
+As I mentioned in the [Hello, World](/blog/hello-world) post, part of my motivation for building
+this site is to share my experiences with the world. However, I was also keen on building a modern
+site with optimized performance and SEO. To this end, I put a lot of effort into optimizing the XML
+sitemap.
 
 ## Why are sitemaps important?
 
-For those not familiar, having a sitemap is an important part of Search Engine Optimization (SEO). Search engines like Google and Bing use automated crawlers to gather information about your site to add to their indexes.
+For those not familiar, having a sitemap is an important part of Search Engine Optimization (SEO).
+Search engines like Google and Bing use automated crawlers to gather information about your site to
+add to their indexes.
 
-As part of the crawling process, the crawler will check your site for files that help it get the best picture of your site. These files include, but may not be limited to, the `robots.txt` file and the XML sitemap. The crawler uses the sitemap to discover pages within your site to crawl, and uses `robots.txt` to determine which of these pages it is allowed to crawl.
+As part of the crawling process, the crawler will check your site for files that help it get the
+best picture of your site. These files include, but may not be limited to, the `robots.txt` file
+and the XML sitemap. The crawler uses the sitemap to discover pages within your site to crawl, and
+uses `robots.txt` to determine which of these pages it is allowed to crawl.
 
 ## Examining the Sitemaps XML Format
 
-In addition to a list of pages, the sitemap may also contain metadata about each page that can help search engines intelligently display pages of your site when relevant.
+In addition to a list of pages, the sitemap may also contain metadata about each page that can help
+search engines intelligently display pages of your site when relevant.
 
-Taking a look at the [Sitemaps XML format](https://www.sitemaps.org/protocol.html), we can see there are a few required tags: `<urlset>`, which is a container tag that encapsulates a set of pages, `<url>`, which is the parent tag for each page/URL, and `<loc>`, which is the public URL of the page. A sitemap can also provide a few optional tags to give the crawler more information about each page, including `<lastmod>`, `<changefreq>` and `<priority>`.
+Taking a look at the [Sitemaps XML format](https://www.sitemaps.org/protocol.html), we can see there
+are a few required tags: `<urlset>`, which is a container tag that encapsulates a set of pages,
+`<url>`, which is the parent tag for each page/URL, and `<loc>`, which is the public URL of the page.
+A sitemap can also provide a few optional tags to give the crawler more information about each page,
+including `<lastmod>`, `<changefreq>` and `<priority>`.
 
-According to Google and Bing, the most important field is the `lastmod` field. Both search engines provide information about how their crawlers use sitemaps. For now, we'll use Google's [Sitemap best practices](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#sitemap-best-practices) as a reference. In the [XML Sitemap](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#xml) section, there are a couple of important notes:
+According to Google and Bing, the most important field is the `lastmod` field. Both search engines
+provide information about how their crawlers use sitemaps. For now, we'll use Google's
+[Sitemap best practices](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#sitemap-best-practices)
+as a reference. In the [XML Sitemap](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#xml)
+section, there are a couple of important notes:
 
 - Google ignores `<priority>` and `<changefreq>` values.
-- Google uses the `<lastmod>` value if it's consistently and verifiably (for example by comparing to the last modification of the page) accurate.
+- Google uses the `<lastmod>` value if it's consistently and verifiably (for example by comparing
+  to the last modification of the page) accurate.
 
 ## Implementing the XML Sitemap Format
 
-Now that we know what data we can include in a sitemap, as well as which tags the major search engines find important, we can begin constructing our own XML sitemap. For most sites, this just means that we need to list all of the relevant URLs as well as a list of `lastmod` values for each URL.
+Now that we know what data we can include in a sitemap, as well as which tags the major search
+engines find important, we can begin constructing our own XML sitemap. For most sites, this just
+means that we need to list all of the relevant URLs as well as a list of `lastmod` values for each
+URL.
 
-For [vondenstein.com](/), however, I decided to implement all of the fields available in the Sitemap XML format, including `priority` and `changefreq`. Despite Google and Bing not caring about these values, I thought it would be a fun challenge to implement them anyway. They may not be used by the most popular search engines, but I figure it can't hurt to have this information in my sitemap, and who knows - maybe some other, lesser-known search engine _does_ use them.
+For [vondenstein.com](/), however, I decided to implement all of the fields available in the
+Sitemap XML format, including `priority` and `changefreq`. Despite Google and Bing not caring about
+these values, I thought it would be a fun challenge to implement them anyway. They may not be used
+by the most popular search engines, but I figure it can't hurt to have this information in my
+sitemap, and who knows - maybe some other, lesser-known search engine _does_ use them.
 
 ### The Gatsby Sitemap Plugin
 
-Since this site is built with Gatsby, it's worth understanding how Gatsby handles sitemap files. Conveniently, Gatsby provides an official plugin, called [gatsby-plugin-sitemap](https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/), to generate sitemap files.
+Since this site is built with Gatsby, it's worth understanding how Gatsby handles sitemap files.
+Conveniently, Gatsby provides an official plugin, called
+[gatsby-plugin-sitemap](https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/),
+to generate sitemap files.
 
 If the plugin is setup without any additional configuration, the plugin will generate two files:
 
 - A `sitemap-index.xml` file that points to individual sitemap files
-- A `sitemap-X.xml` file for every 45000 URLs contained in the gatsby site (if your site has less than 45000 URLs, then you'll just get one file: `sitemap-0.xml`)
+- A `sitemap-X.xml` file for every 45000 URLs contained in the gatsby site (if your site has less
+  than 45000 URLs, then you'll just get one file: `sitemap-0.xml`)
 
 The contents of `sitemap-0.xml` will end up looking something like this:
 
@@ -58,15 +87,29 @@ The contents of `sitemap-0.xml` will end up looking something like this:
 </urlset>
 ```
 
-Note that each page has a `changefreq` value of `'daily'` and a `priority` value of `0.7`. This is _okay_, because at least the sitemap contains the list of URLs within the site, but the other values are static and, crucially, it's missing the most important value - `lastmod`. Loading the proper values for these fields shouldn't be too hard, but we have to generate the page metadata before adding it to the sitemap.
+Note that each page has a `changefreq` value of `'daily'` and a `priority` value of `0.7`. This is
+_okay_, because at least the sitemap contains the list of URLs within the site, but the other
+values are static and, crucially, it's missing the most important value - `lastmod`. Loading the
+proper values for these fields shouldn't be too hard, but we have to generate the page metadata
+before adding it to the sitemap.
 
 ### Gathering Metadata
 
-In order to add accurate metadata to our sitemap, we must first generate and store the proper values for each tag supported by the XML sitemap format. Because `changefreq` and `priority` aren't used by most search engines, they can be skipped. They are easy enough to implement, though, so I'll walk through my process just to be thorough.
+In order to add accurate metadata to our sitemap, we must first generate and store the proper
+values for each tag supported by the XML sitemap format. Because `changefreq` and `priority` aren't
+used by most search engines, they can be skipped. They are easy enough to implement, though, so
+I'll walk through my process just to be thorough.
 
-Gatsby makes the process of generating metadata for individual pages on a site easy because we can use the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/). The [`onCreatePage`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#onCreatePage) method is called whenever a new page is created. We can use this to add the necessary metadata to our pages as they are created.
+Gatsby makes the process of generating metadata for individual pages on a site easy because we can
+use the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/). The
+[`onCreatePage`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#onCreatePage)
+method is called whenever a new page is created. We can use this to add the necessary metadata to
+our pages as they are created.
 
-In the `gatsby-node.js` file, we can use the `onCreatePage` method to add metadata to our pages by adding the metadata to the [page context](https://www.gatsbyjs.com/docs/creating-and-modifying-pages/#pass-context-to-pages) like so:
+In the `gatsby-node.js` file, we can use the `onCreatePage` method to add metadata to our pages by
+adding the metadata to the
+[page context](https://www.gatsbyjs.com/docs/creating-and-modifying-pages/#pass-context-to-pages)
+like so:
 
 ```js
 exports.onCreatePage = ({ page, actions }) => {
@@ -89,7 +132,9 @@ Now that we've setup the page context, we can go about generating our metadata v
 
 #### changefreq
 
-The `changefreq` value describes how frequently the page is likely to change. It is meant to provide general information to the crawler, but may not correlate exactly to how often the page is crawled. The valid `changefreq` values are as follows:
+The `changefreq` value describes how frequently the page is likely to change. It is meant to
+provide general information to the crawler, but may not correlate exactly to how often the page is
+crawled. The valid `changefreq` values are as follows:
 
 - `always`
 - `hourly`
@@ -99,13 +144,23 @@ The `changefreq` value describes how frequently the page is likely to change. It
 - `yearly`
 - `never`
 
-How you determine these values will vary based on the composition of your site, but I decided to use only three of these values: `daily`, `weekly`, and `monthly`. My reasoning is that I never wanted to instruct the search engine to wait too long before crawling a page, because most pages are likely to be updated at some point in time.
+How you determine these values will vary based on the composition of your site, but I decided to
+use only three of these values: `daily`, `weekly`, and `monthly`. My reasoning is that I never
+wanted to instruct the search engine to wait too long before crawling a page, because most pages
+are likely to be updated at some point in time.
 
-What I decided is that the default `changefreq` value should be `weekly`, because most pages would not be updated multiple times in a week. For instance, the about page contains my bio, which is likely to change over time - but it would change once every week or so at most.
+What I decided is that the default `changefreq` value should be `weekly`, because most pages would
+not be updated multiple times in a week. For instance, the about page contains my bio, which is
+likely to change over time - but it would change once every week or so at most.
 
-The blog page displays links to every post that I write. I could conceivably write multiple blog posts in a week, so this page should be crawled `daily`. Finally, each individual blog post (or photoset, since they are similar to blog posts) will not change frequently after being written. However, they may be updated with new links or information as needed, so the search engine should check `monthly` for changes.
+The blog page displays links to every post that I write. I could conceivably write multiple blog
+posts in a week, so this page should be crawled `daily`. Finally, each individual blog post (or
+photoset, since they are similar to blog posts) will not change frequently after being written.
+However, they may be updated with new links or information as needed, so the search engine should
+check `monthly` for changes.
 
-Based on this system, my code for setting the `changefreq` value ended up looking something like this:
+Based on this system, my code for setting the `changefreq` value ended up looking something like
+this:
 
 ```js
 var changeFreq = "weekly"
@@ -118,13 +173,25 @@ if (page.path.includes("/blog/") || page.path.includes("/photos/")) {
 
 #### priority
 
-The `priority` value desribes the priority of a URL relative to other URLs on the site. This value does not affect how pages are compared to pages on other sites, it simply lets the search engine know which pages on the site are the most important. Valid values range from `0.0` to `1.0`, with a default of `0.5`.
+The `priority` value desribes the priority of a URL relative to other URLs on the site. This value
+does not affect how pages are compared to pages on other sites, it simply lets the search engine
+know which pages on the site are the most important. Valid values range from `0.0` to `1.0`, with
+a default of `0.5`.
 
-As with the `changefreq` value, the `priority` values will vary based on the composition of your site, but I chose to keep it simple. The most important page (with a priority of `1.0`) is the home page, and all other pages should be ranked based on their proximity to the home page, or _depth_.
+As with the `changefreq` value, the `priority` values will vary based on the composition of your
+site, but I chose to keep it simple. The most important page (with a priority of `1.0`) is the home
+page, and all other pages should be ranked based on their proximity to the home page, or _depth_.
 
-For example, if the home page is at the relative URL `/`, and the blog page is at the relative URL `/blog` then that is only one layer deeper than the home page, so its priority should only be slightly lower than that of the home page. A blog post, however, would have a relative URL of `/blog/post-name`, which is two layers deep, and so it should have a priority that reflects its depth.
+For example, if the home page is at the relative URL `/`, and the blog page is at the relative URL
+`/blog` then that is only one layer deeper than the home page, so its priority should only be
+slightly lower than that of the home page. A blog post, however, would have a relative URL of
+`/blog/post-name`, which is two layers deep, and so it should have a priority that reflects its
+depth.
 
-To further simplify, my scheme is: the `priority` of a page should be equal to `1.0 - pageDepth * 0.1`. That is, for each layer of depth, a page's priority should decrease by `0.1`. Thus, the home page would have a depth of `0`, and thus a `priority` of `1.0`. The `/blog` page would have a depth of `1`, and a `priority` of `0.9`, and so on.
+To further simplify, my scheme is: the `priority` of a page should be equal to
+`1.0 - pageDepth * 0.1`. That is, for each layer of depth, a page's priority should decrease by
+`0.1`. Thus, the home page would have a depth of `0`, and thus a `priority` of `1.0`. The `/blog`
+page would have a depth of `1`, and a `priority` of `0.9`, and so on.
 
 The code for this scheme should look something like this:
 
@@ -139,21 +206,45 @@ if (page.path !== "/") {
 
 #### lastmod
 
-The `lastmod` value describes the date of the last modificatino of the page, in [W3C Datetime](https://www.w3.org/TR/NOTE-datetime) format. This must be the date that the page itself was modified, not when the sitemap is generated.
+The `lastmod` value describes the date of the last modificatino of the page, in
+[W3C Datetime](https://www.w3.org/TR/NOTE-datetime) format. This must be the date that the page
+itself was modified, not when the sitemap is generated.
 
-Depending on how your site is set up, it may be simple to determine the proper `lastmod` date for your pages. For this site, my content pages are stored as markdown files in git. This introduces a unique challenge, because I wanted my `lastmod` values to be determined based on the date of the most recent git commit to a given page. I could've placed another field in the markdown frontmatter to contain this date, but I was worried I would forget to update it when making changes to a page. Google says that they will ignore the `lastmod` value if it is determined to be incorrect, so I decided to automate it.
+Depending on how your site is set up, it may be simple to determine the proper `lastmod` date for
+your pages. For this site, my content pages are stored as markdown files in git. This introduces a
+unique challenge, because I wanted my `lastmod` values to be determined based on the date of the
+most recent git commit to a given page. I could've placed another field in the markdown frontmatter
+to contain this date, but I was worried I would forget to update it when making changes to a page.
+Google says that they will ignore the `lastmod` value if it is determined to be incorrect, so I
+decided to automate it.
 
-I decided to create a Gatsby plugin to accomplish this because the other plugins/methods had some glaring issues. There is a [Stack Overflow](https://stackoverflow.com/a/70297982) answer that uses [gatsby-transformer-gitinfo](https://www.gatsbyjs.com/plugins/gatsby-transformer-gitinfo/), which works okay, but it doesn't handle pages with the same name very well (which becomes an issue when you have multiple `index` pages in various directories).
+I decided to create a Gatsby plugin to accomplish this because the other plugins/methods had some
+laring issues. There is a [Stack Overflow](https://stackoverflow.com/a/70297982) answer that uses
+[gatsby-transformer-gitinfo](https://www.gatsbyjs.com/plugins/gatsby-transformer-gitinfo/), which
+works okay, but it doesn't handle pages with the same name very well (which becomes an issue when
+you have multiple `index` pages in various directories).
 
-Due to this issue, and a few others, I created [gatsby-plugin-git-lastmod](https://www.gatsbyjs.com/plugins/gatsby-plugin-git-lastmod/), which adds a page's most recent git commit date to its page context - just like the examples given above for `priority` and `changefreq`. I won't go over the implementation details in this post, but feel free to review the [GitHub repository](https://github.com/vondenstein/gatsby-plugin-git-lastmod) for more information.
+Due to this issue, and a few others, I created
+[gatsby-plugin-git-lastmod](https://www.gatsbyjs.com/plugins/gatsby-plugin-git-lastmod/), which
+adds a page's most recent git commit date to its page context - just like the examples given above
+for `priority` and `changefreq`. I won't go over the implementation details in this post, but feel
+free to review the [GitHub repository](https://github.com/vondenstein/gatsby-plugin-git-lastmod)
+for more information.
 
-If you are using a different method to determine your `lastmod` values, you can skip forward, but if you'd like to use my plugin, it's fairly simple to use. Simply add the plugin to your Gatsby configuration and you're good to go.
+If you are using a different method to determine your `lastmod` values, you can skip forward, but
+if you'd like to use my plugin, it's fairly simple to use. Simply add the plugin to your Gatsby
+configuration and you're good to go.
 
 ### Loading Metadata Into the Sitemap
 
-Now that we have all of the metadata required, it's time to feed it all into gatsby-plugin-sitemap. We will need to supply a `query` to get all of the metadata that we need from GraphQL, and a `serialize` function to instruct the plugin how to use the query data to construct the sitemap.
+Now that we have all of the metadata required, it's time to feed it all into gatsby-plugin-sitemap.
+We will need to supply a `query` to get all of the metadata that we need from GraphQL, and a
+`serialize` function to instruct the plugin how to use the query data to construct the sitemap.
 
-You may notice that some of the guides require customizing the `resolveSiteUrl` and `resolvePages` options, but the beauty of adding the data to the page context is that we don't need to do this. We simply need a query to retrieve the site URL and page context, and a function to serialize the data, which means our gatsby-config.js should look something like this:
+You may notice that some of the guides require customizing the `resolveSiteUrl` and `resolvePages`
+options, but the beauty of adding the data to the page context is that we don't need to do this. We
+simply need a query to retrieve the site URL and page context, and a function to serialize the
+data, which means our gatsby-config.js should look something like this:
 
 ```js
 module.exports = {
@@ -215,10 +306,14 @@ The resulting sitemap should end up looking something like this:
 </urlset>
 ```
 
-Remember that `changefreq` and `priority` aren't as imporant, and may not even be used by modern search engine crawlers - I mostly implemented those for fun. The key here is getting the `lastmod` value from either your CMS or from git.
+Remember that `changefreq` and `priority` aren't as imporant, and may not even be used by modern
+search engine crawlers - I mostly implemented those for fun. The key here is getting the `lastmod`
+value from either your CMS or from git.
 
 And that's it! You should now have a fully-functional XML sitemap for your Gatsby site.
 
 ---
 
-Thanks for stopping by! I hope this post helped you get your sitemap configured with Gatsby. If you found an error in this post, please let me know. If you're having problems with the Gatsby plugin, don't hesitate to [open an issue on GitHub](https://github.com/vondenstein/gatsby-plugin-git-lastmod/issues).
+Thanks for stopping by! I hope this post helped you get your sitemap configured with Gatsby. If you
+found an error in this post, please let me know. If you're having problems with the Gatsby plugin,
+don't hesitate to [open an issue on GitHub](https://github.com/vondenstein/gatsby-plugin-git-lastmod/issues).
