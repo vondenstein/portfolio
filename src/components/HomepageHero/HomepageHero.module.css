@@ -2,3 +2,29 @@
   text-align: center;
   max-width: 500px;
 }
+
+.career {
+  margin-bottom: 0;
+}
+
+.link {
+  color: #fdf9f2;
+}
+
+.spacer {
+  display: none;
+}
+
+@media (max-width: 520px) {
+  .heading {
+    font-size: 1.75rem;
+  }
+
+  .spacer {
+    display: inline;
+  }
+
+  .blurb br {
+    display: none;
+  }
+}
