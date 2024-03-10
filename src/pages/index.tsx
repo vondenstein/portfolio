@@ -12,6 +12,7 @@ import SEO from "../components/SEO"
 import { useLatestPost } from "../hooks/use-latest-post"
 import { useGitHubProfile } from "../hooks/use-github-profile"
 import { useRecentPhotos } from "../hooks/use-recent-photos"
+import HomepageHero from "../components/HomepageHero"
 
 const IndexPage: React.FC<PageProps> = () => {
   const latestPost = useLatestPost()
@@ -20,13 +21,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <Layout>
-      <div
-        style={{
-          textAlign: "center",
-          maxWidth: "500px",
-          margin: "10vh auto 40vh",
-        }}
-      >
+      <HomepageHero>
         <h1>Hi, I'm Stephen!</h1>
         <p>
           Software Engineer from New Orleans, LA.
@@ -46,7 +41,7 @@ const IndexPage: React.FC<PageProps> = () => {
             Lockheed Martin
           </a>
         </p>
-      </div>
+      </HomepageHero>
       <Section title="Latest Post">
         <ContentLink
           id={latestPost.id}
