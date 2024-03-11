@@ -12,6 +12,7 @@ import SEO from "../components/SEO"
 import { useLatestPost } from "../hooks/use-latest-post"
 import { useGitHubProfile } from "../hooks/use-github-profile"
 import { useRecentPhotos } from "../hooks/use-recent-photos"
+import HomepageHero from "../components/HomepageHero"
 
 const IndexPage: React.FC<PageProps> = () => {
   const latestPost = useLatestPost()
@@ -20,33 +21,15 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <Layout>
-      <div
-        style={{
-          textAlign: "center",
-          maxWidth: "500px",
-          margin: "10vh auto 40vh",
-        }}
-      >
-        <h1>Hi, I'm Stephen!</h1>
-        <p>
-          Software Engineer from New Orleans, LA.
-          <br />
-          I'm passionate about creating things, sharing them and learning as I
-          go.
-        </p>
-        <p>
-          I'm currently building impactful systems at{" "}
-          <a
-            href="https://www.lockheedmartin.com"
-            style={{
-              color: "#fdf9f2",
-            }}
-            title="Lockheed Martin website"
-          >
-            Lockheed Martin
-          </a>
-        </p>
-      </div>
+      <HomepageHero
+        greeting="Hi, I'm Stephen!"
+        occupation="Software Engineer"
+        birthplace="New Orleans, LA"
+        blurb="I'm passionate about creating things, sharing them and learning as I go."
+        workplace="Lockheed Martin"
+        workplaceDescription="building impactful systems"
+        workplaceLink="https://www.lockheedmartin.com"
+      />
       <Section title="Latest Post">
         <ContentLink
           id={latestPost.id}

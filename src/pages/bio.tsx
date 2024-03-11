@@ -1,14 +1,13 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 
-import * as styles from "../styles/BioPage.module.css"
 import Layout from "../components/Layout"
 import Block from "../components/Block"
 import SEO from "../components/SEO"
 
 import { useSiteMetadata } from "../hooks/use-site-metadata"
+import ProfileImage from "../components/ProfileImage"
 
 const BioPage: React.FC<PageProps> = () => {
   const { author } = useSiteMetadata()
@@ -16,15 +15,7 @@ const BioPage: React.FC<PageProps> = () => {
   return (
     <Layout>
       <Block>
-        <StaticImage
-          className={styles.image}
-          src="../images/profile.jpg"
-          alt="Me in a field looking off into the distance."
-          layout="fixed"
-          loading="eager"
-          height={180}
-          width={180}
-        />
+        <ProfileImage />
         <h2 style={{ marginBottom: "15px" }}>{author.title}</h2>
         <p style={{ marginBottom: "5px" }}>{author.subtitle}</p>
       </Block>
