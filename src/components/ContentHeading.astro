@@ -1,0 +1,52 @@
+---
+import ContentMetadata from "./ContentMetadata.astro"
+
+interface Props {
+  title: string
+  showAuthor?: boolean
+  date: string
+  readingTime?: number
+  dark?: boolean
+}
+
+const { title, showAuthor, dark, date, readingTime } = Astro.props
+---
+
+<div class="heading">
+  <h1 class="title">{title}</h1>
+  <ContentMetadata
+    showAuthor={showAuthor}
+    date={date}
+    readingTime={readingTime}
+    dark={dark}
+  />
+</div>
+
+<style>
+  .heading {
+    width: 32rem;
+    margin: 0 auto;
+  }
+
+  .title {
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .heading {
+      width: 24rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .heading {
+      max-width: 480px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .heading {
+      width: auto;
+    }
+  }
+</style>

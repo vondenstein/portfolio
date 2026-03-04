@@ -1,0 +1,53 @@
+---
+interface Props {
+  to: string
+  title: string
+  drawerLink?: boolean
+}
+
+const { to, title, drawerLink } = Astro.props
+
+const isActive =
+  to === "/" ? Astro.url.pathname === "/" : Astro.url.pathname.startsWith(to)
+---
+
+<a
+  href={to}
+  title={title}
+  class:list={["link", { active: isActive }]}
+  {...drawerLink ? { "data-drawer-link": "" } : {}}
+>
+  {title}
+</a>
+
+<style>
+  .link {
+    position: relative;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #fdf9f2;
+    text-decoration: none;
+    font-family: "SF Pro Display", "-apple-system", "BlinkMacSystemFont",
+      "San Francisco", "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto",
+      "Noto", "Segoe UI", "Arial", sans-serif;
+  }
+
+  .active::after {
+    content: "";
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 2px;
+    width: 25px;
+    border-radius: 3px;
+    background: #fdf9f2;
+  }
+
+  @media (max-width: 768px) {
+    .link {
+      font-size: 1rem;
+    }
+  }
+</style>

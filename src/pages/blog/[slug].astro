@@ -1,0 +1,116 @@
+---
+import type { GetStaticPaths } from "astro"
+import { getCollection, render } from "astro:content"
+import { Image } from "astro:assets"
+import Layout from "../../layouts/Layout.astro"
+import ContentHeading from "../../components/ContentHeading.astro"
+import { siteConfig } from "../../config"
+import { formatDate } from "../../utils/format-date"
+import { readingTime } from "../../utils/reading-time"
+import { excerpt } from "../../utils/excerpt"
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection("blog")
+  return posts.map(entry => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }))
+}) satisfies GetStaticPaths
+
+const { entry } = Astro.props
+const { Content } = await render(entry)
+---
+
+<Layout
+  title={entry.data.title}
+  description={excerpt(entry.body ?? "")}
+  imgType="post"
+  image={`${siteConfig.siteUrl}${entry.data.hero_image.src}`}
+>
+  <ContentHeading
+    title={entry.data.title}
+    showAuthor
+    date={formatDate(entry.data.date)}
+    readingTime={readingTime(entry.body ?? "")}
+  />
+  <Image
+    src={entry.data.hero_image}
+    alt={entry.data.hero_image_alt}
+    loading="eager"
+    class="hero-image"
+  />
+  <div class="content">
+    <Content />
+  </div>
+</Layout>
+
+<style>
+  .hero-image {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 0;
+  }
+
+  .content {
+    width: 32rem;
+    margin: 0 auto;
+  }
+
+  .content :global(img) {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 0;
+  }
+
+  /* Code Blocks */
+  .content :global(pre) {
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+    padding: 1rem;
+  }
+
+  /* Code in Code Blocks */
+  .content :global(pre > code) {
+    font-size: 0.75rem;
+    line-height: 1.6;
+  }
+
+  /* All Code */
+  .content :global(code) {
+    font-size: 0.75rem;
+  }
+
+  /* Inline Code */
+  .content :global(:not(pre) > code) {
+    background: #252525;
+    color: #fdf9f2;
+    padding: 0.1em 0.3em;
+    border-radius: 0.3em;
+  }
+
+  @media (max-width: 1024px) {
+    .content {
+      width: 24rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .content {
+      max-width: 480px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .content {
+      width: auto;
+    }
+
+    .content :global(pre) {
+      max-width: calc(100vw - 4rem);
+    }
+  }
+</style>

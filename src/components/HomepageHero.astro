@@ -1,0 +1,83 @@
+---
+import Block from "./Block.astro"
+import ProfileImage from "./ProfileImage.astro"
+
+interface Props {
+  greeting: string
+  occupation: string
+  birthplace: string
+  blurb: string
+  workplace: string
+  workplaceDescription: string
+  workplaceLink: string
+}
+
+const {
+  greeting,
+  occupation,
+  birthplace,
+  blurb,
+  workplace,
+  workplaceDescription,
+  workplaceLink,
+} = Astro.props
+---
+
+<Block>
+  <ProfileImage />
+  <div class="container">
+    <h1 class="heading">{greeting}</h1>
+    <p class="description">
+      {occupation} from {birthplace}.
+      <span class="blurb">
+        <br />
+        <span class="spacer"> </span>
+        {blurb}
+      </span>
+    </p>
+    <p class="career">
+      I'm currently {workplaceDescription} at{" "}
+      <a
+        class="link"
+        href={workplaceLink}
+        style="color: #fdf9f2"
+        title={`${workplace} website`}
+      >
+        {workplace}
+      </a>
+    </p>
+  </div>
+</Block>
+
+<style>
+  .container {
+    text-align: center;
+    max-width: 500px;
+  }
+
+  .career {
+    margin-bottom: 0;
+  }
+
+  .link {
+    color: #fdf9f2;
+  }
+
+  .spacer {
+    display: none;
+  }
+
+  @media (max-width: 520px) {
+    .heading {
+      font-size: 1.75rem;
+    }
+
+    .spacer {
+      display: inline;
+    }
+
+    .blurb br {
+      display: none;
+    }
+  }
+</style>

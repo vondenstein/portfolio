@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Section from "../components/Section.astro"
+import ProjectCard from "../components/ProjectCard.astro"
+import GitHubShowcase from "../components/GitHubShowcase.astro"
+import { fetchPinnedRepos } from "../data/github"
+import projects from "../../content/projects/projects.json"
+import type { ImageMetadata } from "astro"
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/content/projects/images/*.png",
+  { eager: true },
+)
+
+function resolveImage(relativePath: string): ImageMetadata {
+  const absolute = `/content/projects/${relativePath.replace("./", "")}`
+  const match = images[absolute]
+  if (!match) {
+    throw new Error(`Missing project image: ${absolute}`)
+  }
+  return match.default
+}
+
+const repositories = await fetchPinnedRepos()
+---
+
+<Layout
+  title="Software Projects"
+  description="A collection of software projects Stephen has worked on ~ for fun or to learn ~ that he wanted to share."
+>
+  <Section
+    title="Software Projects"
+    subtitle="Here are a collection of projects I've worked on ~ for fun or to learn ~ that I wanted to share."
+    first
+  >
+    {projects.map(project => (
+      <ProjectCard
+        title={project.title}
+        description={project.description}
+        icon={project.icon}
+        color={project.color}
+        links={project.links}
+        largeImage={resolveImage(project.image.large)}
+        smallImage={resolveImage(project.image.small)}
+      />
+    ))}
+  </Section>
+  <Section title="Github">
+    <GitHubShowcase repositories={repositories} />
+  </Section>
+</Layout>

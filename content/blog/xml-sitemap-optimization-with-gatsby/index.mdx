@@ -116,7 +116,8 @@ exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
 
   deletePage(page)
-  // You can access the variables "changeFreq" and "priority" in your page queries now
+  // You can access the variables "changeFreq" and "priority"
+  // in your page queries now
   createPage({
     ...page,
     context: {

@@ -1,0 +1,23 @@
+<div class="content-grid">
+  <slot />
+</div>
+
+<style>
+  .content-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .content-grid {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .content-grid {
+      gap: 1.5rem;
+    }
+  }
+</style>

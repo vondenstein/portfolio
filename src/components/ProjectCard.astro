@@ -1,0 +1,242 @@
+---
+import { Image } from "astro:assets"
+import type { ImageMetadata } from "astro"
+
+interface ProjectLink {
+  type: string
+  text: string
+  icon: string
+  url: string
+}
+
+interface Props {
+  title: string
+  description: string
+  icon: string
+  color: string
+  links?: ProjectLink[]
+  largeImage: ImageMetadata
+  smallImage: ImageMetadata
+}
+
+const { title, description, icon, color, links, largeImage, smallImage } =
+  Astro.props
+
+const primaryLink = links?.[0]
+
+function capitalize(s: string): string {
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
+---
+
+<div class="card" style={`background: ${color}`}>
+  <div class="left">
+    <div class="heading">
+      <img
+        src={`/icons/${icon}.svg`}
+        alt={capitalize(icon) + " logo"}
+        class="icon"
+      />{title}
+    </div>
+    <div class="description">{description}</div>
+    <hr class="hr" />
+    <div class="links">
+      {links?.map(link => (
+        <a class="link" href={link.url} title={link.text}>
+          <img
+            src={`/icons/${link.icon}.svg`}
+            alt={capitalize(link.icon) + " icon"}
+            class="link-icon"
+          />{link.text}
+        </a>
+      ))}
+    </div>
+  </div>
+  <div class="right">
+    <picture>
+      <source
+        media="(max-width: 1024px)"
+        srcset={smallImage.src}
+        width={smallImage.width}
+        height={smallImage.height}
+      />
+      <Image src={largeImage} alt={title} class="image" />
+    </picture>
+  </div>
+  {primaryLink && (
+    <a class="link mobile-link" href={primaryLink.url} title={primaryLink.text}>
+      {primaryLink.text}
+    </a>
+  )}
+</div>
+
+<style>
+  .card {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 1;
+  }
+
+  .left {
+    position: relative;
+    z-index: 1;
+    max-width: 17.5rem;
+    margin: 3.3rem 0 3.3rem 3.5rem;
+    flex-shrink: 0;
+  }
+
+  .right {
+    margin-right: 0rem;
+  }
+
+  .image {
+    display: block;
+    height: 386px;
+    width: auto;
+    object-position: 0 0;
+    margin-bottom: 0;
+  }
+
+  .heading {
+    height: 25px;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+    font-size: 24px;
+    color: #111111;
+  }
+
+  .icon {
+    height: 25px;
+    width: 25px;
+    margin-right: 12px;
+    margin-bottom: -4px;
+  }
+
+  .description {
+    height: 5.2rem;
+    font-size: 18px;
+    color: #111111;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+
+  .hr {
+    width: 7rem;
+    height: 1px;
+    border: none;
+    margin-bottom: 1.5rem;
+    background: #111111;
+  }
+
+  .link {
+    position: relative;
+    font-weight: 600;
+    font-size: 16px;
+    color: #111111;
+    text-decoration: none;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .link:not(:last-child) {
+    margin-right: 1.4rem;
+  }
+
+  .link-icon {
+    height: 16px;
+    width: 16px;
+    margin-right: 12px;
+    margin-bottom: -2px;
+  }
+
+  .mobile-link {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    .left {
+      max-width: 15rem;
+      margin: 2.3rem 1rem 2.3rem 2.8rem;
+    }
+
+    .description {
+      height: 6.5rem;
+      -webkit-line-clamp: 5;
+      margin-bottom: 1rem;
+    }
+
+    .hr {
+      margin-bottom: 1rem;
+    }
+
+    .image {
+      height: 308px;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .image {
+      object-fit: contain;
+      object-position: 50% 50%;
+    }
+
+    .description,
+    .hr,
+    .links {
+      display: none;
+    }
+
+    .mobile-link {
+      display: block;
+      border-top: 1px solid rgba(11, 11, 11, 0.2);
+      width: 100%;
+      text-align: center;
+      padding: 1rem 0;
+      background-color: rgba(11, 11, 11, 0.15);
+      margin-top: 1.5rem;
+    }
+
+    .left {
+      margin: 1.7rem 0 0;
+      max-width: fit-content;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .image {
+      height: calc(calc(100vw - 4rem) / calc(1024 / 800));
+    }
+
+    .left {
+      margin: 1.2rem 0 0;
+    }
+
+    .heading {
+      margin-bottom: 0.3rem;
+    }
+
+    .mobile-link {
+      margin-top: 0.3rem;
+    }
+  }
+</style>
