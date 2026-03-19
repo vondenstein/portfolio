@@ -1,0 +1,235 @@
+---
+import { navigationLinks } from "../data/navigation"
+import Logo from "./Logo.astro"
+import NavLink from "./NavLink.astro"
+---
+
+<nav class="container">
+  <a class="logo-link" href="/" title="Home" data-drawer-link>
+    <Logo />
+  </a>
+  <div class="right">
+    <button class="menu-button" data-menu-toggle aria-label="Toggle menu">
+      <span class="bar" />
+      <span class="bar" />
+      <span class="bar" />
+    </button>
+    <div class="links">
+      {navigationLinks.map(link => (
+        <NavLink to={link.url} title={link.title} />
+      ))}
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* NavBar */
+
+  .container {
+    padding-top: 2.2rem;
+    max-width: 1200px;
+    box-sizing: content-box;
+    position: relative;
+    margin: 0 auto;
+    height: 54px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+  }
+
+  .right {
+    margin-bottom: 9px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .links {
+    display: flex;
+  }
+
+  .links :global(a + a) {
+    margin-left: 2.85rem;
+  }
+
+  .logo-link {
+    display: inline-block;
+    transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .logo-link:hover {
+    opacity: 0.6;
+  }
+
+  @media (max-width: 1280px) {
+    .container {
+      margin: 0 2rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .container {
+      max-width: 768px;
+      margin: 0 auto;
+    }
+
+    .links :global(a + a) {
+      margin-left: 1.9rem;
+    }
+  }
+
+  @media (max-width: 848px) {
+    .container {
+      margin: 0 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .links {
+      display: none;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .container {
+      margin: 0 1rem;
+    }
+  }
+
+  /* MenuButton */
+
+  .menu-button {
+    background-color: transparent;
+    border: none;
+    width: 28px;
+    margin-top: 3px;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    display: none;
+  }
+
+  .bar {
+    display: block;
+    background-color: #fdf9f2;
+    height: 3px;
+    border-radius: 3px;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .bar + .bar {
+    margin-top: 6px;
+  }
+
+  :global(.menu-open) .menu-button .bar:nth-child(1) {
+    animation: ease 0.7s top forwards;
+  }
+
+  :global(.menu-closed) .menu-button .bar:nth-child(1) {
+    animation: ease 0.7s top-2 forwards;
+  }
+
+  :global(.menu-open) .menu-button .bar:nth-child(2) {
+    animation: ease 0.7s scaled forwards;
+  }
+
+  :global(.menu-closed) .menu-button .bar:nth-child(2) {
+    animation: ease 0.7s scaled-2 forwards;
+  }
+
+  :global(.menu-open) .menu-button .bar:nth-child(3) {
+    animation: ease 0.7s bottom forwards;
+  }
+
+  :global(.menu-closed) .menu-button .bar:nth-child(3) {
+    animation: ease 0.7s bottom-2 forwards;
+  }
+
+  @keyframes top {
+    0% {
+      top: 0;
+      transform: rotate(0);
+    }
+    50% {
+      top: 9px;
+      transform: rotate(0);
+    }
+    100% {
+      top: 9px;
+      transform: rotate(45deg);
+    }
+  }
+
+  @keyframes top-2 {
+    0% {
+      top: 9px;
+      transform: rotate(45deg);
+    }
+    50% {
+      top: 9px;
+      transform: rotate(0deg);
+    }
+    100% {
+      top: 0;
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes bottom {
+    0% {
+      bottom: 0;
+      transform: rotate(0);
+    }
+    50% {
+      bottom: 9px;
+      transform: rotate(0);
+    }
+    100% {
+      bottom: 9px;
+      transform: rotate(135deg);
+    }
+  }
+
+  @keyframes bottom-2 {
+    0% {
+      bottom: 9px;
+      transform: rotate(135deg);
+    }
+    50% {
+      bottom: 9px;
+      transform: rotate(0);
+    }
+    100% {
+      bottom: 0;
+      transform: rotate(0);
+    }
+  }
+
+  @keyframes scaled {
+    50% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+
+  @keyframes scaled-2 {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .menu-button {
+      display: block;
+    }
+  }
+</style>

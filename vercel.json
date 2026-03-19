@@ -40,16 +40,7 @@
       ]
     },
     {
-      "source": "/public/page-data/:path*.json",
-      "headers": [
-        {
-          "key": "cache-control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/static/:path*",
+      "source": "/_astro/:path*",
       "headers": [
         {
           "key": "cache-control",
@@ -90,15 +81,6 @@
         {
           "key": "cache-control",
           "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/sw.js",
-      "headers": [
-        {
-          "key": "cache-control",
-          "value": "public, max-age=0, must-revalidate"
         }
       ]
     }

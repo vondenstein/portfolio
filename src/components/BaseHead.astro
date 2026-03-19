@@ -1,0 +1,71 @@
+---
+import { siteConfig } from "../config"
+
+interface Props {
+  title?: string
+  description?: string
+  imgType?: string
+  image?: string
+  imgTitle?: string
+  imgSubtitle?: string
+}
+
+const {
+  title,
+  description,
+  imgType,
+  image,
+  imgTitle,
+  imgSubtitle,
+} = Astro.props
+
+const seo = {
+  title: title ? `${title} · ${siteConfig.title}` : siteConfig.title,
+  description: description ?? siteConfig.description,
+}
+
+let ogImage: string | undefined
+if (siteConfig.ogImageUrl) {
+  const imageUrl = new URL(siteConfig.ogImageUrl)
+  imageUrl.searchParams.append("title", imgTitle ?? title ?? siteConfig.title)
+  imageUrl.searchParams.append("subtitle", imgSubtitle ?? seo.description)
+  if (imgType) imageUrl.searchParams.append("type", imgType)
+  if (image) imageUrl.searchParams.append("image", image)
+  ogImage = imageUrl.toString()
+}
+
+const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl)
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>{seo.title}</title>
+<meta name="description" content={seo.description} />
+<link rel="canonical" href={canonicalUrl.toString()} />
+
+<link rel="manifest" href="/manifest.webmanifest" />
+<meta name="theme-color" content="#111111" />
+
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/rosario.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/crimson-text-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/crimson-text-400i.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/crimson-text-600.woff2" as="font" type="font/woff2" crossorigin />
+
+<!-- Open Graph -->
+<meta property="og:title" content={seo.title} />
+<meta property="og:description" content={seo.description} />
+{ogImage && <meta property="og:image" content={ogImage} />}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={seo.title} />
+<meta name="twitter:description" content={seo.description} />
+{siteConfig.twitterHandle && <meta name="twitter:creator" content={siteConfig.twitterHandle} />}
+{ogImage && (
+  <>
+    <meta name="image" content={ogImage} />
+    <meta name="twitter:image" content={ogImage} />
+  </>
+)}

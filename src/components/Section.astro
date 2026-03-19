@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string
+  subtitle?: string
+  first?: boolean
+}
+
+const { title, subtitle, first = false } = Astro.props
+---
+
+<div>
+  <div class="heading">
+    {first ? <h1>{title}</h1> : <h2>{title}</h2>}
+    {subtitle && <p>{subtitle}</p>}
+  </div>
+  <div class="content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  @media (max-width: 520px) {
+    .content {
+      gap: 1.5rem;
+    }
+  }
+</style>

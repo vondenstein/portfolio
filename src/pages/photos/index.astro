@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content"
+import Layout from "../../layouts/Layout.astro"
+import Section from "../../components/Section.astro"
+import ContentLink from "../../components/ContentLink.astro"
+import { formatDate } from "../../utils/format-date"
+
+const photos = await getCollection("photos")
+photos.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+---
+
+<Layout
+  title="Photos"
+  description="A collection of photos taken by Stephen Vondenstein over the years that he wanted to share."
+  imgType="page"
+  imgTitle="Photos"
+>
+  <Section
+    title="Photos"
+    subtitle="Documenting my adventures and favorite moments."
+    first
+  >
+    {photos.map(photo => (
+      <ContentLink
+        title={photo.data.title}
+        date={formatDate(photo.data.date)}
+        image={photo.data.hero_image}
+        imageAlt={photo.data.hero_image_alt}
+        link={`/photos/${photo.data.slug}`}
+        linkTitle={photo.data.title}
+      />
+    ))}
+  </Section>
+</Layout>

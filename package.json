@@ -1,8 +1,9 @@
 {
   "name": "portfolio",
-  "version": "3.3.3",
+  "version": "4.0.0",
   "private": true,
-  "description": "Fast, modern portfolio and blog powered by Gatsby",
+  "type": "module",
+  "description": "Fast, modern portfolio and blog powered by Astro",
   "license": "MIT",
   "homepage": "https://vondenstein.com",
   "author": {
@@ -19,45 +20,23 @@
     "url": "https://github.com/vondenstein/portfolio/issues"
   },
   "keywords": [
-    "gatsby"
+    "astro"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "clean": "rm -rf dist .astro node_modules/.astro node_modules/.vite"
   },
   "dependencies": {
-    "@mdx-js/react": "^2.3.0",
-    "gatsby": "^5.13.3",
-    "gatsby-plugin-canonical-urls": "^5.13.1",
-    "gatsby-plugin-catch-links": "^5.13.1",
-    "gatsby-plugin-git-lastmod": "^0.1.2",
-    "gatsby-plugin-image": "^3.13.1",
-    "gatsby-plugin-manifest": "^5.13.1",
-    "gatsby-plugin-mdx": "^5.13.1",
-    "gatsby-plugin-sharp": "^5.13.1",
-    "gatsby-plugin-sitemap": "^6.13.1",
-    "gatsby-plugin-typography": "^5.13.1",
-    "gatsby-remark-images": "^7.13.1",
-    "gatsby-remark-prismjs": "^7.13.1",
-    "gatsby-source-filesystem": "^5.13.1",
-    "gatsby-source-graphql": "^5.13.1",
-    "gatsby-transformer-json": "^5.13.1",
-    "gatsby-transformer-sharp": "^5.13.1",
-    "prismjs": "^1.29.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-typography": "^0.16.23",
-    "reading-time": "^1.5.0",
-    "typography": "^0.16.24"
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/sitemap": "^3.7.0",
+    "astro": "^5.18.0",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "@types/node": "^18.19.22",
-    "@types/react": "^18.2.64",
-    "@types/react-dom": "^18.2.21",
-    "typescript": "^4.9.5"
+    "@types/node": "^25.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.9.3"
   }
 }

@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content"
+import Layout from "../../layouts/Layout.astro"
+import Section from "../../components/Section.astro"
+import ContentLink from "../../components/ContentLink.astro"
+import { formatDate } from "../../utils/format-date"
+import { readingTime } from "../../utils/reading-time"
+import { excerpt } from "../../utils/excerpt"
+
+const posts = await getCollection("blog")
+posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+---
+
+<Layout
+  title="Posts"
+  description="A collection of posts about software engineering, electronics and photography with the occasional post about life and travels."
+>
+  <Section title="Posts" first>
+    {posts.map(post => (
+      <ContentLink
+        title={post.data.title}
+        description={excerpt(post.body ?? "")}
+        date={formatDate(post.data.date)}
+        readingTime={readingTime(post.body ?? "")}
+        image={post.data.hero_image}
+        imageAlt={post.data.hero_image_alt}
+        link={`/blog/${post.data.slug}`}
+        linkTitle={post.data.title}
+      />
+    ))}
+  </Section>
+</Layout>

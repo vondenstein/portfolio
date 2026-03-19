@@ -1,0 +1,52 @@
+---
+import { siteConfig } from "../config"
+
+interface Props {
+  showAuthor?: boolean
+  dark?: boolean
+  date: string
+  readingTime?: number | null
+}
+
+const { showAuthor, dark, date, readingTime } = Astro.props
+---
+
+<p class={dark ? "dark-text" : "text"}>
+  {showAuthor && (
+    <>
+      By{" "}
+      <a href="/bio" class="link" title={`${siteConfig.author.name}'s Bio`}>{siteConfig.author.name}</a>,{" "}
+    </>
+  )}
+  {date}
+  {readingTime && ` \u00B7 ${Math.round(readingTime)} minute read`}
+</p>
+
+<style>
+  .text {
+    margin-bottom: 0;
+  }
+
+  .dark-text {
+    margin-bottom: 0;
+    font-weight: 600;
+    opacity: 0.3;
+  }
+
+  .link {
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s cubic-bezier(0.3, 0.46, 0.45, 0.9);
+  }
+
+  .link:hover {
+    color: #fdf9f2;
+    opacity: 1;
+  }
+
+  @media (max-width: 520px) {
+    .dark-text {
+      opacity: 0.35;
+    }
+  }
+</style>

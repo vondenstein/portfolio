@@ -1,0 +1,78 @@
+---
+import { getCollection } from "astro:content"
+import Layout from "../layouts/Layout.astro"
+import Section from "../components/Section.astro"
+import ContentLink from "../components/ContentLink.astro"
+import ContentGrid from "../components/ContentGrid.astro"
+import Block from "../components/Block.astro"
+import Button from "../components/Button.astro"
+import HomepageHero from "../components/HomepageHero.astro"
+import { fetchGitHubProfile } from "../data/github"
+import { formatDate } from "../utils/format-date"
+import { readingTime } from "../utils/reading-time"
+import { excerpt } from "../utils/excerpt"
+
+const blogEntries = await getCollection("blog")
+blogEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+const latestPost = blogEntries[0]
+
+const photoEntries = await getCollection("photos")
+photoEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+const recentPhotos = photoEntries.slice(0, 2)
+
+const githubProfile = await fetchGitHubProfile()
+---
+
+<Layout>
+  <HomepageHero
+    greeting="Hi, I'm Stephen!"
+    occupation="Software Engineer"
+    birthplace="New Orleans, LA"
+    blurb="I'm passionate about creating things, sharing them and learning as I go."
+    workplace="Lockheed Martin"
+    workplaceDescription="building impactful systems"
+    workplaceLink="https://www.lockheedmartin.com"
+  />
+  <Section title="Latest Post">
+    <ContentLink
+      title={latestPost.data.title}
+      description={excerpt(latestPost.body ?? "")}
+      date={formatDate(latestPost.data.date)}
+      readingTime={readingTime(latestPost.body ?? "")}
+      image={latestPost.data.hero_image}
+      imageAlt={latestPost.data.hero_image_alt}
+      link={`/blog/${latestPost.data.slug}`}
+      linkTitle={latestPost.data.title}
+    />
+  </Section>
+  <Section title="Recent Photos">
+    <ContentGrid>
+      {recentPhotos.map(photo => (
+        <ContentLink
+          direction="vertical"
+          title={photo.data.title}
+          date={formatDate(photo.data.date)}
+          image={photo.data.hero_image}
+          imageAlt={photo.data.hero_image_alt}
+          link={`/photos/${photo.data.slug}`}
+          linkTitle={photo.data.title}
+        />
+      ))}
+    </ContentGrid>
+  </Section>
+  <Block>
+    <h2>Software Projects</h2>
+    <p style="max-width: 500px; margin: 0 auto 25px">
+      I love to tinker and follow ideas to their logical end. Take a look at
+      a few projects that I wanted to share, or head over to my{" "}
+      <a
+        href={githubProfile.url}
+        style="color: #fdf9f2"
+        title="Vondenstein on GitHub"
+      >GitHub</a>.
+    </p>
+    <Button to="/code" title="Link to Projects Page">
+      View projects
+    </Button>
+  </Block>
+</Layout>

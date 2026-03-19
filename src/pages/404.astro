@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Button from "../components/Button.astro"
+import astronaut from "../images/404.svg"
+---
+
+<Layout title="404 - Not Found" description="Sorry, there is nothing at this URL.">
+  <div class="container">
+    <img
+      src={astronaut.src}
+      alt="A cartoon astronaut floating away from his ship."
+      width="500"
+      class="image"
+    />
+    <h1 style="margin-bottom: 0.75rem">Uh-oh!</h1>
+    <p style="margin-bottom: 2rem">
+      Looks like you got lost in space.
+    </p>
+    <Button to="/" title="Home" dark>
+      Phone home
+    </Button>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: max(calc(calc(100vh - 32rem) / 2), 4rem) 0
+      max(calc(calc(100vh - 32rem) / 2), 6rem);
+  }
+
+  .image {
+    margin-top: -50px;
+    margin-bottom: 2rem;
+  }
+</style>
