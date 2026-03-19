@@ -15,6 +15,26 @@ const { author } = siteConfig
   imgSubtitle={author.subtitle}
   image="https://vondenstein.com/static/d6739856934033244f0b7ed44b54d539/90089/profile.jpg"
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: siteConfig.author.name,
+    url: siteConfig.siteUrl,
+    jobTitle: "Senior Software Engineer",
+    worksFor: {
+      "@type": "Organization",
+      name: "Lockheed Martin",
+      url: "https://www.lockheedmartin.com",
+    },
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "Louisiana State University",
+    },
+    sameAs: [
+      "https://github.com/vondenstein",
+      "https://linkedin.com/in/stephen-vondenstein/",
+    ],
+  })} />
   <Block>
     <ProfileImage />
     <h2 style="margin-bottom: 15px">{author.title}</h2>

@@ -7,6 +7,7 @@ import ContentGrid from "../components/ContentGrid.astro"
 import Block from "../components/Block.astro"
 import Button from "../components/Button.astro"
 import HomepageHero from "../components/HomepageHero.astro"
+import { siteConfig } from "../config"
 import { fetchGitHubProfile } from "../data/github"
 import { formatDate } from "../utils/format-date"
 import { readingTime } from "../utils/reading-time"
@@ -24,6 +25,13 @@ const githubProfile = await fetchGitHubProfile()
 ---
 
 <Layout>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.title,
+    url: siteConfig.siteUrl,
+    description: siteConfig.description,
+  })} />
   <HomepageHero
     greeting="Hi, I'm Stephen!"
     occupation="Software Engineer"

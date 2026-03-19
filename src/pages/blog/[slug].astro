@@ -26,7 +26,31 @@ const { Content } = await render(entry)
   description={excerpt(entry.body ?? "")}
   imgType="post"
   image={`${siteConfig.siteUrl}${entry.data.hero_image.src}`}
+  ogType="article"
+  articleDate={entry.data.date}
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: entry.data.title,
+    description: excerpt(entry.body ?? ""),
+    image: `${siteConfig.siteUrl}${entry.data.hero_image.src}`,
+    datePublished: entry.data.date.toISOString(),
+    author: {
+      "@type": "Person",
+      name: siteConfig.author.name,
+      url: `${siteConfig.siteUrl}/bio`,
+    },
+    publisher: {
+      "@type": "Person",
+      name: siteConfig.author.name,
+      url: siteConfig.siteUrl,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteConfig.siteUrl}/blog/${entry.data.slug}`,
+    },
+  })} />
   <ContentHeading
     title={entry.data.title}
     showAuthor

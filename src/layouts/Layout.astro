@@ -12,9 +12,11 @@ interface Props {
   image?: string
   imgTitle?: string
   imgSubtitle?: string
+  ogType?: string
+  articleDate?: Date
 }
 
-const { title, description, imgType, image, imgTitle, imgSubtitle } =
+const { title, description, imgType, image, imgTitle, imgSubtitle, ogType, articleDate } =
   Astro.props
 ---
 
@@ -28,6 +30,8 @@ const { title, description, imgType, image, imgTitle, imgSubtitle } =
       image={image}
       imgTitle={imgTitle}
       imgSubtitle={imgSubtitle}
+      ogType={ogType}
+      articleDate={articleDate}
     />
   </head>
   <body>
